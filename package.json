@@ -1,0 +1,49 @@
+{
+  "name": "@amandaghassaei/vector-math",
+  "version": "1.0.0",
+  "description": "A minimal vector math library to handle 2D/3D vector translations/rotations",
+  "main": "dist/vector-math.js",
+  "types": "dist/vector-math.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "rollup --config && npm run docs",
+    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
+    "test-with-coverage": "nyc env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
+    "docs": "typedoc --options ./typedoc.json"
+  },
+  "private": true,
+  "author": "Amanda Ghassaei",
+  "license": "LicenseRef-LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amandaghassaei/vector-math"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-typescript": "^11.1.0",
+    "@types/chai": "^4.3.4",
+    "@types/chai-almost": "^1.0.1",
+    "@types/mocha": "^10.0.1",
+    "@types/three": "^0.150.2",
+    "chai": "^4.3.7",
+    "chai-almost": "^1.0.1",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
+    "rollup": "^3.20.2",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-dts": "^5.3.0",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.0",
+    "typedoc": "^0.24.1",
+    "typedoc-plugin-markdown": "^3.15.1",
+    "typescript": "^5.0.4"
+  }
+}
