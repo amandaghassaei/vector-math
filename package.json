@@ -13,7 +13,6 @@
     "test-with-coverage": "nyc env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
     "docs": "typedoc --options ./typedoc.json"
   },
-  "private": true,
   "author": "Amanda Ghassaei",
   "license": "LicenseRef-LICENSE",
   "repository": {
