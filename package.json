@@ -14,10 +14,10 @@
     "docs": "typedoc --options ./typedoc.json"
   },
   "author": "Amanda Ghassaei",
-  "license": "LicenseRef-LICENSE",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/amandaghassaei/vector-math"
+    "url": "git+https://github.com/amandaghassaei/vector-math.git"
   },
   "files": [
     "dist",
