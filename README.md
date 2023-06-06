@@ -1,4 +1,8 @@
 # @amandaghassaei/vector-math
+[![NPM Package](https://img.shields.io/npm/v/@amandaghasaei/vector-math)](https://www.npmjs.com/package/@amandaghasaei/vector-math)
+[![Build Size](https://img.shields.io/bundlephobia/min/@amandaghasaei/vector-math)](https://bundlephobia.com/result?p=@amandaghasaei/vector-math)
+[![NPM Downloads](https://img.shields.io/npm/dw/@amandaghasaei/vector-math)](https://www.npmtrends.com/@amandaghasaei/vector-math)
+[![License](https://img.shields.io/npm/l/@amandaghasaei/vector-math)](https://github.com/amandaghassaei/vector-math/blob/main/LICENSE)
 
 A minimal vector math library to handle 2D/3D vector translations/rotations.
 
