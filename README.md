@@ -8,6 +8,7 @@ A minimal vector math library to handle 2D/3D vector translations/rotations.
 
 - Written in Typescript with exported type declarations.
 - Supports some Three.js types as inputs.
+- Includes readonly class types.
 - Includes unit tests with 100% coverage.
 
 Table of Contents:
