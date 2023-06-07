@@ -1,4 +1,5 @@
 import { Vector2 } from '../src/Vector2';
+import { Vector2 as THREE_Vector2 } from 'three';
 import { expect } from 'chai';
 import { checkWarnings, popLastWarning } from './test-utils/utils';
 import { Matrix3 } from '../src/Matrix3';
@@ -37,6 +38,10 @@ describe('Vector2', () => {
 		expect(vector.y).to.equal(51);
 		// Check that it returns this.
 		expect(returnValue).to.equal(vector);
+		// Works with threejs.
+		vector.add(new THREE_Vector2(-30, 0.4));
+		expect(vector.x).to.equal(-80.3);
+		expect(vector.y).to.equal(51.4);
 	});
 	it('sub() - subtracts a Vector2', () => {
 		const vector = new Vector2();
@@ -48,6 +53,10 @@ describe('Vector2', () => {
 		expect(vector.y).to.equal(-51);
 		// Check that it returns this.
 		expect(returnValue).to.equal(vector);
+		// Works with threejs.
+		vector.sub(new THREE_Vector2(-30, 0.4));
+		expect(vector.x).to.equal(80.3);
+		expect(vector.y).to.equal(-51.4);
 	});
 	it('multiplyScalar() - multiplies Vector2 by scalar', () => {
 		const vector = new Vector2(1, 2);
@@ -77,11 +86,19 @@ describe('Vector2', () => {
 		expect(vector.x).to.equal(-Infinity);
 		expect(vector.y).to.equal(-Infinity);
 	});
+	it('dot() - calculated the dot product with another Vector2', () => {
+		const vector = new Vector2(1, 2);
+		expect(vector.dot(new Vector2(3.4, -5))).to.equal(-6.6);
+		// Works with threejs.
+		expect(vector.dot(new THREE_Vector2(3.4, -5))).to.equal(-6.6);
+	});
 	it('cross() - calculate the 2D cross product with another Vector2', () => {
 		expect(new Vector2(1, 0).cross(new Vector2(1, 0))).to.equal(0);
 		expect(new Vector2().cross(new Vector2())).to.equal(0);
 		expect(new Vector2(1, 0.5).cross(new Vector2(1, 0))).to.equal(-0.5);
 		expect(new Vector2(1, -9.2).cross(new Vector2(1.4, 0.5))).to.equal(13.379999999999999);
+		// Works with threejs.
+		expect(new Vector2(1, -9.2).cross(new THREE_Vector2(1.4, 0.5))).to.equal(13.379999999999999);
 	});
 	it('angle() - calculates the angle to another Vector2', () => {
 		expect(new Vector2(1, 0).angle()).to.equal(0);
@@ -143,7 +160,7 @@ describe('Vector2', () => {
 	});
 	it('copy() - copies values of input Vector2 into this Vecto2', () => {
 		const vector1 = new Vector2(5.4, 0.5);
-		const vector2 = new Vector2()
+		const vector2 = new Vector2();
 		const returnValue = vector2.copy(vector1);
 		expect(vector2.x).to.equal(5.4);
 		expect(vector2.y).to.equal(0.5);
@@ -155,6 +172,11 @@ describe('Vector2', () => {
 		expect(vector2.y).to.equal(0.5);
 		// Make sure return value is this.
 		expect(returnValue).to.equal(vector2);
+		// Works with threejs.
+		const vector3 = new Vector2();
+		vector3.copy(new THREE_Vector2(0.34, 5.6));
+		expect(vector3.x).to.equal(0.34);
+		expect(vector3.y).to.equal(5.6);
 	});
 	it('equals() - tests equality with Vector2', () => {
 		const vector1 = new Vector2(5.4, 0.5);
@@ -163,6 +185,10 @@ describe('Vector2', () => {
 		expect(vector1.equals(vector2)).to.equal(true);
 		expect(vector1.equals(new Vector2(5.4, 0.6))).to.equal(false);
 		expect(vector1.equals(new Vector2(5.5, 0.5))).to.equal(false);
+		// Works with threejs.
+		expect(vector1.equals(new THREE_Vector2(5.4, 0.5))).to.equal(true);
+		expect(vector1.equals(new THREE_Vector2(5.4, 0.6))).to.equal(false);
+		expect(vector1.equals(new THREE_Vector2(5.5, 0.5))).to.equal(false);
 	});
 	it('isZero() - checks if Vector2 is zero vector', () => {
 		expect(new Vector2().isZero()).to.equal(true);

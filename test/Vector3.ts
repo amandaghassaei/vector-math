@@ -3,6 +3,10 @@ import { expect } from 'chai';
 import { checkWarnings, popLastWarning } from './test-utils/utils';
 import { Matrix4 } from '../src/Matrix4';
 import { Quaternion } from '../src/Quaternion';
+import {
+	Vector3 as THREE_Vector3,
+	Quaternion as THREE_Quaternion,
+} from 'three';
 
 describe('Vector3', () => {
 	afterEach(() => {
@@ -44,6 +48,11 @@ describe('Vector3', () => {
 		expect(vector.z).to.equal(33.1);
 		// Check that it returns this.
 		expect(returnValue).to.equal(vector);
+		// Works with threejs.
+		vector.add(new THREE_Vector3(-55.3, 45, 35.1));
+		expect(vector.x).to.equal(-105.6);
+		expect(vector.y).to.equal(96);
+		expect(vector.z).to.equal(68.2);
 	});
 	it('sub() - subtracts a Vector3', () => {
 		const vector = new Vector3();
@@ -57,6 +66,11 @@ describe('Vector3', () => {
 		expect(vector.z).to.equal(-38.2);
 		// Check that it returns this.
 		expect(returnValue).to.equal(vector);
+		// Works with threejs.
+		vector.sub(new THREE_Vector3(-55.3, 45, 35));
+		expect(vector.x).to.equal(105.6);
+		expect(vector.y).to.equal(-96);
+		expect(vector.z).to.equal(-73.2);
 	});
 	it('multiplyScalar() - multiplies Vector3 by scalar', () => {
 		const vector = new Vector3(1, 2, -4);
@@ -95,6 +109,8 @@ describe('Vector3', () => {
 		expect(new Vector3(1, 0.3, 5.6).dot(new Vector3(1, 0.3, 5.6))).to.equal(32.449999999999996);
 		expect(new Vector3(1, 0.3, 5.6).dot(new Vector3(-1, -0.3, -5.6))).to.equal(-32.449999999999996);
 		expect(new Vector3(0, 1, 0).dot(new Vector3(1, 0, 0))).to.equal(0);
+		// Works with threejs.
+		expect(new Vector3(1, 0.3, 5.6).dot(new THREE_Vector3(-1, -0.3, -5.6))).to.equal(-32.449999999999996);
 	});
 	it('cross() - calculate the cross product with another Vector3', () => {
 		const vector1 = new Vector3(1, 0, 0);
@@ -105,6 +121,9 @@ describe('Vector3', () => {
 		expect(new Vector3(1, 0.3, 5.6).cross(new Vector3(-6, 2.45, 0.1))).to.deep.equal(new Vector3(-13.690000000000001, -33.699999999999996, 4.25));
 		// Check that it returns this.
 		expect(returnValue).to.equal(vector1);
+		// Works with threejs.
+		expect(new Vector3(1, 0.3, 5.6).cross(new THREE_Vector3(-6, 2.45, 0.1))).to.deep.equal(new Vector3(-13.690000000000001, -33.699999999999996, 4.25));
+
 	});
 	it('lengthSq() - calculates the squared length of a Vector3', () => {
 		expect(new Vector3(1, 0, 0).lengthSq()).to.equal(1);
@@ -146,6 +165,7 @@ describe('Vector3', () => {
 		expect(vector).to.deep.equal(new Vector3(4.761753096937314, 1.1549915954175034, 8.961988112262189));
 		// Check that it returns this.
 		expect(returnValue).to.equal(vector);
+
 	});
 	it('applyMatrix4RotationComponent() - applies only the rotational component of a Matrix4 transform to this Vector3', () => {
 		const vector = new Vector3(5.4, 0.5, 3.4);
@@ -166,7 +186,7 @@ describe('Vector3', () => {
 	it('applyQuaternion() - applies a Quaternion transform to this Vector3', () => {
 		const vector = new Vector3(5.4, 0.5, 3.4);
 		const length = vector.length();
-		const quaternion = new Quaternion()
+		const quaternion = new Quaternion();
 		// Multiply by identity.
 		vector.applyQuaternion(quaternion);
 		expect(vector).to.deep.equal(new Vector3(5.4, 0.5, 3.4));
@@ -178,6 +198,9 @@ describe('Vector3', () => {
 		expect(vector.length()).to.almost(length, 1e-9);
 		// Check that it returns this.
 		expect(returnValue).to.equal(vector);
+		// Works with threejs.
+		const threeQuaternion = new THREE_Quaternion(quaternion.x, quaternion.y, quaternion.z, quaternion.w);
+		expect(new Vector3(5.4, 0.5, 3.4).applyQuaternion(threeQuaternion)).to.deep.equal(new Vector3(4.783017443503779, 1.9984829357006233, 3.7548382243249856));
 	});
 	it('copy() - copies a Vector3', () => {
 		const vector1 = new Vector3(5.4, 0.5, 3.4);
@@ -196,6 +219,11 @@ describe('Vector3', () => {
 		expect(vector2.z).to.equal(3.4);
 		// Check that it returns this.
 		expect(returnValue).to.equal(vector2);
+		// Works with threejs.
+		vector2.copy(new THREE_Vector3(-45.6, 25, 0.56));
+		expect(vector2.x).to.equal(-45.6);
+		expect(vector2.y).to.equal(25);
+		expect(vector2.z).to.equal(0.56);
 	});
 	it('equals() - tests equality with Vector3', () => {
 		const vector1 = new Vector3(5.4, 0.5, -4.5);
@@ -205,6 +233,11 @@ describe('Vector3', () => {
 		expect(vector1.equals(new Vector3(5.5, 0.5, -4.5))).to.equal(false);
 		expect(vector1.equals(new Vector3(5.4, 0.6, -4.5))).to.equal(false);
 		expect(vector1.equals(new Vector3(5.4, 0.5, -4.4))).to.equal(false);
+		// Works with threejs.
+		expect(vector1.equals(new THREE_Vector3(5.4, 0.5, -4.5))).to.equal(true);
+		expect(vector1.equals(new THREE_Vector3(5.5, 0.5, -4.5))).to.equal(false);
+		expect(vector1.equals(new THREE_Vector3(5.4, 0.6, -4.5))).to.equal(false);
+		expect(vector1.equals(new THREE_Vector3(5.4, 0.5, -4.4))).to.equal(false);
 	});
 	it('isZero() - checks if Vector3 is zero vector', () => {
 		expect(new Vector3().isZero()).to.equal(true);

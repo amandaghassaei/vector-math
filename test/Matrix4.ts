@@ -3,6 +3,7 @@ import { expect, use } from 'chai';
 const chaiAlmost = require('chai-almost');
 import { Vector3 } from '../src/Vector3';
 import { checkWarnings } from './test-utils/utils';
+import { Vector3 as THREE_Vector3 } from 'three';
 
 use(chaiAlmost());
 
@@ -199,7 +200,6 @@ describe('Matrix4', () => {
 		expect(matrix1.elements).to.deep.almost(identity, 1e-9);
 		// Check that it returns this.
 		expect(returnValue).to.equal(matrix1);
-
 		// Should not introduce scaling.
 		const zAxis = new Vector3(0, 0, 1);
 		matrix1.setRotationAxisAngleAtOffset(
@@ -209,6 +209,9 @@ describe('Matrix4', () => {
 		);
 		zAxis.applyMatrix4RotationComponent(matrix1);
 		expect(zAxis.length()).to.almost.equal(1);
+		// Works with threejs.
+		const threeMatrix = new Matrix4().setRotationAxisAngleAtOffset(new THREE_Vector3(1, 4.5, 2).normalize(), 1.43, new THREE_Vector3(4.5, -3, 2));
+		expect(threeMatrix.elements).to.deep.equal(solution1);
 	});
 	it('setReflectionNormalAtOffset() - sets Matrix4 for reflection at offset', () => {
 		const elements = [
@@ -233,7 +236,6 @@ describe('Matrix4', () => {
 		], 1e-9);
 		// Check that it returns this.
 		expect(returnValue).to.equal(matrix1);
-
 		// Should not introduce scaling.
 		const zAxis = new Vector3(0, 0, 1);
 		matrix1.setReflectionNormalAtOffset(
@@ -242,6 +244,9 @@ describe('Matrix4', () => {
 		);
 		zAxis.applyMatrix4RotationComponent(matrix1);
 		expect(zAxis.length()).to.almost.equal(1);
+		// Works with threejs.
+		const threeMatrix = new Matrix4().setReflectionNormalAtOffset(new THREE_Vector3(1, 4.5, 2).normalize(), new THREE_Vector3(4.5, -3, 2));
+		expect(threeMatrix.elements).to.deep.equal(solution);
 	});
 	it('invertTransform() - inverts a Matrix4 transform', () => {
 		const matrix = new Matrix4().setRotationAxisAngleAtOffset(new Vector3(3, 5.6, -1).normalize(), -3.5, new Vector3(4.5, -34, 0.0));

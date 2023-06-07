@@ -96,7 +96,7 @@ ___
 | `angle` | () => `number` |
 | `lengthSq` | () => `number` |
 | `length` | () => `number` |
-| `equals` | (`vec`: [`Vector2Readonly`](README.md#vector2readonly)) => `boolean` |
+| `equals` | (`vec`: [`Vector2Readonly`](README.md#vector2readonly) \| `THREE_Vector2`) => `boolean` |
 | `isZero` | () => `boolean` |
 | `clone` | () => [`Vector2`](classes/Vector2.md) |
 | `toArray` | () => [`number`, `number`] |

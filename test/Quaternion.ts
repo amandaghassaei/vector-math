@@ -3,7 +3,10 @@ import { expect } from 'chai';
 import { checkWarnings, popLastWarning } from './test-utils/utils';
 import { Vector3 } from '../src/Vector3';
 import { NUMERICAL_TOLERANCE } from '../src/constants';
-
+import {
+	Quaternion as THREE_Quaternion,
+	Vector3 as THREE_Vector3,
+} from 'three';
 
 describe('Quaternion', () => {
 	afterEach(() => {
@@ -47,6 +50,10 @@ describe('Quaternion', () => {
 		expect(quaternion).to.deep.equal(new Quaternion(-0.3047757271037838, -0.9524241471993242, 0, 0));
 		// Check that it returns this.
 		expect(returnValue).to.equal(quaternion);
+		// Works with threejs.
+		const threeQuaternion = new Quaternion().setFromUnitVectors(new THREE_Vector3(-2.5, 0.8, -0.4).normalize(), new THREE_Vector3(2.5, -0.8, 0.4).normalize());
+		expect(threeQuaternion).to.deep.equal(new Quaternion(-0.3047757271037838, -0.9524241471993242, 0, 0));
+
 	});
 	it('lengthSq() - calculates the squared length of a Quaternion', () => {
 		expect(new Quaternion(1, 0, 0, 0).lengthSq()).to.equal(1);
@@ -112,6 +119,23 @@ describe('Quaternion', () => {
 		const quaternion = new Quaternion(1, 1, 1, 2.4);
 		const returnValue = quaternion.multiply(new Quaternion());
 		expect(returnValue).to.equal(quaternion);
+		// Works with threejs.
+		const threeQuaternion = new THREE_Quaternion(quat2.x, quat2.y, quat2.z, quat2.w);
+		const multiply2 = quat1.clone().multiply(threeQuaternion);
+		const premultiply2 = quat1.clone().premultiply(threeQuaternion);
+		expect(multiply2).to.deep.equal(new Quaternion(
+			0.3302805970751364,
+			-0.0017394633157347683,
+			-0.8858216935379235,
+			-0.3259319387857995,
+		));
+		expect(premultiply2).to.deep.equal(new Quaternion(
+			0.2607020644457463,
+			-0.6888274730309625,
+			0.5927221248366173,
+			-0.3259319387857995,
+		));
+
 	});
 	it('copy() - copies a Quaternion', () => {
 		const quaternion1 = new Quaternion(5.4, 0.5, 3.4, 2.3);
@@ -133,6 +157,13 @@ describe('Quaternion', () => {
 		expect(quaternion2.w).to.equal(2.3);
 		// Check that it returns this.
 		expect(returnValue).to.equal(quaternion2);
+		// Works with threejs.
+		const threeQuaternion = new Quaternion().copy(new THREE_Quaternion(5.4, 0.5, 3.4, 2.3));
+		expect(threeQuaternion.x).to.equal(5.4);
+		expect(threeQuaternion.y).to.equal(0.5);
+		expect(threeQuaternion.z).to.equal(3.4);
+		expect(threeQuaternion.w).to.equal(2.3);
+
 	});
 	it('clone() - clones a Quaternion', () => {
 		const quaternion1 = new Quaternion(5.4, 0.5, 3.4, 2.3);

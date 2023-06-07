@@ -8,7 +8,7 @@
 A minimal vector math library to handle 2D/3D vector translations/rotations.
 
 - Written in Typescript with exported type declarations.
-- Supports some Three.js types as inputs.
+- Supports [Three.js](https://github.com/mrdoob/three.js) Vector2, Vector3, and Quaternion types as inputs.
 - Includes readonly class types.
 - Includes unit tests with 100% coverage.
 
@@ -17,6 +17,7 @@ Table of Contents:
 - [Installation](#installation)
 - [Use](#use)
 - [License](#license)
+- [Acknowledgements](#acknowledgements)
 - [Development](#development)
 
 ## Installation
@@ -57,6 +58,11 @@ See full API documentation in [docs/](https://github.com/amandaghassaei/vector-m
 ## License
 
 This work is distributed under an [MIT license](https://github.com/amandaghassaei/vector-math/blob/main/LICENSE).  It has no dependencies.
+
+
+## Acknowledgements
+
+Most of this library has been ported from [Three.js's source code](https://github.com/mrdoob/three.js).
 
 
 ## Development

@@ -3,6 +3,7 @@ import { expect, use } from 'chai';
 const chaiAlmost = require('chai-almost');
 import { Vector2 } from '../src/Vector2';
 import { checkWarnings } from './test-utils/utils';
+import { Vector2 as THREE_Vector2 } from 'three';
 
 use(chaiAlmost());
 
@@ -104,6 +105,9 @@ describe('Matrix3', () => {
 		expect(new Vector2(5.6, 0.2).sub(orientation).applyMatrix3(matrix)).to.deep.almost(new Vector2(-1, 0), 1e-9);
 		// Check that it returns this.
 		expect(returnValue).to.equal(matrix);
+		// works with threejs.
+		const threeMatrix = new Matrix3().setFromRotationTranslation(-1.5191182423124665, new THREE_Vector2(-5.6, -0.2));
+		expect(threeMatrix.elements).to.deep.equal(solution);
 	});
 	it('equals() - tests equality with Matrix4', () => {
 		const matrix1 = new Matrix3().setFromRotationTranslation(-1.5191182423124665, new Vector2(-5.6, -0.2));

@@ -174,7 +174,11 @@ export class Quaternion {
 	/**
 	 * Quaternion multiplication.
 	 */
-	private static _multiplyQuaternions(self: Quaternion, quatA: QuaternionReadonly | THREE_Quaternion, quatB: QuaternionReadonly | THREE_Quaternion) {
+	private static _multiplyQuaternions(
+		self: Quaternion,
+		quatA: QuaternionReadonly | THREE_Quaternion,
+		quatB: QuaternionReadonly | THREE_Quaternion,
+	) {
 		// From http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/code/index.htm
 		const qax = quatA.x, qay = quatA.y, qaz = quatA.z, qaw = quatA.w;
 		const qbx = quatB.x, qby = quatB.y, qbz = quatB.z, qbw = quatB.w;
