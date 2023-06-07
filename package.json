@@ -4,9 +4,17 @@
   "description": "A minimal vector math library to handle 2D/3D vector translations/rotations",
   "main": "dist/vector-math.js",
   "types": "dist/vector-math.d.ts",
-  "directories": {
-    "test": "test"
-  },
+  "keywords": [
+    "vector",
+    "vector2",
+	"vector3",
+	"matrix3",
+	"matrix4",
+	"quaternion",
+	"transformation",
+	"translation",
+	"rotation"
+  ],
   "scripts": {
     "build": "rollup --config && npm run docs && npm run make-coverage-badge",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
