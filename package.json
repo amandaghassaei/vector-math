@@ -1,6 +1,6 @@
 {
   "name": "@amandaghassaei/vector-math",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A minimal vector math library to handle 2D/3D vector translations/rotations",
   "main": "dist/vector-math.js",
   "types": "dist/vector-math.d.ts",
