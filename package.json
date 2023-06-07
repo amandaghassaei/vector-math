@@ -8,9 +8,9 @@
     "test": "test"
   },
   "scripts": {
-    "build": "rollup --config && npm run docs",
+    "build": "rollup --config && npm run docs && npm run test-with-coverage && coverage-badge-creator",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
-    "test-with-coverage": "nyc env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
+    "test-with-coverage": "nyc --reporter=json-summary env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
     "docs": "typedoc --options ./typedoc.json"
   },
   "author": "Amanda Ghassaei",
@@ -34,6 +34,7 @@
     "@types/three": "^0.150.2",
     "chai": "^4.3.7",
     "chai-almost": "^1.0.1",
+    "coverage-badge-creator": "^1.0.17",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
     "rollup": "^3.20.2",
