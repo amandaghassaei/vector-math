@@ -1,6 +1,6 @@
 {
   "name": "@amandaghassaei/vector-math",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A minimal vector math library to handle 2D/3D vector translations/rotations",
   "main": "dist/vector-math.js",
   "types": "dist/vector-math.d.ts",
@@ -12,7 +12,7 @@
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
     "test-with-coverage": "nyc env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
     "make-coverage-badge": "nyc --reporter=json-summary env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts' && coverage-badge-creator",
-	"docs": "typedoc --options ./typedoc.json"
+    "docs": "typedoc --options ./typedoc.json"
   },
   "author": "Amanda Ghassaei",
   "license": "MIT",
