@@ -1,19 +1,19 @@
 {
   "name": "@amandaghassaei/vector-math",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A minimal vector math library to handle 2D/3D vector translations/rotations",
   "main": "dist/vector-math.js",
   "types": "dist/vector-math.d.ts",
   "keywords": [
     "vector",
     "vector2",
-	"vector3",
-	"matrix3",
-	"matrix4",
-	"quaternion",
-	"transformation",
-	"translation",
-	"rotation"
+    "vector3",
+    "matrix3",
+    "matrix4",
+    "quaternion",
+    "transformation",
+    "translation",
+    "rotation"
   ],
   "scripts": {
     "build": "rollup --config && npm run docs && npm run make-coverage-badge",
