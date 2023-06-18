@@ -1,9 +1,9 @@
 {
   "name": "@amandaghassaei/vector-math",
   "version": "1.0.3",
-  "description": "A minimal vector math library to handle 2D/3D vector translations/rotations, written in TypeScript.",
-  "main": "dist/vector-math.js",
-  "types": "dist/vector-math.d.ts",
+  "description": "A minimal vector math library to handle 2D/3D translations and rotations, written in TypeScript.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "keywords": [
     "vector",
     "vector2",
@@ -16,7 +16,7 @@
     "rotation"
   ],
   "scripts": {
-    "build": "rollup --config && npm run docs && npm run make-coverage-badge",
+    "build": "rollup --config && tsc && npm run docs && npm run make-coverage-badge",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
     "test-with-coverage": "nyc env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
     "make-coverage-badge": "nyc --reporter=json-summary env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts' && coverage-badge-creator",

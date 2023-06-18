@@ -5,10 +5,10 @@
 [![License](https://img.shields.io/npm/l/@amandaghassaei/vector-math)](https://github.com/amandaghassaei/vector-math/blob/main/LICENSE)
 ![](https://img.shields.io/badge/Coverage-100%25-83A603.svg?prefix=$coverage$)
 
-A minimal vector math library to handle 2D/3D vector translations/rotations.
+A minimal vector math library to handle 2D/3D translations and rotations.
 
 - Written in Typescript with exported type declarations.
-- Supports [Three.js](https://github.com/mrdoob/three.js) Vector2, Vector3, and Quaternion types as inputs.
+- Supports [Three.js's](https://github.com/mrdoob/three.js) Vector2, Vector3, and Quaternion types as inputs.
 - Includes readonly class types.
 - Includes unit tests with 100% coverage.
 
@@ -33,7 +33,7 @@ import { Vector2 } from '@amandaghassaei/vector-math';
 ```
 
 ### Install as JS
-*OR* in the browser you can add [vector-math.js](https://github.com/amandaghassaei/vector-math/blob/main/dist/vector-math.js) or [vector-math.min.js](https://github.com/amandaghassaei/vector-math/blob/main/dist/vector-math.min.js) to your html:
+*OR* in the browser you can add [bundle/vector-math.js](https://github.com/amandaghassaei/vector-math/blob/main/bundle/vector-math.js) or [bundle/vector-math.min.js](https://github.com/amandaghassaei/vector-math/blob/main/bundle/vector-math.min.js) to your html:
 ```html
 <html>
     <head>

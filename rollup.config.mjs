@@ -10,13 +10,13 @@ export default [
 		input: 'src/index.ts',
 		output: [
 			{
-				file: 'dist/vector-math.js',
+				file: 'bundle/vector-math.js',
 				sourcemap: true,
 				format: 'umd',
 				name: 'VECTOR_MATH',
 			},
 			{
-				file: 'dist/vector-math.min.js',
+				file: 'bundle/vector-math.min.js',
 				sourcemap: true,
 				format: 'umd',
 				name: 'VECTOR_MATH',
@@ -33,15 +33,17 @@ export default [
 			typescript({
 				sourceMap: true,
 				inlineSources: true,
+				module: 'esnext', // Required by rollup.
+				outDir: './bundle',
 			}),
 		],
 	},
 	{
-		input: "./dist/index.d.ts",
-		output: [{ file: "dist/vector-math.d.ts", format: "es" }],
+		input: "./bundle/index.d.ts",
+		output: [{ file: "bundle/vector-math.d.ts", format: "es" }],
 		plugins: [
 			dts(),
-			del({ hook: "buildEnd", targets: ["./dist/*.d.ts", "./dist/*/"] }),
+			del({ hook: "buildEnd", targets: ["./bundle/*.d.ts"] }),
 		],
 	},
 ];
