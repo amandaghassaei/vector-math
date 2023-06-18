@@ -1,12 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Matrix3 = void 0;
-const constants_1 = require("./constants");
+import { NUMERICAL_TOLERANCE } from './constants';
 /**
  * These Matrix3s represent a rigid transform in homogeneous coords,
  * therefore, we assume that the bottom row is [0, 0, 1] and only store 6 elements.
  */
-class Matrix3 {
+export class Matrix3 {
     constructor(n11, n12, n13, n21, n22, n23, isIdentity) {
         if (n11 !== undefined) {
             this._elements = [
@@ -71,9 +68,9 @@ class Matrix3 {
     }
     static _checkElementForIdentity(elements) {
         const [n11, n12, n13, n21, n22, n23,] = elements;
-        return Math.abs(n11 - 1) <= constants_1.NUMERICAL_TOLERANCE && Math.abs(n22 - 1) <= constants_1.NUMERICAL_TOLERANCE &&
-            Math.abs(n12) <= constants_1.NUMERICAL_TOLERANCE && Math.abs(n13) <= constants_1.NUMERICAL_TOLERANCE &&
-            Math.abs(n21) <= constants_1.NUMERICAL_TOLERANCE && Math.abs(n23) <= constants_1.NUMERICAL_TOLERANCE;
+        return Math.abs(n11 - 1) <= NUMERICAL_TOLERANCE && Math.abs(n22 - 1) <= NUMERICAL_TOLERANCE &&
+            Math.abs(n12) <= NUMERICAL_TOLERANCE && Math.abs(n13) <= NUMERICAL_TOLERANCE &&
+            Math.abs(n21) <= NUMERICAL_TOLERANCE && Math.abs(n23) <= NUMERICAL_TOLERANCE;
     }
     // _setTranslation(translation: Vector3Readonly) {
     // 	this._set(
@@ -159,5 +156,4 @@ class Matrix3 {
         return clone;
     }
 }
-exports.Matrix3 = Matrix3;
 //# sourceMappingURL=Matrix3.js.map

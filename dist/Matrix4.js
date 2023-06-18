@@ -1,12 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Matrix4 = void 0;
-const constants_1 = require("./constants");
+import { NUMERICAL_TOLERANCE } from './constants';
 /**
  * These Matrix4s represent a rigid transform in homogeneous coords,
  * therefore, we assume that the bottom row is [0, 0, 0, 1] and only store 12 elements.
  */
-class Matrix4 {
+export class Matrix4 {
     constructor(n11, n12, n13, n14, n21, n22, n23, n24, n31, n32, n33, n34, isIdentity) {
         if (n11 !== undefined) {
             this._elements = [
@@ -51,10 +48,10 @@ class Matrix4 {
     }
     static _checkElementsForIdentity(elements) {
         const [n11, n12, n13, n14, n21, n22, n23, n24, n31, n32, n33, n34] = elements;
-        return Math.abs(n11 - 1) <= constants_1.NUMERICAL_TOLERANCE && Math.abs(n22 - 1) <= constants_1.NUMERICAL_TOLERANCE && Math.abs(n33 - 1) <= constants_1.NUMERICAL_TOLERANCE &&
-            Math.abs(n12) <= constants_1.NUMERICAL_TOLERANCE && Math.abs(n13) <= constants_1.NUMERICAL_TOLERANCE && Math.abs(n14) <= constants_1.NUMERICAL_TOLERANCE &&
-            Math.abs(n21) <= constants_1.NUMERICAL_TOLERANCE && Math.abs(n23) <= constants_1.NUMERICAL_TOLERANCE && Math.abs(n24) <= constants_1.NUMERICAL_TOLERANCE &&
-            Math.abs(n31) <= constants_1.NUMERICAL_TOLERANCE && Math.abs(n32) <= constants_1.NUMERICAL_TOLERANCE && Math.abs(n34) <= constants_1.NUMERICAL_TOLERANCE;
+        return Math.abs(n11 - 1) <= NUMERICAL_TOLERANCE && Math.abs(n22 - 1) <= NUMERICAL_TOLERANCE && Math.abs(n33 - 1) <= NUMERICAL_TOLERANCE &&
+            Math.abs(n12) <= NUMERICAL_TOLERANCE && Math.abs(n13) <= NUMERICAL_TOLERANCE && Math.abs(n14) <= NUMERICAL_TOLERANCE &&
+            Math.abs(n21) <= NUMERICAL_TOLERANCE && Math.abs(n23) <= NUMERICAL_TOLERANCE && Math.abs(n24) <= NUMERICAL_TOLERANCE &&
+            Math.abs(n31) <= NUMERICAL_TOLERANCE && Math.abs(n32) <= NUMERICAL_TOLERANCE && Math.abs(n34) <= NUMERICAL_TOLERANCE;
     }
     /**
      * Set values element-wise.
@@ -263,5 +260,4 @@ class Matrix4 {
         return clone;
     }
 }
-exports.Matrix4 = Matrix4;
 //# sourceMappingURL=Matrix4.js.map

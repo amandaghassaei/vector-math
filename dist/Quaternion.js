@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Quaternion = void 0;
-class Quaternion {
+export class Quaternion {
     constructor(x, y, z, w) {
         this._x = x || 0;
         this._y = y || 0;
@@ -161,5 +158,4 @@ class Quaternion {
         return new Quaternion(this._x, this._y, this._z, this._w);
     }
 }
-exports.Quaternion = Quaternion;
 //# sourceMappingURL=Quaternion.js.map

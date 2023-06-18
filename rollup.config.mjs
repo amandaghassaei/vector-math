@@ -33,7 +33,6 @@ export default [
 			typescript({
 				sourceMap: true,
 				inlineSources: true,
-				module: 'esnext', // Required by rollup.
 				outDir: './bundle',
 			}),
 		],

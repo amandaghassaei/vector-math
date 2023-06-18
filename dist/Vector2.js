@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Vector2 = void 0;
-class Vector2 {
+export class Vector2 {
     constructor(x, y) {
         this.x = x || 0;
         this.y = y || 0;
@@ -153,5 +150,4 @@ class Vector2 {
         return [this.x, this.y];
     }
 }
-exports.Vector2 = Vector2;
 //# sourceMappingURL=Vector2.js.map

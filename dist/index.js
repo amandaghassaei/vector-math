@@ -1,24 +1,8 @@
-"use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./constants"), exports);
-__exportStar(require("./Number"), exports);
-__exportStar(require("./Vector2"), exports);
-__exportStar(require("./Vector3"), exports);
-__exportStar(require("./Matrix3"), exports);
-__exportStar(require("./Matrix4"), exports);
-__exportStar(require("./Quaternion"), exports);
+export * from './constants';
+export * from './Number';
+export * from './Vector2';
+export * from './Vector3';
+export * from './Matrix3';
+export * from './Matrix4';
+export * from './Quaternion';
 //# sourceMappingURL=index.js.map

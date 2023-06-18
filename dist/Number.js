@@ -1,19 +1,13 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.roundValueToIncrement = exports.degreesToRadians = exports.radiansToDegrees = exports.clampValue = void 0;
-function clampValue(value, min, max) {
+export function clampValue(value, min, max) {
     return Math.max(Math.min(value, max), min);
 }
-exports.clampValue = clampValue;
-function radiansToDegrees(value) {
+export function radiansToDegrees(value) {
     return value * 180 / Math.PI;
 }
-exports.radiansToDegrees = radiansToDegrees;
-function degreesToRadians(value) {
+export function degreesToRadians(value) {
     return value / 180 * Math.PI;
 }
-exports.degreesToRadians = degreesToRadians;
-function roundValueToIncrement(value, coarseStep) {
+export function roundValueToIncrement(value, coarseStep) {
     var _a;
     if (coarseStep === 0)
         return value;
@@ -24,5 +18,4 @@ function roundValueToIncrement(value, coarseStep) {
     const decimals = ((_a = coarseStep.toString().split('.')[1]) === null || _a === void 0 ? void 0 : _a.length) || 0;
     return parseFloat(rounded.toFixed(decimals));
 }
-exports.roundValueToIncrement = roundValueToIncrement;
 //# sourceMappingURL=Number.js.map
