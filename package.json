@@ -4,6 +4,7 @@
   "description": "A minimal vector math library to handle 2D/3D translations and rotations, written in TypeScript.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "keywords": [
     "vector",
     "vector2",
@@ -17,9 +18,9 @@
   ],
   "scripts": {
     "build": "rollup --config && tsc && npm run docs && npm run make-coverage-badge",
-    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
-    "test-with-coverage": "nyc env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts'",
-    "make-coverage-badge": "nyc --reporter=json-summary env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts' && coverage-badge-creator",
+    "test": "mocha 'test/**/*.ts'",
+    "test-with-coverage": "c8 mocha 'test/**/*.ts'",
+    "make-coverage-badge": "c8 --reporter=json-summary mocha 'test/**/*.ts' && coverage-badge-creator",
     "docs": "typedoc --options ./typedoc.json"
   },
   "author": "Amanda Ghassaei",
@@ -41,11 +42,11 @@
     "@types/chai-almost": "^1.0.1",
     "@types/mocha": "^10.0.1",
     "@types/three": "^0.150.2",
+    "c8": "^8.0.0",
     "chai": "^4.3.7",
     "chai-almost": "^1.0.1",
     "coverage-badge-creator": "^1.0.17",
     "mocha": "^10.2.0",
-    "nyc": "^15.1.0",
     "rollup": "^3.20.2",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-dts": "^5.3.0",

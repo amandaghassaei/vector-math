@@ -1,6 +1,6 @@
 import { Matrix4 } from '../src/Matrix4';
 import { expect, use } from 'chai';
-const chaiAlmost = require('chai-almost');
+import chaiAlmost from 'chai-almost';
 import { Vector3 } from '../src/Vector3';
 import { checkWarnings } from './test-utils/utils';
 import { Vector3 as THREE_Vector3 } from 'three';
