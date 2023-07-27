@@ -161,7 +161,7 @@ ___
 
 ### setRotationFromVectorToVector
 
-▸ **setRotationFromVectorToVector**(`fromVector`, `toVector`): [`Matrix4`](Matrix4.md)
+▸ **setRotationFromVectorToVector**(`fromVector`, `toVector`, `offset?`): [`Matrix4`](Matrix4.md)
 
 Set elements of Matrix4 according to rotation from one vector to another.
 
@@ -171,6 +171,7 @@ Set elements of Matrix4 according to rotation from one vector to another.
 | :------ | :------ | :------ |
 | `fromVector` | [`Vector3Readonly`](../README.md#vector3readonly) | Unit vector to rotate from, must be normalized. |
 | `toVector` | [`Vector3Readonly`](../README.md#vector3readonly) | Unit vector to rotate to, must be normalized. |
+| `offset?` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | - |
 
 #### Returns
 
@@ -178,7 +179,7 @@ Set elements of Matrix4 according to rotation from one vector to another.
 
 this
 
-▸ **setRotationFromVectorToVector**(`fromVector`, `toVector`): [`Matrix4`](Matrix4.md)
+▸ **setRotationFromVectorToVector**(`fromVector`, `toVector`, `offset?`): [`Matrix4`](Matrix4.md)
 
 #### Parameters
 
@@ -186,6 +187,7 @@ this
 | :------ | :------ |
 | `fromVector` | `Vector3` |
 | `toVector` | `Vector3` |
+| `offset?` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) |
 
 #### Returns
 

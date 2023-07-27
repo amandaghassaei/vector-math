@@ -262,8 +262,8 @@ declare class Matrix4 {
      * @param toVector - Unit vector to rotate to, must be normalized.
      * @returns this
      */
-    setRotationFromVectorToVector(fromVector: Vector3Readonly, toVector: Vector3Readonly): Matrix4;
-    setRotationFromVectorToVector(fromVector: Vector3$1, toVector: Vector3$1): Matrix4;
+    setRotationFromVectorToVector(fromVector: Vector3Readonly, toVector: Vector3Readonly, offset?: Vector3Readonly | Vector3$1): Matrix4;
+    setRotationFromVectorToVector(fromVector: Vector3$1, toVector: Vector3$1, offset?: Vector3Readonly | Vector3$1): Matrix4;
     /**
      * Set elements of Matrix4 according to reflection.
      * @param normal - Unit vector about which to reflect, must be normalized.

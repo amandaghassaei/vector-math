@@ -2126,7 +2126,7 @@
             const sinAngle = Math.sin(angle);
             return this._setRotationAxisCosSin(cosAngle, sinAngle, axis, offset);
         }
-        setRotationFromVectorToVector(fromVector, toVector) {
+        setRotationFromVectorToVector(fromVector, toVector, offset) {
             if (fromVector.equals(toVector)) {
                 return this.setIdentity();
             }
@@ -2134,7 +2134,7 @@
             const sinAngle = axis.length();
             axis.divideScalar(sinAngle); // Normalize axis.
             const cosAngle = fromVector.dot(toVector);
-            return this._setRotationAxisCosSin(cosAngle, sinAngle, axis);
+            return this._setRotationAxisCosSin(cosAngle, sinAngle, axis, offset);
         }
         /**
          * Set elements of Matrix4 according to reflection.
