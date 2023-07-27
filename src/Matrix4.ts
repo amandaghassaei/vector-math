@@ -244,14 +244,17 @@ export class Matrix4 {
 	setRotationFromVectorToVector(
 		fromVector: Vector3Readonly,
 		toVector: Vector3Readonly,
+		offset?: Vector3Readonly | THREE_Vector3,
 	): Matrix4;
 	setRotationFromVectorToVector(
 		fromVector: THREE_Vector3,
 		toVector: THREE_Vector3,
+		offset?: Vector3Readonly | THREE_Vector3,
 	): Matrix4;
 	setRotationFromVectorToVector(
 		fromVector: any,
 		toVector: any,
+		offset?: Vector3Readonly | THREE_Vector3,
 	): Matrix4 {
 		if (fromVector.equals(toVector)) {
 			return this.setIdentity();
@@ -260,7 +263,7 @@ export class Matrix4 {
 		const sinAngle = axis.length();
 		axis.divideScalar(sinAngle); // Normalize axis.
 		const cosAngle = fromVector.dot(toVector);
-		return this._setRotationAxisCosSin(cosAngle, sinAngle, axis);
+		return this._setRotationAxisCosSin(cosAngle, sinAngle, axis, offset);
 	}
 
 	/**

@@ -233,11 +233,11 @@ describe('Matrix4', () => {
 		];
 		expect(matrix1.elements).to.deep.equal(solution1);
 		// Calcs correct value for non-zero angle.
-		const returnValue = matrix1.setRotationFromVectorToVector(new Vector3(1, 4.5, 2).normalize(), new Vector3(3, -2, 0).normalize());
+		const returnValue = matrix1.setRotationFromVectorToVector(new Vector3(1, 4.5, 2).normalize(), new Vector3(3, -2, 0).normalize(), new Vector3(20, 0, -4));
 		const solution2 = [
-			-0.25829005667251026, 0.9648358604103944, 0.048764834565956594, 0,
-			-0.7462008460383383, -0.16719213401748687, -0.6443842702102113, 0,
-			-0.6135719550271014, -0.202826410481506, 0.7631454010969387, 0,
+			-0.25829005667251026, 0.9648358604103944, 0.048764834565956594, 25.360860471714034,
+			-0.7462008460383383, -0.16719213401748687, -0.6443842702102113, 12.34647983992592,
+			-0.6135719550271014, -0.202826410481506, 0.7631454010969387, 11.324020704929783,
 		];
 		expect(matrix1.elements).to.deep.equal(solution2);
 		// Check that it returns this.
