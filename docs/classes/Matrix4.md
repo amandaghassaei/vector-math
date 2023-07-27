@@ -21,6 +21,7 @@ therefore, we assume that the bottom row is [0, 0, 0, 1] and only store 12 eleme
 - [setIdentity](Matrix4.md#setidentity)
 - [premultiplyMatrix4](Matrix4.md#premultiplymatrix4)
 - [multiplyMatrix4](Matrix4.md#multiplymatrix4)
+- [setTranslation](Matrix4.md#settranslation)
 - [setRotationAxisAngleAtOffset](Matrix4.md#setrotationaxisangleatoffset)
 - [setRotationFromVectorToVector](Matrix4.md#setrotationfromvectortovector)
 - [setReflectionNormalAtOffset](Matrix4.md#setreflectionnormalatoffset)
@@ -130,6 +131,22 @@ Sets value of this Matrix4 to A*B.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `matrix` | [`Matrix4Readonly`](../README.md#matrix4readonly) | Matrix4 to multiply with. |
+
+#### Returns
+
+[`Matrix4`](Matrix4.md)
+
+___
+
+### setTranslation
+
+▸ **setTranslation**(`translation`): [`Matrix4`](Matrix4.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `translation` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) |
 
 #### Returns
 

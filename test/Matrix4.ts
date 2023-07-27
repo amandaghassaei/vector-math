@@ -168,6 +168,31 @@ describe('Matrix4', () => {
 		matrix3.premultiplyMatrix4(matrix4);
 		expect(matrix3.isIdentity).to.equal(false);
 	});
+	it('setTranslation() - sets the Matrix4 for translation', () => {
+		const elements = [
+			3, 5.6, -7, 13,
+			42, 0, 6.5, 23,
+			7, 64, -234.1, 0,
+		] as NumberArrayLength12;
+		// Returns identity matrix for zero translation.
+		const matrix1 = new Matrix4(...elements);
+		matrix1.setTranslation(new Vector3(0, 0, 0));
+		expect(matrix1.elements).to.deep.equal(identity);
+		expect(matrix1.isIdentity).to.deep.equal(true);
+		// Calcs correct value for non-zero angle.
+		const returnValue = matrix1.setTranslation(new Vector3(1, 4.5, 2));
+		const solution1 = [
+			1, 0, 0, 1,
+			0, 1, 0, 4.5,
+			0, 0, 1, 2,
+		];
+		expect(matrix1.elements).to.deep.equal(solution1);
+		// Check that it returns this.
+		expect(returnValue).to.equal(matrix1);
+		// Works with threejs.
+		const threeMatrix = new Matrix4().setTranslation(new THREE_Vector3(1, 4.5, 2));
+		expect(threeMatrix.elements).to.deep.equal(solution1);
+	});
 	it('setRotationAxisAngleAtOffset() - sets Matrix4 for rotation at offset', () => {
 		const elements = [
 			3, 5.6, -7, 13,

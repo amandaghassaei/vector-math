@@ -2102,15 +2102,13 @@
             self._isIdentity = Matrix4._checkElementsForIdentity(_elements);
             return self;
         }
-        // private _setTranslation(translation: Vector3Readonly) {
-        // 	this._set(
-        // 		1, 0, 0, translation.x,
-        // 		0, 1, 0, translation.y,
-        // 		0, 0, 1, translation.z,
-        // 	);
-        //  this._isIdentity = translation.x === 0 && translation.y === 0 && translation.z === 0;
-        // 	return this;
-        // }
+        setTranslation(translation) {
+            if (translation.x === 0 && translation.y === 0 && translation.z === 0)
+                return this.setIdentity();
+            this._set(1, 0, 0, translation.x, 0, 1, 0, translation.y, 0, 0, 1, translation.z);
+            this._isIdentity = false;
+            return this;
+        }
         /**
          * Set elements of Matrix4 according to rotation about axis.
          * @param axis - Unit vector around which to rotate, must be normalized.

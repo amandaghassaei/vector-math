@@ -248,6 +248,7 @@ declare class Matrix4 {
      * Matrix multiplication of two matrices.
      */
     private static _multiplyMatrices;
+    setTranslation(translation: Vector3Readonly | Vector3$1): this;
     /**
      * Set elements of Matrix4 according to rotation about axis.
      * @param axis - Unit vector around which to rotate, must be normalized.
