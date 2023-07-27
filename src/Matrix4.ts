@@ -1,3 +1,4 @@
+import { tempVector3 } from './common';
 import { NUMERICAL_TOLERANCE } from './constants';
 import type { Vector3Readonly } from './Vector3';
 import type { Vector3 as THREE_Vector3 } from 'three';
@@ -229,33 +230,37 @@ export class Matrix4 {
 		if (angle === 0) {
 			return this.setIdentity();
 		}
-		// To do this we need to calculate T * R * (-T).
-		// Based on http://www.gamedev.net/reference/articles/article1199.asp
-		// First calc R.
-		const c = Math.cos(angle);
-		const s = Math.sin(angle);
-		const t = 1 - c;
-		const x = axis.x, y = axis.y, z = axis.z;
-		const t_x = t * x, t_y = t * y;
-		const r11 = t_x * x + c,		r12 = t_x * y - s * z,	r13 = t_x * z + s * y;
-		const r21 = t_x * y + s * z,	r22 = t_y * y + c,		r23 = t_y * z - s * x;
-		const r31 = t_x * z - s * y,	r32 = t_y * z + s * x,	r33 = t * z * z + c;
-		if (offset) {
-			this._setRotationMatrixAtOffset(
-				r11, r12, r13,
-				r21, r22, r23,
-				r31, r32, r33,
-				offset,
-			);
-		} else {
-			this._set(
-				r11, r12, r13, 0,
-				r21, r22, r23, 0,
-				r31, r32, r33, 0,
-			);
+		const cosAngle = Math.cos(angle);
+		const sinAngle = Math.sin(angle);
+		return this._setRotationAxisCosSin(cosAngle, sinAngle, axis, offset);
+	}
+
+	/**
+	 * Set elements of Matrix4 according to rotation from one vector to another.
+	 * @param fromVector - Unit vector to rotate from, must be normalized.
+	 * @param toVector - Unit vector to rotate to, must be normalized.
+	 * @returns this
+	 */
+	setRotationFromVectorToVector(
+		fromVector: Vector3Readonly,
+		toVector: Vector3Readonly,
+	): Matrix4;
+	setRotationFromVectorToVector(
+		fromVector: THREE_Vector3,
+		toVector: THREE_Vector3,
+	): Matrix4;
+	setRotationFromVectorToVector(
+		fromVector: any,
+		toVector: any,
+	): Matrix4 {
+		if (fromVector.equals(toVector)) {
+			return this.setIdentity();
 		}
-		this._isIdentity = false;
-		return this;
+		const axis = tempVector3.crossVectors(fromVector, toVector);
+		const sinAngle = axis.length();
+		axis.divideScalar(sinAngle); // Normalize axis.
+		const cosAngle = fromVector.dot(toVector);
+		return this._setRotationAxisCosSin(cosAngle, sinAngle, axis);
 	}
 
 	/**
@@ -277,6 +282,34 @@ export class Matrix4 {
 		const r11 = 1 - 2 * nx * nx,	r12 = -2 * nx * ny,		r13 = -2 * nx * nz;
 		const r21 = r12,				r22 = 1 - 2 * ny * ny,	r23 = -2 * ny * nz;
 		const r31 = r13,				r32 = r23,				r33 = 1 - 2 * nz * nz;
+		if (offset) {
+			this._setRotationMatrixAtOffset(
+				r11, r12, r13,
+				r21, r22, r23,
+				r31, r32, r33,
+				offset,
+			);
+		} else {
+			this._set(
+				r11, r12, r13, 0,
+				r21, r22, r23, 0,
+				r31, r32, r33, 0,
+			);
+		}
+		this._isIdentity = false;
+		return this;
+	}
+
+	private _setRotationAxisCosSin(cosAngle: number, sinAngle: number, axis: Vector3Readonly | THREE_Vector3, offset?: Vector3Readonly | THREE_Vector3) {
+		// To do this we need to calculate T * R * (-T).
+		// Based on http://www.gamedev.net/reference/articles/article1199.asp
+		// First calc R.
+		const t = 1 - cosAngle;
+		const x = axis.x, y = axis.y, z = axis.z;
+		const t_x = t * x, t_y = t * y;
+		const r11 = t_x * x + cosAngle,		r12 = t_x * y - sinAngle * z,	r13 = t_x * z + sinAngle * y;
+		const r21 = t_x * y + sinAngle * z,	r22 = t_y * y + cosAngle,		r23 = t_y * z - sinAngle * x;
+		const r31 = t_x * z - sinAngle * y,	r32 = t_y * z + sinAngle * x,	r33 = t * z * z + cosAngle;
 		if (offset) {
 			this._setRotationMatrixAtOffset(
 				r11, r12, r13,

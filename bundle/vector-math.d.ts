@@ -257,12 +257,21 @@ declare class Matrix4 {
      */
     setRotationAxisAngleAtOffset(axis: Vector3Readonly | Vector3$1, angle: number, offset?: Vector3Readonly | Vector3$1): this;
     /**
+     * Set elements of Matrix4 according to rotation from one vector to another.
+     * @param fromVector - Unit vector to rotate from, must be normalized.
+     * @param toVector - Unit vector to rotate to, must be normalized.
+     * @returns this
+     */
+    setRotationFromVectorToVector(fromVector: Vector3Readonly, toVector: Vector3Readonly): Matrix4;
+    setRotationFromVectorToVector(fromVector: Vector3$1, toVector: Vector3$1): Matrix4;
+    /**
      * Set elements of Matrix4 according to reflection.
      * @param normal - Unit vector about which to reflect, must be normalized.
      * @param offset - Offset vector of reflection.
      * @returns this
      */
     setReflectionNormalAtOffset(normal: Vector3Readonly | Vector3$1, offset?: Vector3Readonly | Vector3$1): this;
+    private _setRotationAxisCosSin;
     private _setRotationMatrixAtOffset;
     /**
      * Invert the current transform.

@@ -1,3 +1,4 @@
+import { tempVector3 } from './common';
 import { NUMERICAL_TOLERANCE } from './constants';
 /**
  * These Matrix4s represent a rigid transform in homogeneous coords,
@@ -151,25 +152,19 @@ export class Matrix4 {
         if (angle === 0) {
             return this.setIdentity();
         }
-        // To do this we need to calculate T * R * (-T).
-        // Based on http://www.gamedev.net/reference/articles/article1199.asp
-        // First calc R.
-        const c = Math.cos(angle);
-        const s = Math.sin(angle);
-        const t = 1 - c;
-        const x = axis.x, y = axis.y, z = axis.z;
-        const t_x = t * x, t_y = t * y;
-        const r11 = t_x * x + c, r12 = t_x * y - s * z, r13 = t_x * z + s * y;
-        const r21 = t_x * y + s * z, r22 = t_y * y + c, r23 = t_y * z - s * x;
-        const r31 = t_x * z - s * y, r32 = t_y * z + s * x, r33 = t * z * z + c;
-        if (offset) {
-            this._setRotationMatrixAtOffset(r11, r12, r13, r21, r22, r23, r31, r32, r33, offset);
+        const cosAngle = Math.cos(angle);
+        const sinAngle = Math.sin(angle);
+        return this._setRotationAxisCosSin(cosAngle, sinAngle, axis, offset);
+    }
+    setRotationFromVectorToVector(fromVector, toVector) {
+        if (fromVector.equals(toVector)) {
+            return this.setIdentity();
         }
-        else {
-            this._set(r11, r12, r13, 0, r21, r22, r23, 0, r31, r32, r33, 0);
-        }
-        this._isIdentity = false;
-        return this;
+        const axis = tempVector3.crossVectors(fromVector, toVector);
+        const sinAngle = axis.length();
+        axis.divideScalar(sinAngle); // Normalize axis.
+        const cosAngle = fromVector.dot(toVector);
+        return this._setRotationAxisCosSin(cosAngle, sinAngle, axis);
     }
     /**
      * Set elements of Matrix4 according to reflection.
@@ -187,6 +182,25 @@ export class Matrix4 {
         const r11 = 1 - 2 * nx * nx, r12 = -2 * nx * ny, r13 = -2 * nx * nz;
         const r21 = r12, r22 = 1 - 2 * ny * ny, r23 = -2 * ny * nz;
         const r31 = r13, r32 = r23, r33 = 1 - 2 * nz * nz;
+        if (offset) {
+            this._setRotationMatrixAtOffset(r11, r12, r13, r21, r22, r23, r31, r32, r33, offset);
+        }
+        else {
+            this._set(r11, r12, r13, 0, r21, r22, r23, 0, r31, r32, r33, 0);
+        }
+        this._isIdentity = false;
+        return this;
+    }
+    _setRotationAxisCosSin(cosAngle, sinAngle, axis, offset) {
+        // To do this we need to calculate T * R * (-T).
+        // Based on http://www.gamedev.net/reference/articles/article1199.asp
+        // First calc R.
+        const t = 1 - cosAngle;
+        const x = axis.x, y = axis.y, z = axis.z;
+        const t_x = t * x, t_y = t * y;
+        const r11 = t_x * x + cosAngle, r12 = t_x * y - sinAngle * z, r13 = t_x * z + sinAngle * y;
+        const r21 = t_x * y + sinAngle * z, r22 = t_y * y + cosAngle, r23 = t_y * z - sinAngle * x;
+        const r31 = t_x * z - sinAngle * y, r32 = t_y * z + sinAngle * x, r33 = t * z * z + cosAngle;
         if (offset) {
             this._setRotationMatrixAtOffset(r11, r12, r13, r21, r22, r23, r31, r32, r33, offset);
         }

@@ -22,6 +22,7 @@ therefore, we assume that the bottom row is [0, 0, 0, 1] and only store 12 eleme
 - [premultiplyMatrix4](Matrix4.md#premultiplymatrix4)
 - [multiplyMatrix4](Matrix4.md#multiplymatrix4)
 - [setRotationAxisAngleAtOffset](Matrix4.md#setrotationaxisangleatoffset)
+- [setRotationFromVectorToVector](Matrix4.md#setrotationfromvectortovector)
 - [setReflectionNormalAtOffset](Matrix4.md#setreflectionnormalatoffset)
 - [invertTransform](Matrix4.md#inverttransform)
 - [equals](Matrix4.md#equals)
@@ -155,6 +156,40 @@ Set elements of Matrix4 according to rotation about axis.
 [`Matrix4`](Matrix4.md)
 
 this
+
+___
+
+### setRotationFromVectorToVector
+
+▸ **setRotationFromVectorToVector**(`fromVector`, `toVector`): [`Matrix4`](Matrix4.md)
+
+Set elements of Matrix4 according to rotation from one vector to another.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `fromVector` | [`Vector3Readonly`](../README.md#vector3readonly) | Unit vector to rotate from, must be normalized. |
+| `toVector` | [`Vector3Readonly`](../README.md#vector3readonly) | Unit vector to rotate to, must be normalized. |
+
+#### Returns
+
+[`Matrix4`](Matrix4.md)
+
+this
+
+▸ **setRotationFromVectorToVector**(`fromVector`, `toVector`): [`Matrix4`](Matrix4.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `fromVector` | `Vector3` |
+| `toVector` | `Vector3` |
+
+#### Returns
+
+[`Matrix4`](Matrix4.md)
 
 ___
 

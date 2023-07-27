@@ -213,6 +213,47 @@ describe('Matrix4', () => {
 		const threeMatrix = new Matrix4().setRotationAxisAngleAtOffset(new THREE_Vector3(1, 4.5, 2).normalize(), 1.43, new THREE_Vector3(4.5, -3, 2));
 		expect(threeMatrix.elements).to.deep.equal(solution1);
 	});
+	it ('setRotationFromVectorToVector() - sets Matrix4 for rotation from unit vector to unit vector', () => {
+		const elements = [
+			3, 5.6, -7, 13,
+			42, 0, 6.5, 23,
+			7, 64, -234.1, 0,
+		] as NumberArrayLength12;
+		// Returns identity matrix for zero angle.
+		const matrix1 = new Matrix4(...elements);
+		matrix1.setRotationFromVectorToVector(new Vector3(1, 4.5, 2).normalize(), new Vector3(1, 4.5, 2).normalize());
+		expect(matrix1.elements).to.deep.equal(identity);
+		expect(matrix1.isIdentity).to.deep.equal(true);
+		// Calcs correct value for non-zero angle.
+		matrix1.setRotationFromVectorToVector(new Vector3(1, 4.5, 2).normalize(), new Vector3(4.5, -3, 2));
+		const solution1 = [
+			-0.44396423043434574, 4.884090315705083, 0.5388889786417378, 0,
+			-4.369755553247816, -0.8750257456366265, -3.383721011534349, 0,
+			-2.2472151539462315, 2.5865021297255852, 0.32891559565099415, 0,
+		];
+		expect(matrix1.elements).to.deep.equal(solution1);
+		// Calcs correct value for non-zero angle.
+		const returnValue = matrix1.setRotationFromVectorToVector(new Vector3(1, 4.5, 2).normalize(), new Vector3(3, -2, 0).normalize());
+		const solution2 = [
+			-0.25829005667251026, 0.9648358604103944, 0.048764834565956594, 0,
+			-0.7462008460383383, -0.16719213401748687, -0.6443842702102113, 0,
+			-0.6135719550271014, -0.202826410481506, 0.7631454010969387, 0,
+		];
+		expect(matrix1.elements).to.deep.equal(solution2);
+		// Check that it returns this.
+		expect(returnValue).to.equal(matrix1);
+		// Should not introduce scaling.
+		const zAxis = new Vector3(0, 0, 1);
+		matrix1.setRotationFromVectorToVector(
+			new Vector3(1, 4.5, 2).normalize(),
+			new Vector3(4.5, -3, 2).normalize(),
+		);
+		zAxis.applyMatrix4RotationComponent(matrix1);
+		expect(zAxis.length()).to.almost.equal(1);
+		// Works with threejs.
+		const threeMatrix = new Matrix4().setRotationFromVectorToVector(new THREE_Vector3(1, 4.5, 2).normalize(),new THREE_Vector3(4.5, -3, 2));
+		expect(threeMatrix.elements).to.deep.equal(solution1);
+	});
 	it('setReflectionNormalAtOffset() - sets Matrix4 for reflection at offset', () => {
 		const elements = [
 			3, 5.6, -7, 13,
