@@ -33,6 +33,12 @@ export declare class Vector3 {
      */
     set(x: number, y: number, z: number): this;
     /**
+     * Set the contents of a Vector3 from an array.
+     * @param array - Array containing x, y, and z components.
+     * @returns this
+     */
+    setFromArray(array: [number, number, number]): this;
+    /**
      * Add a Vector3 to this Vector3.
      * @param vec - Vector3 to add.
      * @returns this
@@ -96,7 +102,18 @@ export declare class Vector3 {
      * @returns this
      */
     applyQuaternion(quaternion: QuaternionReadonly | THREE_Quaternion): this;
+    /**
+     * Linearly interpolate between this Vector3 and another Vector3.
+     * @param vector - Vector3 to lerp to.
+     * @param t - Interpolation factor between 0 and 1.
+     * @returns this
+     */
     lerp(vector: Vector3Readonly | THREE_Vector3, t: number): this;
+    /**
+     * Average this Vector3 with another Vector3.
+     * @param vector - Vector3 to average with.
+     * @returns this
+     */
     average(vector: Vector3Readonly | THREE_Vector3): this;
     /**
      * Copy the contents of a Vector3 to this Vector3.

@@ -16,6 +16,7 @@
 ### Methods
 
 - [set](Vector2.md#set)
+- [setFromArray](Vector2.md#setfromarray)
 - [add](Vector2.md#add)
 - [sub](Vector2.md#sub)
 - [multiplyScalar](Vector2.md#multiplyscalar)
@@ -27,6 +28,8 @@
 - [length](Vector2.md#length)
 - [normalize](Vector2.md#normalize)
 - [applyMatrix3](Vector2.md#applymatrix3)
+- [lerp](Vector2.md#lerp)
+- [average](Vector2.md#average)
 - [copy](Vector2.md#copy)
 - [equals](Vector2.md#equals)
 - [isZero](Vector2.md#iszero)
@@ -74,6 +77,26 @@ Set the contents of a Vector2.
 | :------ | :------ | :------ |
 | `x` | `number` | x component. |
 | `y` | `number` | y component. |
+
+#### Returns
+
+[`Vector2`](Vector2.md)
+
+this
+
+___
+
+### setFromArray
+
+▸ **setFromArray**(`array`): [`Vector2`](Vector2.md)
+
+Set the contents of a Vector3 from an array.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `array` | [`number`, `number`] | Array containing x, and y components. |
 
 #### Returns
 
@@ -264,6 +287,47 @@ Apply Matrix3 transformation to this Vector2.
 #### Returns
 
 [`Vector2`](Vector2.md)
+
+___
+
+### lerp
+
+▸ **lerp**(`vector`, `t`): [`Vector2`](Vector2.md)
+
+Linearly interpolate between this Vector2 and another Vector2.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vector` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to lerp to. |
+| `t` | `number` | Interpolation factor between 0 and 1. |
+
+#### Returns
+
+[`Vector2`](Vector2.md)
+
+this
+
+___
+
+### average
+
+▸ **average**(`vector`): [`Vector2`](Vector2.md)
+
+Average this Vector2 with another Vector2.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vector` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to average with. |
+
+#### Returns
+
+[`Vector2`](Vector2.md)
+
+this
 
 ___
 

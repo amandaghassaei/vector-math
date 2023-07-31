@@ -18,6 +18,17 @@ export class Vector3 {
         return this;
     }
     /**
+     * Set the contents of a Vector3 from an array.
+     * @param array - Array containing x, y, and z components.
+     * @returns this
+     */
+    setFromArray(array) {
+        this.x = array[0];
+        this.y = array[1];
+        this.z = array[2];
+        return this;
+    }
+    /**
      * Add a Vector3 to this Vector3.
      * @param vec - Vector3 to add.
      * @returns this
@@ -153,12 +164,23 @@ export class Vector3 {
         this.z = iz * qw + iw * -qz + ix * -qy - iy * -qx;
         return this;
     }
+    /**
+     * Linearly interpolate between this Vector3 and another Vector3.
+     * @param vector - Vector3 to lerp to.
+     * @param t - Interpolation factor between 0 and 1.
+     * @returns this
+     */
     lerp(vector, t) {
         this.x += (vector.x - this.x) * t;
         this.y += (vector.y - this.y) * t;
         this.z += (vector.z - this.z) * t;
         return this;
     }
+    /**
+     * Average this Vector3 with another Vector3.
+     * @param vector - Vector3 to average with.
+     * @returns this
+     */
     average(vector) {
         this.x = (this.x + vector.x) / 2;
         this.y = (this.y + vector.y) / 2;

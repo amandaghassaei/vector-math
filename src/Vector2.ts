@@ -43,6 +43,17 @@ export class Vector2 {
 	}
 
 	/**
+	 * Set the contents of a Vector3 from an array.
+	 * @param array - Array containing x, and y components.
+	 * @returns this
+	 */
+	setFromArray(array: [number, number]) {
+		this.x = array[0];
+		this.y = array[1];
+		return this;
+	}
+
+	/**
 	 * Add a Vector2 to this Vector2.
 	 * @param vec - Vector2 to add.
 	 * @returns this
@@ -148,6 +159,29 @@ export class Vector2 {
 		const e = matrix.elements;
 		this.x = e[0] * x + e[1] * y + e[2];
 		this.y = e[3] * x + e[4] * y + e[5];
+		return this;
+	}
+
+	/**
+	 * Linearly interpolate between this Vector2 and another Vector2.
+	 * @param vector - Vector2 to lerp to.
+	 * @param t - Interpolation factor between 0 and 1.
+	 * @returns this
+	 */
+	lerp(vector: Vector2Readonly | THREE_Vector2, t: number) {
+		this.x += (vector.x - this.x) * t;
+		this.y += (vector.y - this.y) * t;
+		return this;
+	}
+
+	/**
+	 * Average this Vector2 with another Vector2.
+	 * @param vector - Vector2 to average with.
+	 * @returns this
+	 */
+	average(vector: Vector2Readonly | THREE_Vector2) {
+		this.x = (this.x + vector.x) / 2;
+		this.y = (this.y + vector.y) / 2;
 		return this;
 	}
 

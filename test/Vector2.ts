@@ -28,6 +28,16 @@ describe('Vector2', () => {
 		// Check that it returns this.
 		expect(returnValue).to.equal(vector);
 	});
+	it('setFromArray() - sets the components of this Vector3 from an array', () => {
+		const vector = new Vector2(5.4, 0.5);
+		expect(vector.x).to.equal(5.4);
+		expect(vector.y).to.equal(0.5);
+		const returnValue = vector.setFromArray([1, 2]);
+		expect(vector.x).to.equal(1);
+		expect(vector.y).to.equal(2);
+		// Check that it returns this.
+		expect(returnValue).to.equal(vector);
+	});
 	it('add() - adds a Vector2', () => {
 		const vector = new Vector2();
 		vector.add(new Vector2(5, 6));
@@ -157,6 +167,35 @@ describe('Vector2', () => {
 		expect(vector).to.deep.equal(new Vector2(19.36, 531.1600000000001));
 		// Check that it returns this.
 		expect(returnValue).to.equal(vector);
+	});
+	it('lerp() - linearly interpolates between two Vector3s', () => {
+		const vector1 = new Vector2(5.4, 0.5);
+		vector1.lerp(new Vector2(4.6, 2), 0.25);
+		expect(vector1.x).to.almost.equal(5.2);
+		expect(vector1.y).to.almost.equal(0.875);
+		vector1.lerp(new Vector2(4.6, 2), 1);
+		expect(vector1.x).to.almost.equal(4.6);
+		expect(vector1.y).to.almost.equal(2);
+		const returnValue = vector1.lerp(new Vector2(30, 5.3), 0);
+		expect(vector1.x).to.almost.equal(4.6);
+		expect(vector1.y).to.almost.equal(2);
+		// Check that it returns this.
+		expect(returnValue).to.equal(vector1);
+		// Works with threejs.
+		expect(new Vector2(5.4, 0.5).lerp(new THREE_Vector2(1, 1), 0.5)).to.deep.equal(new Vector2(3.2, 0.75));
+	});
+	it('average() - calculates the average of two Vector3s', () => {
+		const vector1 = new Vector2(5.4, 0.5);
+		vector1.average(new Vector2(4.6, 2));
+		expect(vector1.x).to.almost.equal(5);
+		expect(vector1.y).to.almost.equal(1.25);
+		const returnValue = vector1.average(new Vector2(30, 5.3));
+		expect(vector1.x).to.almost.equal(17.5);
+		expect(vector1.y).to.almost.equal(3.275);
+		// Check that it returns this.
+		expect(returnValue).to.equal(vector1);
+		// Works with threejs.
+		expect(new Vector2(5.4, 0.5).average(new THREE_Vector2(1, 1))).to.deep.equal(new Vector2(3.2, 0.75));
 	});
 	it('copy() - copies values of input Vector2 into this Vecto2', () => {
 		const vector1 = new Vector2(5.4, 0.5);

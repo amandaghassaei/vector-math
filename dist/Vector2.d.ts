@@ -30,6 +30,12 @@ export declare class Vector2 {
      */
     set(x: number, y: number): this;
     /**
+     * Set the contents of a Vector3 from an array.
+     * @param array - Array containing x, and y components.
+     * @returns this
+     */
+    setFromArray(array: [number, number]): this;
+    /**
      * Add a Vector2 to this Vector2.
      * @param vec - Vector2 to add.
      * @returns this
@@ -86,6 +92,19 @@ export declare class Vector2 {
      * @param matrix - Matrix3 to apply.
      */
     applyMatrix3(matrix: Matrix3Readonly): this;
+    /**
+     * Linearly interpolate between this Vector2 and another Vector2.
+     * @param vector - Vector2 to lerp to.
+     * @param t - Interpolation factor between 0 and 1.
+     * @returns this
+     */
+    lerp(vector: Vector2Readonly | THREE_Vector2, t: number): this;
+    /**
+     * Average this Vector2 with another Vector2.
+     * @param vector - Vector2 to average with.
+     * @returns this
+     */
+    average(vector: Vector2Readonly | THREE_Vector2): this;
     /**
      * Copy the contents of a Vector2 to this Vector2.
      * @param vec - Vector2 to copy.

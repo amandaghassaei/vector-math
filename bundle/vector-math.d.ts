@@ -106,6 +106,12 @@ declare class Vector2 {
      */
     set(x: number, y: number): this;
     /**
+     * Set the contents of a Vector3 from an array.
+     * @param array - Array containing x, and y components.
+     * @returns this
+     */
+    setFromArray(array: [number, number]): this;
+    /**
      * Add a Vector2 to this Vector2.
      * @param vec - Vector2 to add.
      * @returns this
@@ -162,6 +168,19 @@ declare class Vector2 {
      * @param matrix - Matrix3 to apply.
      */
     applyMatrix3(matrix: Matrix3Readonly): this;
+    /**
+     * Linearly interpolate between this Vector2 and another Vector2.
+     * @param vector - Vector2 to lerp to.
+     * @param t - Interpolation factor between 0 and 1.
+     * @returns this
+     */
+    lerp(vector: Vector2Readonly | Vector2$1, t: number): this;
+    /**
+     * Average this Vector2 with another Vector2.
+     * @param vector - Vector2 to average with.
+     * @returns this
+     */
+    average(vector: Vector2Readonly | Vector2$1): this;
     /**
      * Copy the contents of a Vector2 to this Vector2.
      * @param vec - Vector2 to copy.
@@ -422,6 +441,12 @@ declare class Vector3 {
      */
     set(x: number, y: number, z: number): this;
     /**
+     * Set the contents of a Vector3 from an array.
+     * @param array - Array containing x, y, and z components.
+     * @returns this
+     */
+    setFromArray(array: [number, number, number]): this;
+    /**
      * Add a Vector3 to this Vector3.
      * @param vec - Vector3 to add.
      * @returns this
@@ -485,7 +510,18 @@ declare class Vector3 {
      * @returns this
      */
     applyQuaternion(quaternion: QuaternionReadonly | Quaternion$1): this;
+    /**
+     * Linearly interpolate between this Vector3 and another Vector3.
+     * @param vector - Vector3 to lerp to.
+     * @param t - Interpolation factor between 0 and 1.
+     * @returns this
+     */
     lerp(vector: Vector3Readonly | Vector3$1, t: number): this;
+    /**
+     * Average this Vector3 with another Vector3.
+     * @param vector - Vector3 to average with.
+     * @returns this
+     */
     average(vector: Vector3Readonly | Vector3$1): this;
     /**
      * Copy the contents of a Vector3 to this Vector3.

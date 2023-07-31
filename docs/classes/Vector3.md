@@ -17,6 +17,7 @@
 ### Methods
 
 - [set](Vector3.md#set)
+- [setFromArray](Vector3.md#setfromarray)
 - [add](Vector3.md#add)
 - [sub](Vector3.md#sub)
 - [multiplyScalar](Vector3.md#multiplyscalar)
@@ -86,6 +87,26 @@ Set the contents of a Vector3.
 | `x` | `number` | x component. |
 | `y` | `number` | y component. |
 | `z` | `number` | z component. |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+this
+
+___
+
+### setFromArray
+
+▸ **setFromArray**(`array`): [`Vector3`](Vector3.md)
+
+Set the contents of a Vector3 from an array.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `array` | [`number`, `number`, `number`] | Array containing x, y, and z components. |
 
 #### Returns
 
@@ -311,16 +332,20 @@ ___
 
 ▸ **lerp**(`vector`, `t`): [`Vector3`](Vector3.md)
 
+Linearly interpolate between this Vector3 and another Vector3.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) |
-| `t` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to lerp to. |
+| `t` | `number` | Interpolation factor between 0 and 1. |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
+
+this
 
 ___
 
@@ -328,15 +353,19 @@ ___
 
 ▸ **average**(`vector`): [`Vector3`](Vector3.md)
 
+Average this Vector3 with another Vector3.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to average with. |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
+
+this
 
 ___
 
