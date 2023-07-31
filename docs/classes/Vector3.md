@@ -32,6 +32,7 @@
 - [applyQuaternion](Vector3.md#applyquaternion)
 - [lerp](Vector3.md#lerp)
 - [average](Vector3.md#average)
+- [invert](Vector3.md#invert)
 - [copy](Vector3.md#copy)
 - [equals](Vector3.md#equals)
 - [isZero](Vector3.md#iszero)
@@ -360,6 +361,20 @@ Average this Vector3 with another Vector3.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to average with. |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+this
+
+___
+
+### invert
+
+▸ **invert**(): [`Vector3`](Vector3.md)
+
+Invert this Vector3.
 
 #### Returns
 

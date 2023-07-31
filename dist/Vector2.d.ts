@@ -106,6 +106,11 @@ export declare class Vector2 {
      */
     average(vector: Vector2Readonly | THREE_Vector2): this;
     /**
+     * Invert this Vector2.
+     * @returns this
+     */
+    invert(): this;
+    /**
      * Copy the contents of a Vector2 to this Vector2.
      * @param vec - Vector2 to copy.
      * @returns this

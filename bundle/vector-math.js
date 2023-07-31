@@ -175,6 +175,15 @@
             return this;
         }
         /**
+         * Invert this Vector2.
+         * @returns this
+         */
+        invert() {
+            this.x = -this.x;
+            this.y = -this.y;
+            return this;
+        }
+        /**
          * Copy the contents of a Vector2 to this Vector2.
          * @param vec - Vector2 to copy.
          * @returns this
@@ -398,6 +407,16 @@
             this.x = (this.x + vector.x) / 2;
             this.y = (this.y + vector.y) / 2;
             this.z = (this.z + vector.z) / 2;
+            return this;
+        }
+        /**
+         * Invert this Vector3.
+         * @returns this
+         */
+        invert() {
+            this.x = -this.x;
+            this.y = -this.y;
+            this.z = -this.z;
             return this;
         }
         /**

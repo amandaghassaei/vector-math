@@ -30,6 +30,7 @@
 - [applyMatrix3](Vector2.md#applymatrix3)
 - [lerp](Vector2.md#lerp)
 - [average](Vector2.md#average)
+- [invert](Vector2.md#invert)
 - [copy](Vector2.md#copy)
 - [equals](Vector2.md#equals)
 - [isZero](Vector2.md#iszero)
@@ -322,6 +323,20 @@ Average this Vector2 with another Vector2.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `vector` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to average with. |
+
+#### Returns
+
+[`Vector2`](Vector2.md)
+
+this
+
+___
+
+### invert
+
+▸ **invert**(): [`Vector2`](Vector2.md)
+
+Invert this Vector2.
 
 #### Returns
 

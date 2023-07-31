@@ -248,6 +248,15 @@ describe('Vector3', () => {
 		// Works with threejs.
 		expect(new Vector3(5.4, 0.5, 3.4).average(new THREE_Vector3(1, 1, 1))).to.deep.equal(new Vector3(3.2, 0.75, 2.2));
 	});
+	it ('invert() - inverts a Vector3', () => {
+		const vector = new Vector3(5.4, 0.5, 3.4);
+		const returnValue = vector.invert();
+		expect(vector.x).to.equal(-5.4);
+		expect(vector.y).to.equal(-0.5);
+		expect(vector.z).to.equal(-3.4);
+		// Check that it returns this.
+		expect(returnValue).to.equal(vector);
+	});
 	it('copy() - copies a Vector3', () => {
 		const vector1 = new Vector3(5.4, 0.5, 3.4);
 		const vector2 = new Vector3();

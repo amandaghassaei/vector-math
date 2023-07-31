@@ -188,6 +188,16 @@ export class Vector3 {
         return this;
     }
     /**
+     * Invert this Vector3.
+     * @returns this
+     */
+    invert() {
+        this.x = -this.x;
+        this.y = -this.y;
+        this.z = -this.z;
+        return this;
+    }
+    /**
      * Copy the contents of a Vector3 to this Vector3.
      * @param vec - Vector3 to copy.
      * @returns this

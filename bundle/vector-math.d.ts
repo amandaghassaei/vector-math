@@ -182,6 +182,11 @@ declare class Vector2 {
      */
     average(vector: Vector2Readonly | Vector2$1): this;
     /**
+     * Invert this Vector2.
+     * @returns this
+     */
+    invert(): this;
+    /**
      * Copy the contents of a Vector2 to this Vector2.
      * @param vec - Vector2 to copy.
      * @returns this
@@ -523,6 +528,11 @@ declare class Vector3 {
      * @returns this
      */
     average(vector: Vector3Readonly | Vector3$1): this;
+    /**
+     * Invert this Vector3.
+     * @returns this
+     */
+    invert(): this;
     /**
      * Copy the contents of a Vector3 to this Vector3.
      * @param vec - Vector3 to copy.
