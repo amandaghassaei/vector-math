@@ -47,7 +47,7 @@ export class Vector2 {
 	 * @param array - Array containing x, and y components.
 	 * @returns this
 	 */
-	setFromArray(array: [number, number]) {
+	setFromArray(array: readonly [number, number]) {
 		this.x = array[0];
 		this.y = array[1];
 		return this;

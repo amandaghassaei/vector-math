@@ -55,7 +55,7 @@ export class Vector3 {
 	 * @param array - Array containing x, y, and z components.
 	 * @returns this
 	 */
-	setFromArray(array: [number, number, number]) {
+	setFromArray(array: readonly [number, number, number]) {
 		this.x = array[0];
 		this.y = array[1];
 		this.z = array[2];

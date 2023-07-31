@@ -110,7 +110,7 @@ declare class Vector2 {
      * @param array - Array containing x, and y components.
      * @returns this
      */
-    setFromArray(array: [number, number]): this;
+    setFromArray(array: readonly [number, number]): this;
     /**
      * Add a Vector2 to this Vector2.
      * @param vec - Vector2 to add.
@@ -445,7 +445,7 @@ declare class Vector3 {
      * @param array - Array containing x, y, and z components.
      * @returns this
      */
-    setFromArray(array: [number, number, number]): this;
+    setFromArray(array: readonly [number, number, number]): this;
     /**
      * Add a Vector3 to this Vector3.
      * @param vec - Vector3 to add.

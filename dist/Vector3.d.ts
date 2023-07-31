@@ -37,7 +37,7 @@ export declare class Vector3 {
      * @param array - Array containing x, y, and z components.
      * @returns this
      */
-    setFromArray(array: [number, number, number]): this;
+    setFromArray(array: readonly [number, number, number]): this;
     /**
      * Add a Vector3 to this Vector3.
      * @param vec - Vector3 to add.

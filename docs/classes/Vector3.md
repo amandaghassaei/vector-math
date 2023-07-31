@@ -106,7 +106,7 @@ Set the contents of a Vector3 from an array.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `array` | [`number`, `number`, `number`] | Array containing x, y, and z components. |
+| `array` | readonly [`number`, `number`, `number`] | Array containing x, y, and z components. |
 
 #### Returns
 

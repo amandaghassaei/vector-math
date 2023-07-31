@@ -34,7 +34,7 @@ export declare class Vector2 {
      * @param array - Array containing x, and y components.
      * @returns this
      */
-    setFromArray(array: [number, number]): this;
+    setFromArray(array: readonly [number, number]): this;
     /**
      * Add a Vector2 to this Vector2.
      * @param vec - Vector2 to add.
