@@ -153,6 +153,18 @@ export class Vector3 {
         this.z = iz * qw + iw * -qz + ix * -qy - iy * -qx;
         return this;
     }
+    lerp(vector, t) {
+        this.x += (vector.x - this.x) * t;
+        this.y += (vector.y - this.y) * t;
+        this.z += (vector.z - this.z) * t;
+        return this;
+    }
+    average(vector) {
+        this.x = (this.x + vector.x) / 2;
+        this.y = (this.y + vector.y) / 2;
+        this.z = (this.z + vector.z) / 2;
+        return this;
+    }
     /**
      * Copy the contents of a Vector3 to this Vector3.
      * @param vec - Vector3 to copy.

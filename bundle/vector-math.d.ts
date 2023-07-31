@@ -485,6 +485,8 @@ declare class Vector3 {
      * @returns this
      */
     applyQuaternion(quaternion: QuaternionReadonly | Quaternion$1): this;
+    lerp(vector: Vector3Readonly | Vector3$1, t: number): this;
+    average(vector: Vector3Readonly | Vector3$1): this;
     /**
      * Copy the contents of a Vector3 to this Vector3.
      * @param vec - Vector3 to copy.

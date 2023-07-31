@@ -29,6 +29,8 @@
 - [applyMatrix4](Vector3.md#applymatrix4)
 - [applyMatrix4RotationComponent](Vector3.md#applymatrix4rotationcomponent)
 - [applyQuaternion](Vector3.md#applyquaternion)
+- [lerp](Vector3.md#lerp)
+- [average](Vector3.md#average)
 - [copy](Vector3.md#copy)
 - [equals](Vector3.md#equals)
 - [isZero](Vector3.md#iszero)
@@ -302,6 +304,39 @@ Apply Quaternion transformation to this Vector3.
 [`Vector3`](Vector3.md)
 
 this
+
+___
+
+### lerp
+
+▸ **lerp**(`vector`, `t`): [`Vector3`](Vector3.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) |
+| `t` | `number` |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+___
+
+### average
+
+▸ **average**(`vector`): [`Vector3`](Vector3.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
 
 ___
 

@@ -202,6 +202,40 @@ describe('Vector3', () => {
 		const threeQuaternion = new THREE_Quaternion(quaternion.x, quaternion.y, quaternion.z, quaternion.w);
 		expect(new Vector3(5.4, 0.5, 3.4).applyQuaternion(threeQuaternion)).to.deep.equal(new Vector3(4.783017443503779, 1.9984829357006233, 3.7548382243249856));
 	});
+	it('lerp() - linearly interpolates between two Vector3s', () => {
+		const vector1 = new Vector3(5.4, 0.5, 3.4);
+		vector1.lerp(new Vector3(4.6, 2, -4.5), 0.25);
+		expect(vector1.x).to.almost.equal(5.2);
+		expect(vector1.y).to.almost.equal(0.875);
+		expect(vector1.z).to.almost.equal(1.425);
+		vector1.lerp(new Vector3(4.6, 2, -4.5), 1);
+		expect(vector1.x).to.almost.equal(4.6);
+		expect(vector1.y).to.almost.equal(2);
+		expect(vector1.z).to.almost.equal(-4.5);
+		const returnValue = vector1.lerp(new Vector3(30, 5.3, 2), 0);
+		expect(vector1.x).to.almost.equal(4.6);
+		expect(vector1.y).to.almost.equal(2);
+		expect(vector1.z).to.almost.equal(-4.5);
+		// Check that it returns this.
+		expect(returnValue).to.equal(vector1);
+		// Works with threejs.
+		expect(new Vector3(5.4, 0.5, 3.4).lerp(new THREE_Vector3(1, 1, 1), 0.5)).to.deep.equal(new Vector3(3.2, 0.75, 2.2));
+	});
+	it('average() - calculates the average of two Vector3s', () => {
+		const vector1 = new Vector3(5.4, 0.5, 3.4);
+		vector1.average(new Vector3(4.6, 2, -4.5));
+		expect(vector1.x).to.almost.equal(5);
+		expect(vector1.y).to.almost.equal(1.25);
+		expect(vector1.z).to.almost.equal(-0.55);
+		const returnValue = vector1.average(new Vector3(30, 5.3, 2));
+		expect(vector1.x).to.almost.equal(17.5);
+		expect(vector1.y).to.almost.equal(3.275);
+		expect(vector1.z).to.almost.equal(0.725);
+		// Check that it returns this.
+		expect(returnValue).to.equal(vector1);
+		// Works with threejs.
+		expect(new Vector3(5.4, 0.5, 3.4).average(new THREE_Vector3(1, 1, 1))).to.deep.equal(new Vector3(3.2, 0.75, 2.2));
+	});
 	it('copy() - copies a Vector3', () => {
 		const vector1 = new Vector3(5.4, 0.5, 3.4);
 		const vector2 = new Vector3();

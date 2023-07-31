@@ -158,7 +158,7 @@ export class Matrix4 {
         if (fromVector.equals(toVector)) {
             return this.setIdentity();
         }
-        const axis = tempVector3.crossVectors(fromVector, toVector);
+        const axis = tempVector3.copy(fromVector).cross(toVector);
         const sinAngle = axis.length();
         axis.divideScalar(sinAngle); // Normalize axis.
         const cosAngle = fromVector.dot(toVector);
