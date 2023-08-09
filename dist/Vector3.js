@@ -198,6 +198,13 @@ export class Vector3 {
         return this;
     }
     /**
+     * Calculate the angle between this Vector3 and another Vector3.
+     */
+    angleTo(vector) {
+        const theta = this.dot(vector) / (this.length() * vector.length());
+        return Math.acos(Math.min(Math.max(theta, -1), 1));
+    }
+    /**
      * Copy the contents of a Vector3 to this Vector3.
      * @param vec - Vector3 to copy.
      * @returns this

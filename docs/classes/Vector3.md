@@ -33,6 +33,7 @@
 - [lerp](Vector3.md#lerp)
 - [average](Vector3.md#average)
 - [invert](Vector3.md#invert)
+- [angleTo](Vector3.md#angleto)
 - [copy](Vector3.md#copy)
 - [equals](Vector3.md#equals)
 - [isZero](Vector3.md#iszero)
@@ -381,6 +382,24 @@ Invert this Vector3.
 [`Vector3`](Vector3.md)
 
 this
+
+___
+
+### angleTo
+
+▸ **angleTo**(`vector`): `number`
+
+Calculate the angle between this Vector3 and another Vector3.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) |
+
+#### Returns
+
+`number`
 
 ___
 

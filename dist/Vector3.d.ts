@@ -121,6 +121,10 @@ export declare class Vector3 {
      */
     invert(): this;
     /**
+     * Calculate the angle between this Vector3 and another Vector3.
+     */
+    angleTo(vector: Vector3Readonly | THREE_Vector3): number;
+    /**
      * Copy the contents of a Vector3 to this Vector3.
      * @param vec - Vector3 to copy.
      * @returns this

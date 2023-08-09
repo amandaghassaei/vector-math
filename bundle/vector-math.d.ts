@@ -187,6 +187,10 @@ declare class Vector2 {
      */
     invert(): this;
     /**
+     * Calculate the angle between this Vector2 and another Vector2.
+     */
+    angleTo(vector: Vector2Readonly | Vector2$1): number;
+    /**
      * Copy the contents of a Vector2 to this Vector2.
      * @param vec - Vector2 to copy.
      * @returns this
@@ -533,6 +537,10 @@ declare class Vector3 {
      * @returns this
      */
     invert(): this;
+    /**
+     * Calculate the angle between this Vector3 and another Vector3.
+     */
+    angleTo(vector: Vector3Readonly | Vector3$1): number;
     /**
      * Copy the contents of a Vector3 to this Vector3.
      * @param vec - Vector3 to copy.
