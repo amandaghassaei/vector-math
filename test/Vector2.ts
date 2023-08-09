@@ -205,6 +205,12 @@ describe('Vector2', () => {
 		// Check that it returns this.
 		expect(returnValue).to.equal(vector);
 	});
+	it('angleTo() - calculates the angle between two Vector3s', () => {
+		expect(new Vector2(1, 0).angleTo(new Vector2(1, 0))).to.almost.equal(0);
+		expect(new Vector2(1, 0).angleTo(new Vector2(-1, 0))).to.almost.equal(Math.PI);
+		expect(new Vector2(0, 1).angleTo(new Vector2(1, 0))).to.almost.equal(Math.PI / 2);
+		expect(new Vector2(4, 2).angleTo(new Vector2(-3, 5))).to.almost.equal(1.6475682180646747);
+	});
 	it('copy() - copies values of input Vector2 into this Vecto2', () => {
 		const vector1 = new Vector2(5.4, 0.5);
 		const vector2 = new Vector2();
