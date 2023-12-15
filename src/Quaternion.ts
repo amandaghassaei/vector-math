@@ -3,6 +3,7 @@ import type {
 	Quaternion as THREE_Quaternion,
 	Vector3 as THREE_Vector3,
 } from 'three';
+import { getStackTraceAsStringArray } from './utils';
 
 export type QuaternionReadonly = {
 	readonly x: number;
@@ -135,7 +136,7 @@ export class Quaternion {
 	normalize() {
 		let l = this.length();
 		if (l === 0) {
-			console.warn('Attempting to normalize zero length Quaternion.');
+			console.warn(`Attempting to normalize zero length Quaternion, stack trace: ${JSON.stringify(getStackTraceAsStringArray())}.`);
 			this._x = 0;
 			this._y = 0;
 			this._z = 0;

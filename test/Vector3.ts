@@ -112,7 +112,7 @@ describe('Vector3', () => {
 		// Handle divide by zero case.
 		vector.divideScalar(0);
 		// Dividing by zero should throw a warning.
-		expect(popLastWarning()).to.equal('Dividing by zero in Vector3.divideScalar().');
+		expect(popLastWarning()).to.contain('Dividing by zero in Vector3.divideScalar()');
 		expect(vector.x).to.equal(-Infinity);
 		expect(vector.y).to.equal(-Infinity);
 		expect(vector.z).to.equal(Infinity);
@@ -159,7 +159,7 @@ describe('Vector3', () => {
 		expect(new Vector3().length()).to.equal(0);
 		expect(new Vector3().normalize().length()).to.equal(0);
 		// Normalizing zero vectors should throw a warning.
-		expect(popLastWarning()).to.equal('Attempting to normalize zero length Vector3.');
+		expect(popLastWarning()).to.contain('Attempting to normalize zero length Vector3');
 		// Check that it returns this.
 		const vector = new Vector3(1, 1, 1);
 		const returnValue = vector.normalize();

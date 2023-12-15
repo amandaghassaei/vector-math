@@ -77,7 +77,7 @@ describe('Quaternion', () => {
 		expect(new Quaternion(0, 0, 0, 0).length()).to.equal(0);
 		expect(new Quaternion(0, 0, 0, 0).normalize().length()).to.equal(1);
 		// Normalizing zero quaternions should throw a warning.
-		expect(popLastWarning()).to.equal('Attempting to normalize zero length Quaternion.');
+		expect(popLastWarning()).to.contain('Attempting to normalize zero length Quaternion');
 		// Check that it returns this.
 		const quaternion = new Quaternion(1, 1, 1, 2.4);
 		const returnValue = quaternion.normalize();

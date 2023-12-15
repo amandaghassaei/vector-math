@@ -4,6 +4,7 @@ import type {
 	Vector3 as THREE_Vector3,
 	Quaternion as THREE_Quaternion,
 } from 'three';
+import { getStackTraceAsStringArray } from './utils';
 
 export type Vector3Readonly = {
 	readonly x: number;
@@ -104,7 +105,7 @@ export class Vector3 {
 	 * @returns this
 	 */
 	divideScalar(scalar: number) {
-		if (scalar === 0) console.warn('Dividing by zero in Vector3.divideScalar().');
+		if (scalar === 0) console.warn(`Dividing by zero in Vector3.divideScalar(), stack trace: ${JSON.stringify(getStackTraceAsStringArray())}.`);
 		return this.multiplyScalar(1 / scalar);
 	}
 
@@ -152,7 +153,7 @@ export class Vector3 {
 	normalize() {
 		let length = this.length();
 		if (length === 0) {
-			console.warn('Attempting to normalize zero length Vector3.');
+			console.warn(`Attempting to normalize zero length Vector3, stack trace: ${JSON.stringify(getStackTraceAsStringArray())}.`);
 			length = 1;
 		}
 		this.divideScalar(length);

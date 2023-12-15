@@ -18,8 +18,8 @@
   ],
   "scripts": {
     "build": "rollup --config && tsc && npm run docs && npm run make-coverage-badge",
-    "test": "mocha 'test/**/*.ts'",
-    "test-with-coverage": "c8 mocha 'test/**/*.ts'",
+    "test": "NODE_OPTIONS=--enable-source-maps mocha 'test/**/*.ts'",
+    "test-with-coverage": "NODE_OPTIONS=--enable-source-maps c8 mocha 'test/**/*.ts'",
     "make-coverage-badge": "c8 --reporter=json-summary mocha 'test/**/*.ts' && coverage-badge-creator",
     "docs": "typedoc --options ./typedoc.json"
   },
