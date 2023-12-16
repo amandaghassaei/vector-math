@@ -7,9 +7,12 @@ console.warn = (warning: string) => {
 }
 
 export function checkWarnings() {
-	// We should have handled all warnings, so warnings should be empty.
-	expect(warnings.length).to.equal(0, `Uncaught console warning${ warnings.length > 1 ? 's' : '' }: ${JSON.stringify(warnings)}`);
-	warnings.length = 0;
+    // We should have handled all warnings, so warnings should be empty.
+    expect(warnings.length).to.equal(
+        0,
+        `Uncaught console warning${warnings.length > 1 ? 's' : ''}:\n${warnings.join('\n\n')}}`
+    );
+    warnings.length = 0;
 }
 
 export function popLastWarning() {

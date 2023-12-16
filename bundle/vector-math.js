@@ -103,7 +103,7 @@
          */
         divideScalar(scalar) {
             if (scalar === 0)
-                console.warn(`Dividing by zero in Vector2.divideScalar(), stack trace: ${getStackTraceAsString()}.`);
+                console.warn(`Dividing by zero in Vector2.divideScalar(), stack trace:\n${getStackTraceAsString()}.`);
             return this.multiplyScalar(1 / scalar);
         }
         /**
@@ -147,7 +147,7 @@
         normalize() {
             let length = this.length();
             if (length === 0) {
-                console.warn(`Attempting to normalize zero length Vector2, stack trace: ${getStackTraceAsString()}.`);
+                console.warn(`Attempting to normalize zero length Vector2, stack trace:\n${getStackTraceAsString()}.`);
                 length = 1;
             }
             this.divideScalar(length);
@@ -310,7 +310,7 @@
          */
         divideScalar(scalar) {
             if (scalar === 0)
-                console.warn(`Dividing by zero in Vector3.divideScalar(), stack trace: ${getStackTraceAsString()}.`);
+                console.warn(`Dividing by zero in Vector3.divideScalar(), stack trace:\n${getStackTraceAsString()}.`);
             return this.multiplyScalar(1 / scalar);
         }
         /**
@@ -351,7 +351,7 @@
         normalize() {
             let length = this.length();
             if (length === 0) {
-                console.warn(`Attempting to normalize zero length Vector3, stack trace: ${getStackTraceAsString()}.`);
+                console.warn(`Attempting to normalize zero length Vector3, stack trace:\n${getStackTraceAsString()}.`);
                 length = 1;
             }
             this.divideScalar(length);
@@ -1012,7 +1012,7 @@
         normalize() {
             let l = this.length();
             if (l === 0) {
-                console.warn(`Attempting to normalize zero length Quaternion, stack trace: ${getStackTraceAsString()}.`);
+                console.warn(`Attempting to normalize zero length Quaternion, stack trace:\n${getStackTraceAsString()}.`);
                 this._x = 0;
                 this._y = 0;
                 this._z = 0;

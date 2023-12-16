@@ -104,7 +104,7 @@ export class Vector3 {
     divideScalar(scalar: number) {
         if (scalar === 0)
             console.warn(
-                `Dividing by zero in Vector3.divideScalar(), stack trace: ${getStackTraceAsString()}.`
+                `Dividing by zero in Vector3.divideScalar(), stack trace:\n${getStackTraceAsString()}.`
             );
         return this.multiplyScalar(1 / scalar);
     }
@@ -158,7 +158,7 @@ export class Vector3 {
         let length = this.length();
         if (length === 0) {
             console.warn(
-                `Attempting to normalize zero length Vector3, stack trace: ${getStackTraceAsString()}.`
+                `Attempting to normalize zero length Vector3, stack trace:\n${getStackTraceAsString()}.`
             );
             length = 1;
         }

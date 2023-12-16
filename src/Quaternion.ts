@@ -136,7 +136,7 @@ export class Quaternion {
 	normalize() {
 		let l = this.length();
 		if (l === 0) {
-			console.warn(`Attempting to normalize zero length Quaternion, stack trace: ${getStackTraceAsString()}.`);
+			console.warn(`Attempting to normalize zero length Quaternion, stack trace:\n${getStackTraceAsString()}.`);
 			this._x = 0;
 			this._y = 0;
 			this._z = 0;
