@@ -6,7 +6,7 @@ export function getStackTraceAsStringArray() {
         /* c8 ignore next 1 */
         const stackString = error.stack || '';
         const stack = stackString.split('\n').map((line) => line.trim());
-        stack.unshift(); // Remove first element (just points to this function).
+        stack.splice(0, 2); // Remove first two elements (just points to this function).
         return stack;
     }
 }
