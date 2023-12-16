@@ -2,6 +2,7 @@ import type { Matrix4Readonly } from './Matrix4';
 import type { QuaternionReadonly } from './Quaternion';
 import type { Vector3 as THREE_Vector3, Quaternion as THREE_Quaternion } from 'three';
 import { getStackTraceAsString } from './utils';
+import { NUMERICAL_TOLERANCE } from './constants';
 
 export type Vector3Readonly = {
     readonly x: number;
@@ -102,7 +103,7 @@ export class Vector3 {
      * @returns this
      */
     divideScalar(scalar: number) {
-        if (scalar === 0)
+        if (Math.abs(scalar) <= NUMERICAL_TOLERANCE())
             console.warn(
                 `Dividing by zero in Vector3.divideScalar(), stack trace:\n${getStackTraceAsString()}.`
             );
@@ -156,7 +157,7 @@ export class Vector3 {
      */
     normalize() {
         let length = this.length();
-        if (length === 0) {
+        if (length <= NUMERICAL_TOLERANCE()) {
             console.warn(
                 `Attempting to normalize zero length Vector3, stack trace:\n${getStackTraceAsString()}.`
             );
@@ -284,16 +285,21 @@ export class Vector3 {
     /**
      * Test if this Vector3 equals another Vector3.
      * @param vec - Vector3 to test equality with.
+     * @param tolerance - Defaults to 0.
      */
     equals(vec: Vector3Readonly | THREE_Vector3) {
-        return this.x === vec.x && this.y === vec.y && this.z === vec.z;
+        return (
+            Math.abs(this.x - vec.x) <= NUMERICAL_TOLERANCE() &&
+            Math.abs(this.y - vec.y) <= NUMERICAL_TOLERANCE() &&
+            Math.abs(this.z - vec.z) <= NUMERICAL_TOLERANCE()
+        );
     }
 
     /**
      * Test if this vector is the zero vector.
      */
     isZero() {
-        return this.x === 0 && this.y === 0 && this.z === 0;
+        return this.x <= NUMERICAL_TOLERANCE() && this.y <= NUMERICAL_TOLERANCE() && this.z <= NUMERICAL_TOLERANCE();
     }
 
     /**

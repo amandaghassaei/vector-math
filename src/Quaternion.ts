@@ -4,6 +4,7 @@ import type {
 	Vector3 as THREE_Vector3,
 } from 'three';
 import { getStackTraceAsString } from './utils';
+import { NUMERICAL_TOLERANCE } from './constants';
 
 export type QuaternionReadonly = {
 	readonly x: number;
@@ -135,7 +136,7 @@ export class Quaternion {
 	 */
 	normalize() {
 		let l = this.length();
-		if (l === 0) {
+		if (l <= NUMERICAL_TOLERANCE()) {
 			console.warn(`Attempting to normalize zero length Quaternion, stack trace:\n${getStackTraceAsString()}.`);
 			this._x = 0;
 			this._y = 0;

@@ -117,9 +117,9 @@ export class Matrix3 {
 			n11, n12, n13,
 			n21, n22, n23,
 		] = elements;
-		return Math.abs(n11 - 1) <= NUMERICAL_TOLERANCE && Math.abs(n22 - 1) <= NUMERICAL_TOLERANCE &&
-			Math.abs(n12) <= NUMERICAL_TOLERANCE && Math.abs(n13) <= NUMERICAL_TOLERANCE &&
-			Math.abs(n21) <= NUMERICAL_TOLERANCE && Math.abs(n23) <= NUMERICAL_TOLERANCE;
+		return Math.abs(n11 - 1) <= NUMERICAL_TOLERANCE() && Math.abs(n22 - 1) <= NUMERICAL_TOLERANCE() &&
+			Math.abs(n12) <= NUMERICAL_TOLERANCE() && Math.abs(n13) <= NUMERICAL_TOLERANCE() &&
+			Math.abs(n21) <= NUMERICAL_TOLERANCE() && Math.abs(n23) <= NUMERICAL_TOLERANCE();
 	}
 
 	// _setTranslation(translation: Vector3Readonly) {
@@ -127,7 +127,7 @@ export class Matrix3 {
 	// 		1, 0, translation.x,
 	// 		0, 1, translation.y,
 	// 	);
-	// 	this._isIdentity = translation.x === 0 && translation.y === 0;
+	// 	this._isIdentity = Math.abs(translation.x) <= NUMERICAL_TOLERANCE() && Math.abs(translation.y) <= NUMERICAL_TOLERANCE();
 	// 	return this;
 	// }
 
@@ -138,7 +138,7 @@ export class Matrix3 {
 	 * @returns this
 	 */
 	setFromRotationTranslation(angle: number, translation: Vector2Readonly | THREE_Vector2) {
-		if (angle === 0 && translation.x === 0 && translation.y === 0) {
+		if (Math.abs(angle) <= NUMERICAL_TOLERANCE() && Math.abs(translation.x) <= NUMERICAL_TOLERANCE() && Math.abs(translation.y) <= NUMERICAL_TOLERANCE()) {
 			return this.setIdentity();
 		}
 		// To do this we need to calculate R(angle) * T(position).
@@ -187,7 +187,7 @@ export class Matrix3 {
 		const elementsA = this.elements;
 		const elementsB = matrix.elements;
 		for (let i = 0, numElements = elementsA.length; i < numElements; i++) {
-			if (elementsA[i] !== elementsB[i]) return false;
+			if (Math.abs(elementsA[i] - elementsB[i]) > NUMERICAL_TOLERANCE()) return false;
 		}
 		return true;
 	}

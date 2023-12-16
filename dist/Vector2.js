@@ -1,4 +1,5 @@
 import { getStackTraceAsString } from './utils';
+import { NUMERICAL_TOLERANCE } from './constants';
 export class Vector2 {
     constructor(x, y) {
         this.x = x || 0;
@@ -61,7 +62,7 @@ export class Vector2 {
      * @returns this
      */
     divideScalar(scalar) {
-        if (scalar === 0)
+        if (Math.abs(scalar) <= NUMERICAL_TOLERANCE())
             console.warn(`Dividing by zero in Vector2.divideScalar(), stack trace:\n${getStackTraceAsString()}.`);
         return this.multiplyScalar(1 / scalar);
     }
@@ -105,7 +106,7 @@ export class Vector2 {
      */
     normalize() {
         let length = this.length();
-        if (length === 0) {
+        if (length <= NUMERICAL_TOLERANCE()) {
             console.warn(`Attempting to normalize zero length Vector2, stack trace:\n${getStackTraceAsString()}.`);
             length = 1;
         }
@@ -177,13 +178,13 @@ export class Vector2 {
      * @param vec - Vector2 to test equality with.
      */
     equals(vec) {
-        return this.x === vec.x && this.y === vec.y;
+        return Math.abs(this.x - vec.x) <= NUMERICAL_TOLERANCE() && Math.abs(this.y - vec.y) <= NUMERICAL_TOLERANCE();
     }
     /**
      * Test if this vector is the zero vector.
      */
     isZero() {
-        return this.x === 0 && this.y === 0;
+        return Math.abs(this.x) <= NUMERICAL_TOLERANCE() && Math.abs(this.y) <= NUMERICAL_TOLERANCE();
     }
     /**
      * Clone this Vector2 into a new Vector2.

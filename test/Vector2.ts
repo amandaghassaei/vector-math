@@ -3,6 +3,7 @@ import { Vector2 as THREE_Vector2 } from 'three';
 import { expect } from 'chai';
 import { checkWarnings, popLastWarning } from './test-utils/utils';
 import { Matrix3 } from '../src/Matrix3';
+import { DEFAULT_NUMERICAL_TOLERANCE } from '../src/constants';
 
 describe('Vector2', () => {
     afterEach(() => {
@@ -91,6 +92,10 @@ describe('Vector2', () => {
         expect(returnValue).to.equal(vector);
         // Handle divide by zero case.
         vector.divideScalar(0);
+        // Dividing by zero should throw a warning.
+        expect(popLastWarning()).to.contain('Dividing by zero in Vector2.divideScalar()');
+        // Should respect numerical tolerance.
+        vector.divideScalar(DEFAULT_NUMERICAL_TOLERANCE);
         // Dividing by zero should throw a warning.
         expect(popLastWarning()).to.contain('Dividing by zero in Vector2.divideScalar()');
         expect(vector.x).to.equal(-Infinity);

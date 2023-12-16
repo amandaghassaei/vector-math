@@ -1,4 +1,4 @@
-export * from './constants';
+export { DEFAULT_NUMERICAL_TOLERANCE, setNumericalTolerance } from './constants';
 export * from './Number';
 export * from './Vector2';
 export * from './Vector3';

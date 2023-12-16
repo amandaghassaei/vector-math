@@ -133,6 +133,7 @@ export declare class Vector3 {
     /**
      * Test if this Vector3 equals another Vector3.
      * @param vec - Vector3 to test equality with.
+     * @param tolerance - Defaults to 0.
      */
     equals(vec: Vector3Readonly | THREE_Vector3): boolean;
     /**

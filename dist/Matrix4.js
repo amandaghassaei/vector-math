@@ -49,10 +49,10 @@ export class Matrix4 {
     }
     static _checkElementsForIdentity(elements) {
         const [n11, n12, n13, n14, n21, n22, n23, n24, n31, n32, n33, n34] = elements;
-        return Math.abs(n11 - 1) <= NUMERICAL_TOLERANCE && Math.abs(n22 - 1) <= NUMERICAL_TOLERANCE && Math.abs(n33 - 1) <= NUMERICAL_TOLERANCE &&
-            Math.abs(n12) <= NUMERICAL_TOLERANCE && Math.abs(n13) <= NUMERICAL_TOLERANCE && Math.abs(n14) <= NUMERICAL_TOLERANCE &&
-            Math.abs(n21) <= NUMERICAL_TOLERANCE && Math.abs(n23) <= NUMERICAL_TOLERANCE && Math.abs(n24) <= NUMERICAL_TOLERANCE &&
-            Math.abs(n31) <= NUMERICAL_TOLERANCE && Math.abs(n32) <= NUMERICAL_TOLERANCE && Math.abs(n34) <= NUMERICAL_TOLERANCE;
+        return Math.abs(n11 - 1) <= NUMERICAL_TOLERANCE() && Math.abs(n22 - 1) <= NUMERICAL_TOLERANCE() && Math.abs(n33 - 1) <= NUMERICAL_TOLERANCE() &&
+            Math.abs(n12) <= NUMERICAL_TOLERANCE() && Math.abs(n13) <= NUMERICAL_TOLERANCE() && Math.abs(n14) <= NUMERICAL_TOLERANCE() &&
+            Math.abs(n21) <= NUMERICAL_TOLERANCE() && Math.abs(n23) <= NUMERICAL_TOLERANCE() && Math.abs(n24) <= NUMERICAL_TOLERANCE() &&
+            Math.abs(n31) <= NUMERICAL_TOLERANCE() && Math.abs(n32) <= NUMERICAL_TOLERANCE() && Math.abs(n34) <= NUMERICAL_TOLERANCE();
     }
     /**
      * Set values element-wise.
@@ -133,7 +133,7 @@ export class Matrix4 {
         return self;
     }
     setTranslation(translation) {
-        if (translation.x === 0 && translation.y === 0 && translation.z === 0)
+        if (Math.abs(translation.x) <= NUMERICAL_TOLERANCE() && Math.abs(translation.y) <= NUMERICAL_TOLERANCE() && Math.abs(translation.z) <= NUMERICAL_TOLERANCE())
             return this.setIdentity();
         this._set(1, 0, 0, translation.x, 0, 1, 0, translation.y, 0, 0, 1, translation.z);
         this._isIdentity = false;
@@ -147,7 +147,7 @@ export class Matrix4 {
      * @returns this
      */
     setRotationAxisAngleAtOffset(axis, angle, offset) {
-        if (angle === 0) {
+        if (Math.abs(angle) <= NUMERICAL_TOLERANCE()) {
             return this.setIdentity();
         }
         const cosAngle = Math.cos(angle);
@@ -155,12 +155,27 @@ export class Matrix4 {
         return this._setRotationAxisCosSin(cosAngle, sinAngle, axis, offset);
     }
     setRotationFromVectorToVector(fromVector, toVector, offset) {
+        // Check for no rotation.
         if (fromVector.equals(toVector)) {
             return this.setIdentity();
         }
         const axis = tempVector3.copy(fromVector).cross(toVector);
-        const sinAngle = axis.length();
-        axis.divideScalar(sinAngle); // Normalize axis.
+        let sinAngle = axis.length();
+        if (sinAngle <= NUMERICAL_TOLERANCE()) {
+            sinAngle = 0;
+            // Vectors are perfectly opposite, chose any axis orthogonal to fromVector.
+            axis.set(fromVector.y, -fromVector.x, 0);
+            let axisLength = axis.length();
+            /* c8 ignore next 4 */
+            if (axisLength <= NUMERICAL_TOLERANCE()) { // Just in case.
+                axis.set(-fromVector.z, 0, fromVector.x);
+                axisLength = axis.length();
+            }
+            axis.divideScalar(axisLength); // Normalize axis.
+        }
+        else {
+            axis.divideScalar(sinAngle); // Normalize axis.
+        }
         const cosAngle = fromVector.dot(toVector);
         return this._setRotationAxisCosSin(cosAngle, sinAngle, axis, offset);
     }
@@ -247,7 +262,7 @@ export class Matrix4 {
         const elementsA = this.elements;
         const elementsB = matrix.elements;
         for (let i = 0, numElements = elementsA.length; i < numElements; i++) {
-            if (elementsA[i] !== elementsB[i])
+            if (Math.abs(elementsA[i] - elementsB[i]) > NUMERICAL_TOLERANCE())
                 return false;
         }
         return true;

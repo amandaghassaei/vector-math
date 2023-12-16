@@ -1,6 +1,12 @@
 import { Vector2 as Vector2$1, Vector3 as Vector3$1, Quaternion as Quaternion$1 } from 'three';
 
-declare const NUMERICAL_TOLERANCE = 1e-15;
+declare const DEFAULT_NUMERICAL_TOLERANCE = 1e-15;
+/**
+ * Set global numerical tolerance for all mathematical operations and equality checks.
+ * Default numerical tolerance is 1e-15.
+ * @param tolerance - Numerical tolerance to set.
+ */
+declare function setNumericalTolerance(tolerance: number): void;
 
 declare function clampValue(value: number, min: number, max: number): number;
 declare function radiansToDegrees(value: number): number;
@@ -550,6 +556,7 @@ declare class Vector3 {
     /**
      * Test if this Vector3 equals another Vector3.
      * @param vec - Vector3 to test equality with.
+     * @param tolerance - Defaults to 0.
      */
     equals(vec: Vector3Readonly | Vector3$1): boolean;
     /**
@@ -566,4 +573,4 @@ declare class Vector3 {
     toArray(): [number, number, number];
 }
 
-export { Matrix3, Matrix3Readonly, Matrix4, Matrix4Readonly, NUMERICAL_TOLERANCE, Quaternion, QuaternionReadonly, Vector2, Vector2Readonly, Vector3, Vector3Readonly, clampValue, degreesToRadians, radiansToDegrees, roundValueToIncrement };
+export { DEFAULT_NUMERICAL_TOLERANCE, Matrix3, Matrix3Readonly, Matrix4, Matrix4Readonly, Quaternion, QuaternionReadonly, Vector2, Vector2Readonly, Vector3, Vector3Readonly, clampValue, degreesToRadians, radiansToDegrees, roundValueToIncrement, setNumericalTolerance };

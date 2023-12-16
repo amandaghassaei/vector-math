@@ -1,4 +1,5 @@
 import { getStackTraceAsString } from './utils';
+import { NUMERICAL_TOLERANCE } from './constants';
 export class Quaternion {
     constructor(x, y, z, w) {
         this._x = x || 0;
@@ -93,7 +94,7 @@ export class Quaternion {
      */
     normalize() {
         let l = this.length();
-        if (l === 0) {
+        if (l <= NUMERICAL_TOLERANCE()) {
             console.warn(`Attempting to normalize zero length Quaternion, stack trace:\n${getStackTraceAsString()}.`);
             this._x = 0;
             this._y = 0;

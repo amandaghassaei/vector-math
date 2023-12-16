@@ -1,4 +1,5 @@
 import { getStackTraceAsString } from './utils';
+import { NUMERICAL_TOLERANCE } from './constants';
 export class Vector3 {
     constructor(x, y, z) {
         this.x = x || 0;
@@ -68,7 +69,7 @@ export class Vector3 {
      * @returns this
      */
     divideScalar(scalar) {
-        if (scalar === 0)
+        if (Math.abs(scalar) <= NUMERICAL_TOLERANCE())
             console.warn(`Dividing by zero in Vector3.divideScalar(), stack trace:\n${getStackTraceAsString()}.`);
         return this.multiplyScalar(1 / scalar);
     }
@@ -109,7 +110,7 @@ export class Vector3 {
      */
     normalize() {
         let length = this.length();
-        if (length === 0) {
+        if (length <= NUMERICAL_TOLERANCE()) {
             console.warn(`Attempting to normalize zero length Vector3, stack trace:\n${getStackTraceAsString()}.`);
             length = 1;
         }
@@ -219,15 +220,18 @@ export class Vector3 {
     /**
      * Test if this Vector3 equals another Vector3.
      * @param vec - Vector3 to test equality with.
+     * @param tolerance - Defaults to 0.
      */
     equals(vec) {
-        return this.x === vec.x && this.y === vec.y && this.z === vec.z;
+        return (Math.abs(this.x - vec.x) <= NUMERICAL_TOLERANCE() &&
+            Math.abs(this.y - vec.y) <= NUMERICAL_TOLERANCE() &&
+            Math.abs(this.z - vec.z) <= NUMERICAL_TOLERANCE());
     }
     /**
      * Test if this vector is the zero vector.
      */
     isZero() {
-        return this.x === 0 && this.y === 0 && this.z === 0;
+        return this.x <= NUMERICAL_TOLERANCE() && this.y <= NUMERICAL_TOLERANCE() && this.z <= NUMERICAL_TOLERANCE();
     }
     /**
      * Clone this Vector3 into a new Vector3.

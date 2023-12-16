@@ -26,10 +26,11 @@
 - [radiansToDegrees](README.md#radianstodegrees)
 - [degreesToRadians](README.md#degreestoradians)
 - [roundValueToIncrement](README.md#roundvaluetoincrement)
+- [setNumericalTolerance](README.md#setnumericaltolerance)
 
 ### Variables
 
-- [NUMERICAL\_TOLERANCE](README.md#numerical_tolerance)
+- [DEFAULT\_NUMERICAL\_TOLERANCE](README.md#default_numerical_tolerance)
 
 ## Type Aliases
 
@@ -189,8 +190,27 @@ ___
 
 `number`
 
+___
+
+### setNumericalTolerance
+
+▸ **setNumericalTolerance**(`tolerance`): `void`
+
+Set global numerical tolerance for all mathematical operations and equality checks.
+Default numerical tolerance is 1e-15.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `tolerance` | `number` | Numerical tolerance to set. |
+
+#### Returns
+
+`void`
+
 ## Variables
 
-### NUMERICAL\_TOLERANCE
+### DEFAULT\_NUMERICAL\_TOLERANCE
 
-• `Const` **NUMERICAL\_TOLERANCE**: ``1e-15``
+• `Const` **DEFAULT\_NUMERICAL\_TOLERANCE**: ``1e-15``

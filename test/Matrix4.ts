@@ -4,7 +4,6 @@ import chaiAlmost from 'chai-almost';
 import { Vector3 } from '../src/Vector3';
 import { checkWarnings } from './test-utils/utils';
 import { Vector3 as THREE_Vector3 } from 'three';
-import { tempVector3 } from '../src/common';
 
 use(chaiAlmost());
 
@@ -250,6 +249,14 @@ describe('Matrix4', () => {
 		matrix1.setRotationFromVectorToVector(new Vector3(1, 4.5, 2).normalize(), new Vector3(1, 4.5, 2).normalize());
 		expect(matrix1.elements).to.deep.equal(identity);
 		expect(matrix1.isIdentity).to.deep.equal(true);
+        // Returns 180 degree rotation from opposite vectors.
+        matrix1.setRotationFromVectorToVector(new Vector3(1, 4.5, 2).normalize(), new Vector3(-1, -4.5, -2).normalize());
+        expect(matrix1.elements).to.deep.almost.equal([
+            0.9058823529411764, -0.4235294117647059, 0, 0,
+            -0.4235294117647059, -0.9058823529411765, 0, 0,
+            0, 0, -1, 0,
+        ]);
+        expect(new Vector3(1, 4.5, 2).normalize().applyMatrix4(matrix1)).to.deep.almost.equal(new Vector3(-1, -4.5, -2).normalize());
 		// Calcs correct value for non-zero angle.
 		matrix1.setRotationFromVectorToVector(new Vector3(1, 4.5, 2).normalize(), new Vector3(4.5, -3, 2));
 		const solution1 = [

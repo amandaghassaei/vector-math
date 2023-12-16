@@ -2,7 +2,6 @@ import { Quaternion } from '../src/Quaternion';
 import { expect } from 'chai';
 import { checkWarnings, popLastWarning } from './test-utils/utils';
 import { Vector3 } from '../src/Vector3';
-import { NUMERICAL_TOLERANCE } from '../src/constants';
 import {
 	Quaternion as THREE_Quaternion,
 	Vector3 as THREE_Vector3,
@@ -88,13 +87,13 @@ describe('Quaternion', () => {
 		const yAxis = new Vector3(0, 1, 0);
 		const zAxis = new Vector3(0, 0, 1);
 		const q1 = new Quaternion().setFromUnitVectors(xAxis, yAxis);
-		expect(xAxis.clone().applyQuaternion(q1).sub(yAxis).length()).to.almost(0, NUMERICAL_TOLERANCE);
+		expect(xAxis.clone().applyQuaternion(q1).sub(yAxis).length()).to.almost(0);
 		const q2 = new Quaternion().setFromUnitVectors(yAxis, zAxis);
-		expect(xAxis.clone().applyQuaternion(q2).sub(xAxis).length()).to.almost(0, NUMERICAL_TOLERANCE);
+		expect(xAxis.clone().applyQuaternion(q2).sub(xAxis).length()).to.almost(0);
 		const q3 = new Quaternion().copy(q2).multiply(q1);
-		expect(xAxis.clone().applyQuaternion(q3).sub(zAxis).length()).to.almost(0, NUMERICAL_TOLERANCE);
+		expect(xAxis.clone().applyQuaternion(q3).sub(zAxis).length()).to.almost(0);
 		const q4 = new Quaternion().copy(q1).premultiply(q2);
-		expect(xAxis.clone().applyQuaternion(q4).sub(zAxis).length()).to.almost(0, NUMERICAL_TOLERANCE);
+		expect(xAxis.clone().applyQuaternion(q4).sub(zAxis).length()).to.almost(0);
 		// Expect multiplication with unit quaternion to do nothing.
 		const quat1 = new Quaternion(-43, 56, 24, 2.3).normalize();
 		expect(quat1.clone().multiply(new Quaternion())).to.deep.equal(quat1);

@@ -7,6 +7,7 @@ import {
 	Vector3 as THREE_Vector3,
 	Quaternion as THREE_Quaternion,
 } from 'three';
+import { DEFAULT_NUMERICAL_TOLERANCE } from '../src/constants';
 
 describe('Vector3', () => {
 	afterEach(() => {
@@ -112,6 +113,10 @@ describe('Vector3', () => {
 		// Handle divide by zero case.
 		vector.divideScalar(0);
 		// Dividing by zero should throw a warning.
+		expect(popLastWarning()).to.contain('Dividing by zero in Vector3.divideScalar()');
+        // Should respect numerical tolerance.
+        vector.divideScalar(DEFAULT_NUMERICAL_TOLERANCE);
+        // Dividing by zero should throw a warning.
 		expect(popLastWarning()).to.contain('Dividing by zero in Vector3.divideScalar()');
 		expect(vector.x).to.equal(-Infinity);
 		expect(vector.y).to.equal(-Infinity);
