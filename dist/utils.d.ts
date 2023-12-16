@@ -1,1 +1,1 @@
-export declare function getStackTraceAsStringArray(): string[];
+export declare function getStackTraceAsString(): string;

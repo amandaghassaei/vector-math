@@ -1,4 +1,4 @@
-export function getStackTraceAsStringArray() {
+export function getStackTraceAsString() {
     try {
         throw new Error('');
     }
@@ -7,7 +7,7 @@ export function getStackTraceAsStringArray() {
         const stackString = error.stack || '';
         const stack = stackString.split('\n').map((line) => line.trim());
         stack.splice(0, 2); // Remove first two elements (just points to this function).
-        return stack;
+        return stack.join('\n');
     }
 }
 //# sourceMappingURL=utils.js.map

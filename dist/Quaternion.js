@@ -1,4 +1,4 @@
-import { getStackTraceAsStringArray } from './utils';
+import { getStackTraceAsString } from './utils';
 export class Quaternion {
     constructor(x, y, z, w) {
         this._x = x || 0;
@@ -94,7 +94,7 @@ export class Quaternion {
     normalize() {
         let l = this.length();
         if (l === 0) {
-            console.warn(`Attempting to normalize zero length Quaternion, stack trace: ${JSON.stringify(getStackTraceAsStringArray())}.`);
+            console.warn(`Attempting to normalize zero length Quaternion, stack trace: ${getStackTraceAsString()}.`);
             this._x = 0;
             this._y = 0;
             this._z = 0;

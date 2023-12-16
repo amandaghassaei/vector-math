@@ -27,7 +27,7 @@
         return parseFloat(rounded.toFixed(decimals));
     }
 
-    function getStackTraceAsStringArray() {
+    function getStackTraceAsString() {
         try {
             throw new Error('');
         }
@@ -36,7 +36,7 @@
             const stackString = error.stack || '';
             const stack = stackString.split('\n').map((line) => line.trim());
             stack.splice(0, 2); // Remove first two elements (just points to this function).
-            return stack;
+            return stack.join('\n');
         }
     }
 
@@ -103,7 +103,7 @@
          */
         divideScalar(scalar) {
             if (scalar === 0)
-                console.warn(`Dividing by zero in Vector2.divideScalar(), stack trace: ${JSON.stringify(getStackTraceAsStringArray())}.`);
+                console.warn(`Dividing by zero in Vector2.divideScalar(), stack trace: ${getStackTraceAsString()}.`);
             return this.multiplyScalar(1 / scalar);
         }
         /**
@@ -147,7 +147,7 @@
         normalize() {
             let length = this.length();
             if (length === 0) {
-                console.warn(`Attempting to normalize zero length Vector2, stack trace: ${JSON.stringify(getStackTraceAsStringArray())}.`);
+                console.warn(`Attempting to normalize zero length Vector2, stack trace: ${getStackTraceAsString()}.`);
                 length = 1;
             }
             this.divideScalar(length);
@@ -310,7 +310,7 @@
          */
         divideScalar(scalar) {
             if (scalar === 0)
-                console.warn(`Dividing by zero in Vector3.divideScalar(), stack trace: ${JSON.stringify(getStackTraceAsStringArray())}.`);
+                console.warn(`Dividing by zero in Vector3.divideScalar(), stack trace: ${getStackTraceAsString()}.`);
             return this.multiplyScalar(1 / scalar);
         }
         /**
@@ -351,7 +351,7 @@
         normalize() {
             let length = this.length();
             if (length === 0) {
-                console.warn(`Attempting to normalize zero length Vector3, stack trace: ${JSON.stringify(getStackTraceAsStringArray())}.`);
+                console.warn(`Attempting to normalize zero length Vector3, stack trace: ${getStackTraceAsString()}.`);
                 length = 1;
             }
             this.divideScalar(length);
@@ -1012,7 +1012,7 @@
         normalize() {
             let l = this.length();
             if (l === 0) {
-                console.warn(`Attempting to normalize zero length Quaternion, stack trace: ${JSON.stringify(getStackTraceAsStringArray())}.`);
+                console.warn(`Attempting to normalize zero length Quaternion, stack trace: ${getStackTraceAsString()}.`);
                 this._x = 0;
                 this._y = 0;
                 this._z = 0;

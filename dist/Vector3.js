@@ -1,4 +1,4 @@
-import { getStackTraceAsStringArray } from './utils';
+import { getStackTraceAsString } from './utils';
 export class Vector3 {
     constructor(x, y, z) {
         this.x = x || 0;
@@ -69,7 +69,7 @@ export class Vector3 {
      */
     divideScalar(scalar) {
         if (scalar === 0)
-            console.warn(`Dividing by zero in Vector3.divideScalar(), stack trace: ${JSON.stringify(getStackTraceAsStringArray())}.`);
+            console.warn(`Dividing by zero in Vector3.divideScalar(), stack trace: ${getStackTraceAsString()}.`);
         return this.multiplyScalar(1 / scalar);
     }
     /**
@@ -110,7 +110,7 @@ export class Vector3 {
     normalize() {
         let length = this.length();
         if (length === 0) {
-            console.warn(`Attempting to normalize zero length Vector3, stack trace: ${JSON.stringify(getStackTraceAsStringArray())}.`);
+            console.warn(`Attempting to normalize zero length Vector3, stack trace: ${getStackTraceAsString()}.`);
             length = 1;
         }
         this.divideScalar(length);
