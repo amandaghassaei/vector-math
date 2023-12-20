@@ -268,6 +268,12 @@ describe('Vector3', () => {
 		expect(new Vector3(0, 1, 0).angleTo(new Vector3(1, 0, 0))).to.almost.equal(Math.PI / 2);
 		expect(new Vector3(4, 2, 6.8).angleTo(new Vector3(-3, 5, 0.3))).to.almost.equal(1.5699545704859283);
 	});
+    it('angleToNormalized() - calculates the angle between two normalized Vector3s', () => {
+		expect(new Vector3(1, 0, 0).angleToNormalized(new Vector3(1, 0, 0))).to.almost.equal(0);
+		expect(new Vector3(1, 0, 0).angleToNormalized(new Vector3(-1, 0, 0))).to.almost.equal(Math.PI);
+		expect(new Vector3(0, 1, 0).angleToNormalized(new Vector3(1, 0, 0))).to.almost.equal(Math.PI / 2);
+		expect(new Vector3(4, 2, 6.8).normalize().angleToNormalized(new Vector3(-3, 5, 0.3).normalize())).to.almost.equal(1.5699545704859283);
+	});
 	it('copy() - copies a Vector3', () => {
 		const vector1 = new Vector3(5.4, 0.5, 3.4);
 		const vector2 = new Vector3();

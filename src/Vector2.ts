@@ -212,6 +212,14 @@ export class Vector2 {
     }
 
     /**
+     * Calculate the angle between this (normalized) Vector2 and another (normalized) Vector2.
+     */
+    angleToNormalized(vector: Vector2Readonly | THREE_Vector2) {
+        const theta = this.dot(vector);
+        return Math.acos(Math.min(Math.max(theta, -1), 1));
+    }
+
+    /**
      * Copy the contents of a Vector2 to this Vector2.
      * @param vec - Vector2 to copy.
      * @returns this

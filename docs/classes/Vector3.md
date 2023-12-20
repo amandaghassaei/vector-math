@@ -34,6 +34,7 @@
 - [average](Vector3.md#average)
 - [invert](Vector3.md#invert)
 - [angleTo](Vector3.md#angleto)
+- [angleToNormalized](Vector3.md#angletonormalized)
 - [copy](Vector3.md#copy)
 - [equals](Vector3.md#equals)
 - [isZero](Vector3.md#iszero)
@@ -390,6 +391,24 @@ ___
 ▸ **angleTo**(`vector`): `number`
 
 Calculate the angle between this Vector3 and another Vector3.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) |
+
+#### Returns
+
+`number`
+
+___
+
+### angleToNormalized
+
+▸ **angleToNormalized**(`vector`): `number`
+
+Calculate the angle between this (normalized) Vector3 and another (normalized) Vector3.
 
 #### Parameters
 

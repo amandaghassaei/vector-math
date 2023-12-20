@@ -32,6 +32,7 @@
 - [average](Vector2.md#average)
 - [invert](Vector2.md#invert)
 - [angleTo](Vector2.md#angleto)
+- [angleToNormalized](Vector2.md#angletonormalized)
 - [copy](Vector2.md#copy)
 - [equals](Vector2.md#equals)
 - [isZero](Vector2.md#iszero)
@@ -352,6 +353,24 @@ ___
 ▸ **angleTo**(`vector`): `number`
 
 Calculate the angle between this Vector2 and another Vector2.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `vector` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) |
+
+#### Returns
+
+`number`
+
+___
+
+### angleToNormalized
+
+▸ **angleToNormalized**(`vector`): `number`
+
+Calculate the angle between this (normalized) Vector2 and another (normalized) Vector2.
 
 #### Parameters
 

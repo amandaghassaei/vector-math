@@ -115,6 +115,10 @@ export declare class Vector2 {
      */
     angleTo(vector: Vector2Readonly | THREE_Vector2): number;
     /**
+     * Calculate the angle between this (normalized) Vector2 and another (normalized) Vector2.
+     */
+    angleToNormalized(vector: Vector2Readonly | THREE_Vector2): number;
+    /**
      * Copy the contents of a Vector2 to this Vector2.
      * @param vec - Vector2 to copy.
      * @returns this
