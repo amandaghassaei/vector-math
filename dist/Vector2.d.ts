@@ -84,6 +84,16 @@ export declare class Vector2 {
      */
     length(): number;
     /**
+     * Returns the distance between this Vector2 and another Vector2.
+     * @param vec - Vector2 to measure distance to.
+     */
+    distanceTo(vec: Vector2Readonly | THREE_Vector2): number;
+    /**
+     * Returns the squared distance between this Vector2 and another Vector2.
+     * @param vec - Vector2 to measure distance to.
+     */
+    distanceToSquared(vec: Vector2Readonly | THREE_Vector2): number;
+    /**
      * Normalize the length of this Vector2.
      */
     normalize(): this;

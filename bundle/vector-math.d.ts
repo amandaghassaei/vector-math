@@ -166,6 +166,16 @@ declare class Vector2 {
      */
     length(): number;
     /**
+     * Returns the distance between this Vector2 and another Vector2.
+     * @param vec - Vector2 to measure distance to.
+     */
+    distanceTo(vec: Vector2Readonly | Vector2$1): number;
+    /**
+     * Returns the squared distance between this Vector2 and another Vector2.
+     * @param vec - Vector2 to measure distance to.
+     */
+    distanceToSquared(vec: Vector2Readonly | Vector2$1): number;
+    /**
      * Normalize the length of this Vector2.
      */
     normalize(): this;
@@ -507,6 +517,16 @@ declare class Vector3 {
      * Returns the length of the Vector3.
      */
     length(): number;
+    /**
+     * Returns the distance between this Vector3 and another Vector3.
+     * @param vec - Vector3 to measure distance to.
+     */
+    distanceTo(vec: Vector3Readonly | Vector3$1): number;
+    /**
+     * Returns the squared distance between this Vector3 and another Vector3.
+     * @param vec - Vector3 to measure distance to.
+     */
+    distanceToSquared(vec: Vector3Readonly | Vector3$1): number;
     /**
      * Normalize the length of this Vector3.
      */

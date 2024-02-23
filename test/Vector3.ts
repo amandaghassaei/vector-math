@@ -154,6 +154,18 @@ describe('Vector3', () => {
 		expect(new Vector3(-43, 56, 24).length()).to.equal(74.57211275000863);
 		expect(new Vector3().length()).to.equal(0);
 	});
+    it('distanceTo() - calculates the distance to another Vector3', () => {
+        expect(new Vector3(1, 0, 0).distanceTo(new Vector3(1, 0, 0))).to.equal(0);
+        expect(new Vector3(1, 0, 0).distanceTo(new Vector3(-1, 0, 0))).to.equal(2);
+        expect(new Vector3(0, 1, 0).distanceTo(new Vector3(1, 0, 0))).to.almost.equal(1.4142135623730951);
+        expect(new Vector3(4, 2, 6.8).distanceTo(new Vector3(-3, 5, 0.3))).to.almost.equal(10.0124921973);
+    });
+    it('distanceToSquared() - calculates the squared distance to another Vector3', () => {
+        expect(new Vector3(1, 0, 0).distanceToSquared(new Vector3(1, 0, 0))).to.equal(0);
+        expect(new Vector3(1, 0, 0).distanceToSquared(new Vector3(-1, 0, 0))).to.equal(4);
+        expect(new Vector3(0, 1, 0).distanceToSquared(new Vector3(1, 0, 0))).to.equal(2);
+        expect(new Vector3(4, 2, 6.8).distanceToSquared(new Vector3(-3, 5, 0.3))).to.equal(100.25);
+    });
 	it('normalize() - normalizes the length of a Vector3', () => {
 		expect(new Vector3(1, 0, 0).length()).to.equal(1);
 		expect(new Vector3(1, 0, 0).normalize().length()).to.equal(1);

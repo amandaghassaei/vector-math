@@ -102,6 +102,22 @@ export class Vector2 {
         return Math.sqrt(this.lengthSq());
     }
     /**
+     * Returns the distance between this Vector2 and another Vector2.
+     * @param vec - Vector2 to measure distance to.
+     */
+    distanceTo(vec) {
+        return Math.sqrt(this.distanceToSquared(vec));
+    }
+    /**
+     * Returns the squared distance between this Vector2 and another Vector2.
+     * @param vec - Vector2 to measure distance to.
+     */
+    distanceToSquared(vec) {
+        const dx = this.x - vec.x;
+        const dy = this.y - vec.y;
+        return dx * dx + dy * dy;
+    }
+    /**
      * Normalize the length of this Vector2.
      */
     normalize() {
