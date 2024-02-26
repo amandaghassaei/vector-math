@@ -26,8 +26,8 @@
 - [angle](Vector2.md#angle)
 - [lengthSq](Vector2.md#lengthsq)
 - [length](Vector2.md#length)
-- [distanceTo](Vector2.md#distanceto)
 - [distanceToSquared](Vector2.md#distancetosquared)
+- [distanceTo](Vector2.md#distanceto)
 - [normalize](Vector2.md#normalize)
 - [applyMatrix3](Vector2.md#applymatrix3)
 - [lerp](Vector2.md#lerp)
@@ -265,11 +265,11 @@ Returns the length of the Vector2.
 
 ___
 
-### distanceTo
+### distanceToSquared
 
-▸ **distanceTo**(`vec`): `number`
+▸ **distanceToSquared**(`vec`): `number`
 
-Returns the distance between this Vector2 and another Vector2.
+Returns the squared distance between this Vector2 and another Vector2.
 
 #### Parameters
 
@@ -283,11 +283,11 @@ Returns the distance between this Vector2 and another Vector2.
 
 ___
 
-### distanceToSquared
+### distanceTo
 
-▸ **distanceToSquared**(`vec`): `number`
+▸ **distanceTo**(`vec`): `number`
 
-Returns the squared distance between this Vector2 and another Vector2.
+Returns the distance between this Vector2 and another Vector2.
 
 #### Parameters
 

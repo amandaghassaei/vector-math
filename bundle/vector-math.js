@@ -154,13 +154,6 @@
             return Math.sqrt(this.lengthSq());
         }
         /**
-         * Returns the distance between this Vector2 and another Vector2.
-         * @param vec - Vector2 to measure distance to.
-         */
-        distanceTo(vec) {
-            return Math.sqrt(this.distanceToSquared(vec));
-        }
-        /**
          * Returns the squared distance between this Vector2 and another Vector2.
          * @param vec - Vector2 to measure distance to.
          */
@@ -168,6 +161,13 @@
             const dx = this.x - vec.x;
             const dy = this.y - vec.y;
             return dx * dx + dy * dy;
+        }
+        /**
+         * Returns the distance between this Vector2 and another Vector2.
+         * @param vec - Vector2 to measure distance to.
+         */
+        distanceTo(vec) {
+            return Math.sqrt(this.distanceToSquared(vec));
         }
         /**
          * Normalize the length of this Vector2.
@@ -381,21 +381,21 @@
             return Math.sqrt(this.lengthSq());
         }
         /**
-         * Returns the distance between this Vector3 and another Vector3.
-         * @param vec - Vector3 to measure distance to.
-         */
-        distanceTo(vec) {
-            return Math.sqrt(this.distanceToSquared(vec));
-        }
-        /**
-         * Returns the squared distance between this Vector3 and another Vector3.
-         * @param vec - Vector3 to measure distance to.
-         */
+        * Returns the squared distance between this Vector3 and another Vector3.
+        * @param vec - Vector3 to measure distance to.
+        */
         distanceToSquared(vec) {
             const dx = this.x - vec.x;
             const dy = this.y - vec.y;
             const dz = this.z - vec.z;
             return dx * dx + dy * dy + dz * dz;
+        }
+        /**
+         * Returns the distance between this Vector3 and another Vector3.
+         * @param vec - Vector3 to measure distance to.
+         */
+        distanceTo(vec) {
+            return Math.sqrt(this.distanceToSquared(vec));
         }
         /**
          * Normalize the length of this Vector3.

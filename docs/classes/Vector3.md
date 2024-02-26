@@ -26,8 +26,8 @@
 - [cross](Vector3.md#cross)
 - [lengthSq](Vector3.md#lengthsq)
 - [length](Vector3.md#length)
-- [distanceTo](Vector3.md#distanceto)
 - [distanceToSquared](Vector3.md#distancetosquared)
+- [distanceTo](Vector3.md#distanceto)
 - [normalize](Vector3.md#normalize)
 - [applyMatrix4](Vector3.md#applymatrix4)
 - [applyMatrix4RotationComponent](Vector3.md#applymatrix4rotationcomponent)
@@ -261,11 +261,11 @@ Returns the length of the Vector3.
 
 ___
 
-### distanceTo
+### distanceToSquared
 
-▸ **distanceTo**(`vec`): `number`
+▸ **distanceToSquared**(`vec`): `number`
 
-Returns the distance between this Vector3 and another Vector3.
+Returns the squared distance between this Vector3 and another Vector3.
 
 #### Parameters
 
@@ -279,11 +279,11 @@ Returns the distance between this Vector3 and another Vector3.
 
 ___
 
-### distanceToSquared
+### distanceTo
 
-▸ **distanceToSquared**(`vec`): `number`
+▸ **distanceTo**(`vec`): `number`
 
-Returns the squared distance between this Vector3 and another Vector3.
+Returns the distance between this Vector3 and another Vector3.
 
 #### Parameters
 

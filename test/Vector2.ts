@@ -146,17 +146,17 @@ describe('Vector2', () => {
         expect(new Vector2(-43, 56).length()).to.equal(70.60453243241541);
         expect(new Vector2().length()).to.equal(0);
     });
-    it('distanceTo() - calculates the distance between two Vector2s', () => {
-        expect(new Vector2(1, 0).distanceTo(new Vector2(1, 0))).to.equal(0);
-        expect(new Vector2(1, 0).distanceTo(new Vector2(-1, 0))).to.equal(2);
-        expect(new Vector2(0, 1).distanceTo(new Vector2(1, 0))).to.almost.equal(1.4142135623730951);
-        expect(new Vector2(4, 2).distanceTo(new Vector2(-3, 5))).to.almost.equal(7.61577310586);
-    });
     it('distanceToSquared() - calculates the squared distance between two Vector2s', () => {
         expect(new Vector2(1, 0).distanceToSquared(new Vector2(1, 0))).to.equal(0);
         expect(new Vector2(1, 0).distanceToSquared(new Vector2(-1, 0))).to.equal(4);
         expect(new Vector2(0, 1).distanceToSquared(new Vector2(1, 0))).to.equal(2);
         expect(new Vector2(4, 2).distanceToSquared(new Vector2(-3, 5))).to.equal(58);
+    });
+    it('distanceTo() - calculates the distance between two Vector2s', () => {
+        expect(new Vector2(1, 0).distanceTo(new Vector2(1, 0))).to.equal(0);
+        expect(new Vector2(1, 0).distanceTo(new Vector2(-1, 0))).to.equal(2);
+        expect(new Vector2(0, 1).distanceTo(new Vector2(1, 0))).to.almost.equal(1.4142135623730951);
+        expect(new Vector2(4, 2).distanceTo(new Vector2(-3, 5))).to.almost.equal(7.61577310586);
     });
     it('normalize() - normalizes the length of a Vector2', () => {
         expect(new Vector2(1, 0).length()).to.equal(1);

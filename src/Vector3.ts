@@ -11,6 +11,8 @@ export type Vector3Readonly = {
     dot: (vec: Vector3Readonly | THREE_Vector3) => number;
     lengthSq: () => number;
     length: () => number;
+    distanceToSquared: (vec: Vector3Readonly | THREE_Vector3) => number;
+    distanceTo: (vec: Vector3Readonly | THREE_Vector3) => number;
     equals: (vec: Vector3Readonly | THREE_Vector3) => boolean;
     isZero: () => boolean;
     clone: () => Vector3;
@@ -152,23 +154,23 @@ export class Vector3 {
         return Math.sqrt(this.lengthSq());
     }
 
+     /**
+     * Returns the squared distance between this Vector3 and another Vector3.
+     * @param vec - Vector3 to measure distance to.
+     */
+     distanceToSquared(vec: Vector3Readonly | THREE_Vector3) {
+        const dx = this.x - vec.x;
+        const dy = this.y - vec.y;
+        const dz = this.z - vec.z;
+        return dx * dx + dy * dy + dz * dz;
+    }
+
     /**
      * Returns the distance between this Vector3 and another Vector3.
      * @param vec - Vector3 to measure distance to.
      */
     distanceTo(vec: Vector3Readonly | THREE_Vector3) {
         return Math.sqrt(this.distanceToSquared(vec));
-    }
-
-    /**
-     * Returns the squared distance between this Vector3 and another Vector3.
-     * @param vec - Vector3 to measure distance to.
-     */
-    distanceToSquared(vec: Vector3Readonly | THREE_Vector3) {
-        const dx = this.x - vec.x;
-        const dy = this.y - vec.y;
-        const dz = this.z - vec.z;
-        return dx * dx + dy * dy + dz * dz;
     }
 
     /**

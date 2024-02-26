@@ -97,6 +97,8 @@ ___
 | `angle` | () => `number` |
 | `lengthSq` | () => `number` |
 | `length` | () => `number` |
+| `distanceToSquared` | (`vec`: [`Vector2Readonly`](README.md#vector2readonly) \| `THREE_Vector2`) => `number` |
+| `distanceTo` | (`vec`: [`Vector2Readonly`](README.md#vector2readonly) \| `THREE_Vector2`) => `number` |
 | `equals` | (`vec`: [`Vector2Readonly`](README.md#vector2readonly) \| `THREE_Vector2`) => `boolean` |
 | `isZero` | () => `boolean` |
 | `clone` | () => [`Vector2`](classes/Vector2.md) |
@@ -118,6 +120,8 @@ ___
 | `dot` | (`vec`: [`Vector3Readonly`](README.md#vector3readonly) \| `THREE_Vector3`) => `number` |
 | `lengthSq` | () => `number` |
 | `length` | () => `number` |
+| `distanceToSquared` | (`vec`: [`Vector3Readonly`](README.md#vector3readonly) \| `THREE_Vector3`) => `number` |
+| `distanceTo` | (`vec`: [`Vector3Readonly`](README.md#vector3readonly) \| `THREE_Vector3`) => `number` |
 | `equals` | (`vec`: [`Vector3Readonly`](README.md#vector3readonly) \| `THREE_Vector3`) => `boolean` |
 | `isZero` | () => `boolean` |
 | `clone` | () => [`Vector3`](classes/Vector3.md) |
