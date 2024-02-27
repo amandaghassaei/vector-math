@@ -228,7 +228,7 @@
          * Calculate the angle between this Vector2 and another Vector2.
          */
         angleTo(vector) {
-            const theta = this.dot(vector) / (this.length() * vector.length());
+            const theta = this.dot(vector) / Math.sqrt(this.lengthSq() * vector.lengthSq());
             return Math.acos(Math.min(Math.max(theta, -1), 1));
         }
         /**
@@ -495,7 +495,7 @@
          * Calculate the angle between this Vector3 and another Vector3.
          */
         angleTo(vector) {
-            const theta = this.dot(vector) / (this.length() * vector.length());
+            const theta = this.dot(vector) / Math.sqrt(this.lengthSq() * vector.lengthSq());
             return Math.acos(Math.min(Math.max(theta, -1), 1));
         }
         /**
