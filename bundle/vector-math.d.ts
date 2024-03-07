@@ -202,6 +202,18 @@ declare class Vector2 {
      */
     average(vector: Vector2Readonly | Vector2$1): this;
     /**
+     * Min this Vector3 with another Vector3.
+     * @param vector - Vector3 to min with.
+     * @returns this
+     */
+    min(vector: Vector2Readonly | Vector2$1): this;
+    /**
+     * Max this Vector2 with another Vector2.
+     * @param vector - Vector2 to max with.
+     * @returns this
+     */
+    max(vector: Vector2Readonly | Vector2$1): this;
+    /**
      * Invert this Vector2.
      * @returns this
      */
@@ -570,6 +582,18 @@ declare class Vector3 {
      * @returns this
      */
     average(vector: Vector3Readonly | Vector3$1): this;
+    /**
+     * Min this Vector3 with another Vector3.
+     * @param vector - Vector3 to min with.
+     * @returns this
+     */
+    min(vector: Vector3Readonly | Vector3$1): this;
+    /**
+     * Max this Vector3 with another Vector3.
+     * @param vector - Vector3 to max with.
+     * @returns this
+     */
+    max(vector: Vector3Readonly | Vector3$1): this;
     /**
      * Invert this Vector3.
      * @returns this

@@ -130,6 +130,18 @@ export declare class Vector3 {
      */
     average(vector: Vector3Readonly | THREE_Vector3): this;
     /**
+     * Min this Vector3 with another Vector3.
+     * @param vector - Vector3 to min with.
+     * @returns this
+     */
+    min(vector: Vector3Readonly | THREE_Vector3): this;
+    /**
+     * Max this Vector3 with another Vector3.
+     * @param vector - Vector3 to max with.
+     * @returns this
+     */
+    max(vector: Vector3Readonly | THREE_Vector3): this;
+    /**
      * Invert this Vector3.
      * @returns this
      */

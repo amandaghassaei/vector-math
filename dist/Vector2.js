@@ -164,6 +164,26 @@ export class Vector2 {
         return this;
     }
     /**
+     * Min this Vector3 with another Vector3.
+     * @param vector - Vector3 to min with.
+     * @returns this
+     */
+    min(vector) {
+        this.x = Math.min(this.x, vector.x);
+        this.y = Math.min(this.y, vector.y);
+        return this;
+    }
+    /**
+     * Max this Vector2 with another Vector2.
+     * @param vector - Vector2 to max with.
+     * @returns this
+     */
+    max(vector) {
+        this.x = Math.max(this.x, vector.x);
+        this.y = Math.max(this.y, vector.y);
+        return this;
+    }
+    /**
      * Invert this Vector2.
      * @returns this
      */

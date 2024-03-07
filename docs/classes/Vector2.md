@@ -32,6 +32,8 @@
 - [applyMatrix3](Vector2.md#applymatrix3)
 - [lerp](Vector2.md#lerp)
 - [average](Vector2.md#average)
+- [min](Vector2.md#min)
+- [max](Vector2.md#max)
 - [invert](Vector2.md#invert)
 - [angleTo](Vector2.md#angleto)
 - [angleToNormalized](Vector2.md#angletonormalized)
@@ -363,6 +365,46 @@ Average this Vector2 with another Vector2.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `vector` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to average with. |
+
+#### Returns
+
+[`Vector2`](Vector2.md)
+
+this
+
+___
+
+### min
+
+▸ **min**(`vector`): [`Vector2`](Vector2.md)
+
+Min this Vector3 with another Vector3.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vector` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector3 to min with. |
+
+#### Returns
+
+[`Vector2`](Vector2.md)
+
+this
+
+___
+
+### max
+
+▸ **max**(`vector`): [`Vector2`](Vector2.md)
+
+Max this Vector2 with another Vector2.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vector` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to max with. |
 
 #### Returns
 

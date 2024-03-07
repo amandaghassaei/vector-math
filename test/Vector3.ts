@@ -265,6 +265,36 @@ describe('Vector3', () => {
 		// Works with threejs.
 		expect(new Vector3(5.4, 0.5, 3.4).average(new THREE_Vector3(1, 1, 1))).to.deep.equal(new Vector3(3.2, 0.75, 2.2));
 	});
+    it('min() - calculates the min of two Vector3s', () => {
+        const vector1 = new Vector3(5.4, 0.5, 3.4);
+        vector1.min(new Vector3(4.6, 2, -4.5));
+        expect(vector1.x).to.almost.equal(4.6);
+        expect(vector1.y).to.almost.equal(0.5);
+        expect(vector1.z).to.almost.equal(-4.5);
+        const returnValue = vector1.min(new Vector3(30, 5.3, 2));
+        expect(vector1.x).to.almost.equal(4.6);
+        expect(vector1.y).to.almost.equal(0.5);
+        expect(vector1.z).to.almost.equal(-4.5);
+        // Check that it returns this.
+        expect(returnValue).to.equal(vector1);
+        // Works with threejs.
+        expect(new Vector3(5.4, 0.5, 3.4).min(new THREE_Vector3(1, 1, 1))).to.deep.equal(new Vector3(1, 0.5, 1));
+    });
+    it('max() - calculates the max of two Vector3s', () => {
+        const vector1 = new Vector3(5.4, 0.5, 3.4);
+        vector1.max(new Vector3(4.6, 2, -4.5));
+        expect(vector1.x).to.almost.equal(5.4);
+        expect(vector1.y).to.almost.equal(2);
+        expect(vector1.z).to.almost.equal(3.4);
+        const returnValue = vector1.max(new Vector3(30, 5.3, 2));
+        expect(vector1.x).to.almost.equal(30);
+        expect(vector1.y).to.almost.equal(5.3);
+        expect(vector1.z).to.almost.equal(3.4);
+        // Check that it returns this.
+        expect(returnValue).to.equal(vector1);
+        // Works with threejs.
+        expect(new Vector3(5.4, 0.5, 3.4).max(new THREE_Vector3(1, 1, 1))).to.deep.equal(new Vector3(5.4, 1, 3.4));
+    });
 	it ('invert() - inverts a Vector3', () => {
 		const vector = new Vector3(5.4, 0.5, 3.4);
 		const returnValue = vector.invert();

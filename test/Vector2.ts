@@ -205,7 +205,7 @@ describe('Vector2', () => {
             new Vector2(3.2, 0.75)
         );
     });
-    it('average() - calculates the average of two Vector3s', () => {
+    it('average() - calculates the average of two Vector2s', () => {
         const vector1 = new Vector2(5.4, 0.5);
         vector1.average(new Vector2(4.6, 2));
         expect(vector1.x).to.almost.equal(5);
@@ -218,6 +218,36 @@ describe('Vector2', () => {
         // Works with threejs.
         expect(new Vector2(5.4, 0.5).average(new THREE_Vector2(1, 1))).to.deep.equal(
             new Vector2(3.2, 0.75)
+        );
+    });
+    it('min() - calculates the min of two Vector2s', () => {
+        const vector1 = new Vector2(5.4, 0.5);
+        vector1.min(new Vector2(4.6, 2));
+        expect(vector1.x).to.equal(4.6);
+        expect(vector1.y).to.equal(0.5);
+        const returnValue = vector1.min(new Vector2(30, 5.3));
+        expect(vector1.x).to.equal(4.6);
+        expect(vector1.y).to.equal(0.5);
+        // Check that it returns this.
+        expect(returnValue).to.equal(vector1);
+        // Works with threejs.
+        expect(new Vector2(5.4, 0.5).min(new THREE_Vector2(1, 1))).to.deep.equal(
+            new Vector2(1, 0.5)
+        );
+    });
+    it('max() - calculates the max of two Vector2s', () => {
+        const vector1 = new Vector2(5.4, 0.5);
+        vector1.max(new Vector2(4.6, 2));
+        expect(vector1.x).to.equal(5.4);
+        expect(vector1.y).to.equal(2);
+        const returnValue = vector1.max(new Vector2(30, 5.3));
+        expect(vector1.x).to.equal(30);
+        expect(vector1.y).to.equal(5.3);
+        // Check that it returns this.
+        expect(returnValue).to.equal(vector1);
+        // Works with threejs.
+        expect(new Vector2(5.4, 0.5).max(new THREE_Vector2(1, 1))).to.deep.equal(
+            new Vector2(5.4, 1)
         );
     });
     it('invert() - inverts a Vector3', () => {

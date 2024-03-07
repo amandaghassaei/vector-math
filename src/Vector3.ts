@@ -275,6 +275,30 @@ export class Vector3 {
     }
 
     /**
+     * Min this Vector3 with another Vector3.
+     * @param vector - Vector3 to min with.
+     * @returns this
+     */
+    min(vector: Vector3Readonly | THREE_Vector3) {
+        this.x = Math.min(this.x, vector.x);
+        this.y = Math.min(this.y, vector.y);
+        this.z = Math.min(this.z, vector.z);
+        return this;
+    }
+
+    /**
+     * Max this Vector3 with another Vector3.
+     * @param vector - Vector3 to max with.
+     * @returns this
+     */
+    max(vector: Vector3Readonly | THREE_Vector3) {
+        this.x = Math.max(this.x, vector.x);
+        this.y = Math.max(this.y, vector.y);
+        this.z = Math.max(this.z, vector.z);
+        return this;
+    }
+
+    /**
      * Invert this Vector3.
      * @returns this
      */

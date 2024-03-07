@@ -34,6 +34,8 @@
 - [applyQuaternion](Vector3.md#applyquaternion)
 - [lerp](Vector3.md#lerp)
 - [average](Vector3.md#average)
+- [min](Vector3.md#min)
+- [max](Vector3.md#max)
 - [invert](Vector3.md#invert)
 - [angleTo](Vector3.md#angleto)
 - [angleToNormalized](Vector3.md#angletonormalized)
@@ -401,6 +403,46 @@ Average this Vector3 with another Vector3.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to average with. |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+this
+
+___
+
+### min
+
+▸ **min**(`vector`): [`Vector3`](Vector3.md)
+
+Min this Vector3 with another Vector3.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to min with. |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+this
+
+___
+
+### max
+
+▸ **max**(`vector`): [`Vector3`](Vector3.md)
+
+Max this Vector3 with another Vector3.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to max with. |
 
 #### Returns
 
