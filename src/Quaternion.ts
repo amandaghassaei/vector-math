@@ -43,7 +43,9 @@ export class Quaternion {
 	set x(x: number) {
 		throw new Error('No x setter on Quaternion.');
 	}
-
+    /**
+     * @returns The x component of the Quaternion.
+     */
 	get x() {
 		return this._x;
 	}
@@ -54,7 +56,9 @@ export class Quaternion {
 	set y(y: number) {
 		throw new Error('No y setter on Quaternion.');
 	}
-
+    /**
+     * @returns The y component of the Quaternion.
+     */
 	get y() {
 		return this._y;
 	}
@@ -65,7 +69,9 @@ export class Quaternion {
 	set z(z: number) {
 		throw new Error('No z setter on Quaternion.');
 	}
-
+    /**
+     * @returns The z component of the Quaternion.
+     */
 	get z() {
 		return this._z;
 	}
@@ -76,7 +82,9 @@ export class Quaternion {
 	set w(w: number) {
 		throw new Error('No w setter on Quaternion.');
 	}
-
+    /**
+     * @returns The w component of the Quaternion.
+     */
 	get w() {
 		return this._w;
 	}

@@ -1,5 +1,8 @@
 import { Vector2 as Vector2$1, Vector3 as Vector3$1, Quaternion as Quaternion$1 } from 'three';
 
+/**
+ * Default numerical tolerance for all mathematical operations and equality checks.
+ */
 declare const DEFAULT_NUMERICAL_TOLERANCE = 1e-15;
 /**
  * Set global numerical tolerance for all mathematical operations and equality checks.
@@ -8,9 +11,32 @@ declare const DEFAULT_NUMERICAL_TOLERANCE = 1e-15;
  */
 declare function setNumericalTolerance(tolerance: number): void;
 
+/**
+ * Clamp a value between a minimum and maximum value.
+ * @param value - The value to clamp.
+ * @param min - The minimum value.
+ * @param max - The maximum value.
+ * @returns The clamped value.
+ */
 declare function clampValue(value: number, min: number, max: number): number;
+/**
+ * Convert a value in radians to degrees.
+ * @param value - The value in radians.
+ * @returns The value in degrees.
+ */
 declare function radiansToDegrees(value: number): number;
+/**
+ * Convert a value in degrees to radians.
+ * @param value - The value in degrees.
+ * @returns The value in radians.
+ */
 declare function degreesToRadians(value: number): number;
+/**
+ * Round value to increment, if increment is 0, return value.
+ * @param value - The value to round.
+ * @param coarseStep - The increment to round to.
+ * @returns The rounded value.
+ */
 declare function roundValueToIncrement(value: number, coarseStep: number): number;
 
 type Matrix3Readonly = {
@@ -388,21 +414,33 @@ declare class Quaternion {
      * @private
      */
     set x(x: number);
+    /**
+     * @returns The x component of the Quaternion.
+     */
     get x(): number;
     /**
      * @private
      */
     set y(y: number);
+    /**
+     * @returns The y component of the Quaternion.
+     */
     get y(): number;
     /**
      * @private
      */
     set z(z: number);
+    /**
+     * @returns The z component of the Quaternion.
+     */
     get z(): number;
     /**
      * @private
      */
     set w(w: number);
+    /**
+     * @returns The w component of the Quaternion.
+     */
     get w(): number;
     /**
      * Set quaternion from two unit vectors.

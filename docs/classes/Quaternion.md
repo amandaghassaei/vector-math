@@ -53,6 +53,8 @@
 
 `number`
 
+The x component of the Quaternion.
+
 ___
 
 ### y
@@ -62,6 +64,8 @@ ___
 #### Returns
 
 `number`
+
+The y component of the Quaternion.
 
 ___
 
@@ -73,6 +77,8 @@ ___
 
 `number`
 
+The z component of the Quaternion.
+
 ___
 
 ### w
@@ -82,6 +88,8 @@ ___
 #### Returns
 
 `number`
+
+The w component of the Quaternion.
 
 ## Methods
 

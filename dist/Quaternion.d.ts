@@ -26,21 +26,33 @@ export declare class Quaternion {
      * @private
      */
     set x(x: number);
+    /**
+     * @returns The x component of the Quaternion.
+     */
     get x(): number;
     /**
      * @private
      */
     set y(y: number);
+    /**
+     * @returns The y component of the Quaternion.
+     */
     get y(): number;
     /**
      * @private
      */
     set z(z: number);
+    /**
+     * @returns The z component of the Quaternion.
+     */
     get z(): number;
     /**
      * @private
      */
     set w(w: number);
+    /**
+     * @returns The w component of the Quaternion.
+     */
     get w(): number;
     /**
      * Set quaternion from two unit vectors.

@@ -137,17 +137,21 @@ ___
 
 ▸ **clampValue**(`value`, `min`, `max`): `number`
 
+Clamp a value between a minimum and maximum value.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-| `min` | `number` |
-| `max` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `number` | The value to clamp. |
+| `min` | `number` | The minimum value. |
+| `max` | `number` | The maximum value. |
 
 #### Returns
 
 `number`
+
+The clamped value.
 
 ___
 
@@ -155,15 +159,19 @@ ___
 
 ▸ **radiansToDegrees**(`value`): `number`
 
+Convert a value in radians to degrees.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `number` | The value in radians. |
 
 #### Returns
 
 `number`
+
+The value in degrees.
 
 ___
 
@@ -171,15 +179,19 @@ ___
 
 ▸ **degreesToRadians**(`value`): `number`
 
+Convert a value in degrees to radians.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `number` | The value in degrees. |
 
 #### Returns
 
 `number`
+
+The value in radians.
 
 ___
 
@@ -187,16 +199,20 @@ ___
 
 ▸ **roundValueToIncrement**(`value`, `coarseStep`): `number`
 
+Round value to increment, if increment is 0, return value.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-| `coarseStep` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `number` | The value to round. |
+| `coarseStep` | `number` | The increment to round to. |
 
 #### Returns
 
 `number`
+
+The rounded value.
 
 ___
 
@@ -222,3 +238,5 @@ Default numerical tolerance is 1e-15.
 ### DEFAULT\_NUMERICAL\_TOLERANCE
 
 • `Const` **DEFAULT\_NUMERICAL\_TOLERANCE**: ``1e-15``
+
+Default numerical tolerance for all mathematical operations and equality checks.

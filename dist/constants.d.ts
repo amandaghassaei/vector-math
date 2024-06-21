@@ -1,3 +1,6 @@
+/**
+ * Default numerical tolerance for all mathematical operations and equality checks.
+ */
 export declare const DEFAULT_NUMERICAL_TOLERANCE = 1e-15;
 /**
  * Set global numerical tolerance for all mathematical operations and equality checks.
@@ -5,4 +8,7 @@ export declare const DEFAULT_NUMERICAL_TOLERANCE = 1e-15;
  * @param tolerance - Numerical tolerance to set.
  */
 export declare function setNumericalTolerance(tolerance: number): void;
+/**
+ * Get global numerical tolerance for all mathematical operations and equality checks.
+ */
 export declare function NUMERICAL_TOLERANCE(): number;

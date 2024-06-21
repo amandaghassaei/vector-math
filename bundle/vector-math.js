@@ -4,6 +4,9 @@
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.VECTOR_MATH = {}));
 })(this, (function (exports) { 'use strict';
 
+    /**
+     * Default numerical tolerance for all mathematical operations and equality checks.
+     */
     const DEFAULT_NUMERICAL_TOLERANCE = 1e-15;
     let numericalTolerance = DEFAULT_NUMERICAL_TOLERANCE;
     /**
@@ -14,19 +17,45 @@
     function setNumericalTolerance(tolerance) {
         numericalTolerance = tolerance;
     }
+    /**
+     * Get global numerical tolerance for all mathematical operations and equality checks.
+     */
     function NUMERICAL_TOLERANCE() {
         return numericalTolerance;
     }
 
+    /**
+     * Clamp a value between a minimum and maximum value.
+     * @param value - The value to clamp.
+     * @param min - The minimum value.
+     * @param max - The maximum value.
+     * @returns The clamped value.
+     */
     function clampValue(value, min, max) {
         return Math.max(Math.min(value, max), min);
     }
+    /**
+     * Convert a value in radians to degrees.
+     * @param value - The value in radians.
+     * @returns The value in degrees.
+     */
     function radiansToDegrees(value) {
         return value * 180 / Math.PI;
     }
+    /**
+     * Convert a value in degrees to radians.
+     * @param value - The value in degrees.
+     * @returns The value in radians.
+     */
     function degreesToRadians(value) {
         return value / 180 * Math.PI;
     }
+    /**
+     * Round value to increment, if increment is 0, return value.
+     * @param value - The value to round.
+     * @param coarseStep - The increment to round to.
+     * @returns The rounded value.
+     */
     function roundValueToIncrement(value, coarseStep) {
         var _a;
         if (coarseStep === 0)
@@ -1049,6 +1078,9 @@
         set x(x) {
             throw new Error('No x setter on Quaternion.');
         }
+        /**
+         * @returns The x component of the Quaternion.
+         */
         get x() {
             return this._x;
         }
@@ -1058,6 +1090,9 @@
         set y(y) {
             throw new Error('No y setter on Quaternion.');
         }
+        /**
+         * @returns The y component of the Quaternion.
+         */
         get y() {
             return this._y;
         }
@@ -1067,6 +1102,9 @@
         set z(z) {
             throw new Error('No z setter on Quaternion.');
         }
+        /**
+         * @returns The z component of the Quaternion.
+         */
         get z() {
             return this._z;
         }
@@ -1076,6 +1114,9 @@
         set w(w) {
             throw new Error('No w setter on Quaternion.');
         }
+        /**
+         * @returns The w component of the Quaternion.
+         */
         get w() {
             return this._w;
         }
