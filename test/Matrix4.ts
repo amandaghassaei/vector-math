@@ -284,7 +284,7 @@ describe('Matrix4', () => {
 		zAxis.applyMatrix4RotationComponent(matrix1);
 		expect(zAxis.length()).to.almost.equal(1);
 		// Works with threejs.
-		const threeMatrix = new Matrix4().setRotationFromVectorToVector(new THREE_Vector3(1, 4.5, 2).normalize(),new THREE_Vector3(4.5, -3, 2));
+		const threeMatrix = new Matrix4().setRotationFromVectorToVector(new THREE_Vector3(1, 4.5, 2).normalize(), new THREE_Vector3(4.5, -3, 2));
 		expect(threeMatrix.elements).to.deep.equal(solution1);
 	});
 	it('setReflectionNormalAtOffset() - sets Matrix4 for reflection at offset', () => {

@@ -76,13 +76,24 @@ export class Vector3 {
     /**
      * Returns the dot product of this Vector3 with another Vector3.
      * @param vec - Vector3 to dot with.
+     * @returns dot product of this and vec.
      */
     dot(vec) {
         return this.x * vec.x + this.y * vec.y + this.z * vec.z;
     }
     /**
+     * Returns the dot product of two Vector3s.
+     * @param vec1 - First Vector3.
+     * @param vec2 - Second Vector3.
+     * @returns dot product of vec1 and vec2.
+     */
+    static dot(vec1, vec2) {
+        return vec1.x * vec2.x + vec1.y * vec2.y + vec1.z * vec2.z;
+    }
+    /**
      * Cross this Vector3 with another Vector3.
      * @param vec - Vector3 to cross with.
+     * @returns this
      */
     cross(vec) {
         const ax = this.x, ay = this.y, az = this.z;
@@ -94,6 +105,7 @@ export class Vector3 {
     }
     /**
      * Returns the squared length of the Vector3.
+     * @returns Squared length of the Vector3.
      */
     lengthSq() {
         const lengthSq = this.dot(this);
@@ -101,6 +113,7 @@ export class Vector3 {
     }
     /**
      * Returns the length of the Vector3.
+     * @returns Length of the Vector3.
      */
     length() {
         return Math.sqrt(this.lengthSq());
@@ -108,6 +121,7 @@ export class Vector3 {
     /**
     * Returns the squared distance between this Vector3 and another Vector3.
     * @param vec - Vector3 to measure distance to.
+    * @returns Squared distance between this and vec.
     */
     distanceToSquared(vec) {
         const dx = this.x - vec.x;
@@ -118,12 +132,14 @@ export class Vector3 {
     /**
      * Returns the distance between this Vector3 and another Vector3.
      * @param vec - Vector3 to measure distance to.
+     * @returns Distance between this and vec.
      */
     distanceTo(vec) {
         return Math.sqrt(this.distanceToSquared(vec));
     }
     /**
      * Normalize the length of this Vector3.
+     * @returns this
      */
     normalize() {
         let length = this.length();
@@ -240,6 +256,8 @@ export class Vector3 {
     }
     /**
      * Calculate the angle between this Vector3 and another Vector3.
+     * @param vector - Vector3 to calculate angle to.
+     * @returns Angle between this and vector.
      */
     angleTo(vector) {
         const theta = this.dot(vector) / Math.sqrt(this.lengthSq() * vector.lengthSq());
@@ -247,6 +265,8 @@ export class Vector3 {
     }
     /**
      * Calculate the angle between this (normalized) Vector3 and another (normalized) Vector3.
+     * @param vector - Vector3 to calculate angle to.
+     * @returns Angle between this and vector.
      */
     angleToNormalized(vector) {
         const theta = this.dot(vector);
@@ -267,11 +287,23 @@ export class Vector3 {
      * Test if this Vector3 equals another Vector3.
      * @param vec - Vector3 to test equality with.
      * @param tolerance - Defaults to 0.
+     * @returns True if the vectors are equal.
      */
     equals(vec) {
         return (Math.abs(this.x - vec.x) <= NUMERICAL_TOLERANCE() &&
             Math.abs(this.y - vec.y) <= NUMERICAL_TOLERANCE() &&
             Math.abs(this.z - vec.z) <= NUMERICAL_TOLERANCE());
+    }
+    /**
+     * Test if two Vector3s are equal.
+     * @param vec1 - First Vector3.
+     * @param vec2 - Second Vector3.
+     * @returns True if the vectors are equal.
+     */
+    static equals(vec1, vec2) {
+        return (Math.abs(vec1.x - vec2.x) <= NUMERICAL_TOLERANCE() &&
+            Math.abs(vec1.y - vec2.y) <= NUMERICAL_TOLERANCE() &&
+            Math.abs(vec1.z - vec2.z) <= NUMERICAL_TOLERANCE());
     }
     /**
      * Test if this vector is the zero vector.

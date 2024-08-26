@@ -4,25 +4,17 @@
 
 ## Table of contents
 
-### Constructors
-
-- [constructor](Vector3.md#constructor)
-
-### Properties
-
-- [x](Vector3.md#x)
-- [y](Vector3.md#y)
-- [z](Vector3.md#z)
-
 ### Methods
 
+- [dot](Vector3.md#dot)
+- [equals](Vector3.md#equals)
 - [set](Vector3.md#set)
 - [setFromArray](Vector3.md#setfromarray)
 - [add](Vector3.md#add)
 - [sub](Vector3.md#sub)
 - [multiplyScalar](Vector3.md#multiplyscalar)
 - [divideScalar](Vector3.md#dividescalar)
-- [dot](Vector3.md#dot)
+- [dot](Vector3.md#dot-1)
 - [cross](Vector3.md#cross)
 - [lengthSq](Vector3.md#lengthsq)
 - [length](Vector3.md#length)
@@ -40,46 +32,64 @@
 - [angleTo](Vector3.md#angleto)
 - [angleToNormalized](Vector3.md#angletonormalized)
 - [copy](Vector3.md#copy)
-- [equals](Vector3.md#equals)
+- [equals](Vector3.md#equals-1)
 - [isZero](Vector3.md#iszero)
 - [clone](Vector3.md#clone)
 - [toArray](Vector3.md#toarray)
 
-## Constructors
+### Constructors
 
-### constructor
+- [constructor](Vector3.md#constructor)
 
-• **new Vector3**()
+### Properties
 
-• **new Vector3**(`x`, `y`, `z`)
+- [x](Vector3.md#x)
+- [y](Vector3.md#y)
+- [z](Vector3.md#z)
+
+## Methods
+
+### dot
+
+▸ `Static` **dot**(`vec1`, `vec2`): `number`
+
+Returns the dot product of two Vector3s.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `y` | `number` |
-| `z` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vec1` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | First Vector3. |
+| `vec2` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Second Vector3. |
 
-## Properties
+#### Returns
 
-### x
+`number`
 
-• **x**: `number`
-
-___
-
-### y
-
-• **y**: `number`
+dot product of vec1 and vec2.
 
 ___
 
-### z
+### equals
 
-• **z**: `number`
+▸ `Static` **equals**(`vec1`, `vec2`): `boolean`
 
-## Methods
+Test if two Vector3s are equal.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vec1` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | First Vector3. |
+| `vec2` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Second Vector3. |
+
+#### Returns
+
+`boolean`
+
+True if the vectors are equal.
+
+___
 
 ### set
 
@@ -219,6 +229,8 @@ Returns the dot product of this Vector3 with another Vector3.
 
 `number`
 
+dot product of this and vec.
+
 ___
 
 ### cross
@@ -237,6 +249,8 @@ Cross this Vector3 with another Vector3.
 
 [`Vector3`](Vector3.md)
 
+this
+
 ___
 
 ### lengthSq
@@ -249,6 +263,8 @@ Returns the squared length of the Vector3.
 
 `number`
 
+Squared length of the Vector3.
+
 ___
 
 ### length
@@ -260,6 +276,8 @@ Returns the length of the Vector3.
 #### Returns
 
 `number`
+
+Length of the Vector3.
 
 ___
 
@@ -279,6 +297,8 @@ Returns the squared distance between this Vector3 and another Vector3.
 
 `number`
 
+Squared distance between this and vec.
+
 ___
 
 ### distanceTo
@@ -297,6 +317,8 @@ Returns the distance between this Vector3 and another Vector3.
 
 `number`
 
+Distance between this and vec.
+
 ___
 
 ### normalize
@@ -308,6 +330,8 @@ Normalize the length of this Vector3.
 #### Returns
 
 [`Vector3`](Vector3.md)
+
+this
 
 ___
 
@@ -474,13 +498,15 @@ Calculate the angle between this Vector3 and another Vector3.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to calculate angle to. |
 
 #### Returns
 
 `number`
+
+Angle between this and vector.
 
 ___
 
@@ -492,13 +518,15 @@ Calculate the angle between this (normalized) Vector3 and another (normalized) V
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to calculate angle to. |
 
 #### Returns
 
 `number`
+
+Angle between this and vector.
 
 ___
 
@@ -538,6 +566,8 @@ Test if this Vector3 equals another Vector3.
 
 `boolean`
 
+True if the vectors are equal.
+
 ___
 
 ### isZero
@@ -573,3 +603,37 @@ Returns an array containing the x, y, and z components of this Vector3.
 #### Returns
 
 [`number`, `number`, `number`]
+
+## Constructors
+
+### constructor
+
+• **new Vector3**()
+
+• **new Vector3**(`x`, `y`, `z`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `number` |
+| `y` | `number` |
+| `z` | `number` |
+
+## Properties
+
+### x
+
+• **x**: `number`
+
+___
+
+### y
+
+• **y**: `number`
+
+___
+
+### z
+
+• **z**: `number`

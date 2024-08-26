@@ -1,6 +1,6 @@
 import { tempVector3 } from './common';
 import { NUMERICAL_TOLERANCE } from './constants';
-import type { Vector3Readonly } from './Vector3';
+import { Vector3, type Vector3Readonly } from './Vector3';
 import type { Vector3 as THREE_Vector3 } from 'three';
 
 export type Matrix4Readonly = {
@@ -243,22 +243,12 @@ export class Matrix4 {
 	 * @returns this
 	 */
 	setRotationFromVectorToVector(
-		fromVector: Vector3Readonly,
-		toVector: Vector3Readonly,
-		offset?: Vector3Readonly | THREE_Vector3,
-	): Matrix4;
-	setRotationFromVectorToVector(
-		fromVector: THREE_Vector3,
-		toVector: THREE_Vector3,
-		offset?: Vector3Readonly | THREE_Vector3,
-	): Matrix4;
-	setRotationFromVectorToVector(
-		fromVector: any,
-		toVector: any,
+		fromVector: Vector3Readonly | THREE_Vector3,
+		toVector: Vector3Readonly | THREE_Vector3,
 		offset?: Vector3Readonly | THREE_Vector3,
 	): Matrix4 {
         // Check for no rotation.
-		if (fromVector.equals(toVector)) {
+		if (Vector3.equals(fromVector, toVector)) {
 			return this.setIdentity();
 		}
 		const axis = tempVector3.copy(fromVector).cross(toVector);
@@ -277,7 +267,7 @@ export class Matrix4 {
         } else {
             axis.divideScalar(sinAngle); // Normalize axis.
         }
-        const cosAngle = fromVector.dot(toVector);
+        const cosAngle = Vector3.dot(fromVector, toVector);
 		return this._setRotationAxisCosSin(cosAngle, sinAngle, axis, offset);
 	}
 

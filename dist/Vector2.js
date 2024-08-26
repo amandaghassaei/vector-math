@@ -69,27 +69,49 @@ export class Vector2 {
     /**
      * Returns the dot product of this Vector2 with another Vector2.
      * @param vec - Vector2 to dot with.
+     * @returns The dot product.
      */
     dot(vec) {
         return this.x * vec.x + this.y * vec.y;
     }
     /**
+     * Returns the dot product of two Vector2s.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @returns The dot product.
+     */
+    static dot(vec1, vec2) {
+        return vec1.x * vec2.x + vec1.y * vec2.y;
+    }
+    /**
      * Compute the 2D cross product (wedge product) with another Vector2.
      * @param vec - Vector2 to cross.
+     * @returns The cross product.
      */
     cross(vec) {
         return this.x * vec.y - this.y * vec.x;
     }
     /**
+     * Compute the 2D cross product (wedge product) of two Vector2s.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @returns The cross product.
+     */
+    static cross(vec1, vec2) {
+        return vec1.x * vec2.y - vec1.y * vec2.x;
+    }
+    /**
      * Get the angle of this Vector2.
      * Computes the angle in radians with respect to the positive x-axis.
      * Angle is always in range [0, 2 * Math.PI] (and 2 * Math.PI is slightly less than 2 * PI).
+     * @returns The angle.
      */
     angle() {
         return Math.atan2(-this.y, -this.x) + Math.PI;
     }
     /**
      * Returns the squared length of the Vector2.
+     * @returns The squared length.
      */
     lengthSq() {
         const lengthSq = this.dot(this);
@@ -97,6 +119,7 @@ export class Vector2 {
     }
     /**
      * Returns the length of the Vector2.
+     * @returns The length.
      */
     length() {
         return Math.sqrt(this.lengthSq());
@@ -104,6 +127,7 @@ export class Vector2 {
     /**
      * Returns the squared distance between this Vector2 and another Vector2.
      * @param vec - Vector2 to measure distance to.
+     * @returns The squared distance.
      */
     distanceToSquared(vec) {
         const dx = this.x - vec.x;
@@ -113,12 +137,14 @@ export class Vector2 {
     /**
      * Returns the distance between this Vector2 and another Vector2.
      * @param vec - Vector2 to measure distance to.
+     * @returns The distance.
      */
     distanceTo(vec) {
         return Math.sqrt(this.distanceToSquared(vec));
     }
     /**
      * Normalize the length of this Vector2.
+     * @returns this
      */
     normalize() {
         let length = this.length();
@@ -132,6 +158,7 @@ export class Vector2 {
     /**
      * Apply Matrix3 transformation to this Vector2.
      * @param matrix - Matrix3 to apply.
+     * @returns this
      */
     applyMatrix3(matrix) {
         if (matrix.isIdentity)
@@ -194,16 +221,40 @@ export class Vector2 {
     }
     /**
      * Calculate the angle between this Vector2 and another Vector2.
+     * @param vector - Vector2 to calculate angle to.
+     * @returns The angle between the vectors.
      */
     angleTo(vector) {
         const theta = this.dot(vector) / Math.sqrt(this.lengthSq() * vector.lengthSq());
         return Math.acos(Math.min(Math.max(theta, -1), 1));
     }
     /**
+     * Calculate the angle between two Vector2s.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @returns The angle between the vectors.
+     */
+    static angleTo(vec1, vec2) {
+        const theta = Vector2.dot(vec1, vec2) / Math.sqrt(vec1.lengthSq() * vec2.lengthSq());
+        return Math.acos(Math.min(Math.max(theta, -1), 1));
+    }
+    /**
      * Calculate the angle between this (normalized) Vector2 and another (normalized) Vector2.
+     * @param vector - Vector2 to calculate angle to.
+     * @returns The angle between the vectors.
      */
     angleToNormalized(vector) {
         const theta = this.dot(vector);
+        return Math.acos(Math.min(Math.max(theta, -1), 1));
+    }
+    /**
+     * Calculate the angle between a (normalized) Vector2 and another (normalized) Vector2.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @returns The angle between the vectors.
+     */
+    static angleToNormalized(vec1, vec2) {
+        const theta = Vector2.dot(vec1, vec2);
         return Math.acos(Math.min(Math.max(theta, -1), 1));
     }
     /**
@@ -219,24 +270,37 @@ export class Vector2 {
     /**
      * Test if this Vector2 equals another Vector2.
      * @param vec - Vector2 to test equality with.
+     * @returns True if the vectors are equal.
      */
     equals(vec) {
         return Math.abs(this.x - vec.x) <= NUMERICAL_TOLERANCE() && Math.abs(this.y - vec.y) <= NUMERICAL_TOLERANCE();
     }
     /**
+     * Test if two Vector2s are equal.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @returns True if the vectors are equal.
+     */
+    static equals(vec1, vec2) {
+        return Math.abs(vec1.x - vec2.x) <= NUMERICAL_TOLERANCE() && Math.abs(vec1.y - vec2.y) <= NUMERICAL_TOLERANCE();
+    }
+    /**
      * Test if this vector is the zero vector.
+     * @returns True if the vector is the zero vector.
      */
     isZero() {
         return Math.abs(this.x) <= NUMERICAL_TOLERANCE() && Math.abs(this.y) <= NUMERICAL_TOLERANCE();
     }
     /**
      * Clone this Vector2 into a new Vector2.
+     * @returns The cloned Vector2.
      */
     clone() {
         return new Vector2(this.x, this.y);
     }
     /**
      * Returns an array containing the x and y components of this Vector3.
+     * @returns The Vector2 as an array.
      */
     toArray() {
         return [this.x, this.y];

@@ -174,44 +174,67 @@ declare class Vector2 {
     /**
      * Returns the dot product of this Vector2 with another Vector2.
      * @param vec - Vector2 to dot with.
+     * @returns The dot product.
      */
     dot(vec: Vector2Readonly | Vector2$1): number;
     /**
+     * Returns the dot product of two Vector2s.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @returns The dot product.
+     */
+    static dot(vec1: Vector2Readonly | Vector2$1, vec2: Vector2Readonly | Vector2$1): number;
+    /**
      * Compute the 2D cross product (wedge product) with another Vector2.
      * @param vec - Vector2 to cross.
+     * @returns The cross product.
      */
     cross(vec: Vector2Readonly | Vector2$1): number;
+    /**
+     * Compute the 2D cross product (wedge product) of two Vector2s.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @returns The cross product.
+     */
+    static cross(vec1: Vector2Readonly | Vector2$1, vec2: Vector2Readonly | Vector2$1): number;
     /**
      * Get the angle of this Vector2.
      * Computes the angle in radians with respect to the positive x-axis.
      * Angle is always in range [0, 2 * Math.PI] (and 2 * Math.PI is slightly less than 2 * PI).
+     * @returns The angle.
      */
     angle(): number;
     /**
      * Returns the squared length of the Vector2.
+     * @returns The squared length.
      */
     lengthSq(): number;
     /**
      * Returns the length of the Vector2.
+     * @returns The length.
      */
     length(): number;
     /**
      * Returns the squared distance between this Vector2 and another Vector2.
      * @param vec - Vector2 to measure distance to.
+     * @returns The squared distance.
      */
     distanceToSquared(vec: Vector2Readonly | Vector2$1): number;
     /**
      * Returns the distance between this Vector2 and another Vector2.
      * @param vec - Vector2 to measure distance to.
+     * @returns The distance.
      */
     distanceTo(vec: Vector2Readonly | Vector2$1): number;
     /**
      * Normalize the length of this Vector2.
+     * @returns this
      */
     normalize(): this;
     /**
      * Apply Matrix3 transformation to this Vector2.
      * @param matrix - Matrix3 to apply.
+     * @returns this
      */
     applyMatrix3(matrix: Matrix3Readonly): this;
     /**
@@ -246,12 +269,30 @@ declare class Vector2 {
     invert(): this;
     /**
      * Calculate the angle between this Vector2 and another Vector2.
+     * @param vector - Vector2 to calculate angle to.
+     * @returns The angle between the vectors.
      */
     angleTo(vector: Vector2Readonly | Vector2$1): number;
     /**
+     * Calculate the angle between two Vector2s.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @returns The angle between the vectors.
+     */
+    static angleTo(vec1: Vector2Readonly | Vector2$1, vec2: Vector2Readonly | Vector2$1): number;
+    /**
      * Calculate the angle between this (normalized) Vector2 and another (normalized) Vector2.
+     * @param vector - Vector2 to calculate angle to.
+     * @returns The angle between the vectors.
      */
     angleToNormalized(vector: Vector2Readonly | Vector2$1): number;
+    /**
+     * Calculate the angle between a (normalized) Vector2 and another (normalized) Vector2.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @returns The angle between the vectors.
+     */
+    static angleToNormalized(vec1: Vector2Readonly | Vector2$1, vec2: Vector2Readonly | Vector2$1): number;
     /**
      * Copy the contents of a Vector2 to this Vector2.
      * @param vec - Vector2 to copy.
@@ -261,18 +302,29 @@ declare class Vector2 {
     /**
      * Test if this Vector2 equals another Vector2.
      * @param vec - Vector2 to test equality with.
+     * @returns True if the vectors are equal.
      */
     equals(vec: Vector2Readonly | Vector2$1): boolean;
     /**
+     * Test if two Vector2s are equal.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @returns True if the vectors are equal.
+     */
+    static equals(vec1: Vector2Readonly | Vector2$1, vec2: Vector2Readonly | Vector2$1): boolean;
+    /**
      * Test if this vector is the zero vector.
+     * @returns True if the vector is the zero vector.
      */
     isZero(): boolean;
     /**
      * Clone this Vector2 into a new Vector2.
+     * @returns The cloned Vector2.
      */
     clone(): Vector2;
     /**
      * Returns an array containing the x and y components of this Vector3.
+     * @returns The Vector2 as an array.
      */
     toArray(): [number, number];
 }
@@ -353,8 +405,7 @@ declare class Matrix4 {
      * @param toVector - Unit vector to rotate to, must be normalized.
      * @returns this
      */
-    setRotationFromVectorToVector(fromVector: Vector3Readonly, toVector: Vector3Readonly, offset?: Vector3Readonly | Vector3$1): Matrix4;
-    setRotationFromVectorToVector(fromVector: Vector3$1, toVector: Vector3$1, offset?: Vector3Readonly | Vector3$1): Matrix4;
+    setRotationFromVectorToVector(fromVector: Vector3Readonly | Vector3$1, toVector: Vector3Readonly | Vector3$1, offset?: Vector3Readonly | Vector3$1): Matrix4;
     /**
      * Set elements of Matrix4 according to reflection.
      * @param normal - Unit vector about which to reflect, must be normalized.
@@ -560,33 +611,47 @@ declare class Vector3 {
     /**
      * Returns the dot product of this Vector3 with another Vector3.
      * @param vec - Vector3 to dot with.
+     * @returns dot product of this and vec.
      */
     dot(vec: Vector3Readonly | Vector3$1): number;
     /**
+     * Returns the dot product of two Vector3s.
+     * @param vec1 - First Vector3.
+     * @param vec2 - Second Vector3.
+     * @returns dot product of vec1 and vec2.
+     */
+    static dot(vec1: Vector3Readonly | Vector3$1, vec2: Vector3Readonly | Vector3$1): number;
+    /**
      * Cross this Vector3 with another Vector3.
      * @param vec - Vector3 to cross with.
+     * @returns this
      */
     cross(vec: Vector3Readonly | Vector3$1): this;
     /**
      * Returns the squared length of the Vector3.
+     * @returns Squared length of the Vector3.
      */
     lengthSq(): number;
     /**
      * Returns the length of the Vector3.
+     * @returns Length of the Vector3.
      */
     length(): number;
     /**
     * Returns the squared distance between this Vector3 and another Vector3.
     * @param vec - Vector3 to measure distance to.
+    * @returns Squared distance between this and vec.
     */
     distanceToSquared(vec: Vector3Readonly | Vector3$1): number;
     /**
      * Returns the distance between this Vector3 and another Vector3.
      * @param vec - Vector3 to measure distance to.
+     * @returns Distance between this and vec.
      */
     distanceTo(vec: Vector3Readonly | Vector3$1): number;
     /**
      * Normalize the length of this Vector3.
+     * @returns this
      */
     normalize(): this;
     /**
@@ -639,10 +704,14 @@ declare class Vector3 {
     invert(): this;
     /**
      * Calculate the angle between this Vector3 and another Vector3.
+     * @param vector - Vector3 to calculate angle to.
+     * @returns Angle between this and vector.
      */
     angleTo(vector: Vector3Readonly | Vector3$1): number;
     /**
      * Calculate the angle between this (normalized) Vector3 and another (normalized) Vector3.
+     * @param vector - Vector3 to calculate angle to.
+     * @returns Angle between this and vector.
      */
     angleToNormalized(vector: Vector3Readonly | Vector3$1): number;
     /**
@@ -655,8 +724,16 @@ declare class Vector3 {
      * Test if this Vector3 equals another Vector3.
      * @param vec - Vector3 to test equality with.
      * @param tolerance - Defaults to 0.
+     * @returns True if the vectors are equal.
      */
     equals(vec: Vector3Readonly | Vector3$1): boolean;
+    /**
+     * Test if two Vector3s are equal.
+     * @param vec1 - First Vector3.
+     * @param vec2 - Second Vector3.
+     * @returns True if the vectors are equal.
+     */
+    static equals(vec1: Vector3Readonly | Vector3$1, vec2: Vector3Readonly | Vector3$1): boolean;
     /**
      * Test if this vector is the zero vector.
      */

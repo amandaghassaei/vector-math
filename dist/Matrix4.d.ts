@@ -1,4 +1,4 @@
-import type { Vector3Readonly } from './Vector3';
+import { type Vector3Readonly } from './Vector3';
 import type { Vector3 as THREE_Vector3 } from 'three';
 export type Matrix4Readonly = {
     readonly elements: readonly number[];
@@ -76,8 +76,7 @@ export declare class Matrix4 {
      * @param toVector - Unit vector to rotate to, must be normalized.
      * @returns this
      */
-    setRotationFromVectorToVector(fromVector: Vector3Readonly, toVector: Vector3Readonly, offset?: Vector3Readonly | THREE_Vector3): Matrix4;
-    setRotationFromVectorToVector(fromVector: THREE_Vector3, toVector: THREE_Vector3, offset?: Vector3Readonly | THREE_Vector3): Matrix4;
+    setRotationFromVectorToVector(fromVector: Vector3Readonly | THREE_Vector3, toVector: Vector3Readonly | THREE_Vector3, offset?: Vector3Readonly | THREE_Vector3): Matrix4;
     /**
      * Set elements of Matrix4 according to reflection.
      * @param normal - Unit vector about which to reflect, must be normalized.

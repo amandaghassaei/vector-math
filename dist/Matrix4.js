@@ -1,5 +1,6 @@
 import { tempVector3 } from './common';
 import { NUMERICAL_TOLERANCE } from './constants';
+import { Vector3 } from './Vector3';
 /**
  * These Matrix4s represent a rigid transform in homogeneous coords,
  * therefore, we assume that the bottom row is [0, 0, 0, 1] and only store 12 elements.
@@ -154,9 +155,15 @@ export class Matrix4 {
         const sinAngle = Math.sin(angle);
         return this._setRotationAxisCosSin(cosAngle, sinAngle, axis, offset);
     }
+    /**
+     * Set elements of Matrix4 according to rotation from one vector to another.
+     * @param fromVector - Unit vector to rotate from, must be normalized.
+     * @param toVector - Unit vector to rotate to, must be normalized.
+     * @returns this
+     */
     setRotationFromVectorToVector(fromVector, toVector, offset) {
         // Check for no rotation.
-        if (fromVector.equals(toVector)) {
+        if (Vector3.equals(fromVector, toVector)) {
             return this.setIdentity();
         }
         const axis = tempVector3.copy(fromVector).cross(toVector);
@@ -176,7 +183,7 @@ export class Matrix4 {
         else {
             axis.divideScalar(sinAngle); // Normalize axis.
         }
-        const cosAngle = fromVector.dot(toVector);
+        const cosAngle = Vector3.dot(fromVector, toVector);
         return this._setRotationAxisCosSin(cosAngle, sinAngle, axis, offset);
     }
     /**

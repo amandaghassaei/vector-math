@@ -69,33 +69,47 @@ export declare class Vector3 {
     /**
      * Returns the dot product of this Vector3 with another Vector3.
      * @param vec - Vector3 to dot with.
+     * @returns dot product of this and vec.
      */
     dot(vec: Vector3Readonly | THREE_Vector3): number;
     /**
+     * Returns the dot product of two Vector3s.
+     * @param vec1 - First Vector3.
+     * @param vec2 - Second Vector3.
+     * @returns dot product of vec1 and vec2.
+     */
+    static dot(vec1: Vector3Readonly | THREE_Vector3, vec2: Vector3Readonly | THREE_Vector3): number;
+    /**
      * Cross this Vector3 with another Vector3.
      * @param vec - Vector3 to cross with.
+     * @returns this
      */
     cross(vec: Vector3Readonly | THREE_Vector3): this;
     /**
      * Returns the squared length of the Vector3.
+     * @returns Squared length of the Vector3.
      */
     lengthSq(): number;
     /**
      * Returns the length of the Vector3.
+     * @returns Length of the Vector3.
      */
     length(): number;
     /**
     * Returns the squared distance between this Vector3 and another Vector3.
     * @param vec - Vector3 to measure distance to.
+    * @returns Squared distance between this and vec.
     */
     distanceToSquared(vec: Vector3Readonly | THREE_Vector3): number;
     /**
      * Returns the distance between this Vector3 and another Vector3.
      * @param vec - Vector3 to measure distance to.
+     * @returns Distance between this and vec.
      */
     distanceTo(vec: Vector3Readonly | THREE_Vector3): number;
     /**
      * Normalize the length of this Vector3.
+     * @returns this
      */
     normalize(): this;
     /**
@@ -148,10 +162,14 @@ export declare class Vector3 {
     invert(): this;
     /**
      * Calculate the angle between this Vector3 and another Vector3.
+     * @param vector - Vector3 to calculate angle to.
+     * @returns Angle between this and vector.
      */
     angleTo(vector: Vector3Readonly | THREE_Vector3): number;
     /**
      * Calculate the angle between this (normalized) Vector3 and another (normalized) Vector3.
+     * @param vector - Vector3 to calculate angle to.
+     * @returns Angle between this and vector.
      */
     angleToNormalized(vector: Vector3Readonly | THREE_Vector3): number;
     /**
@@ -164,8 +182,16 @@ export declare class Vector3 {
      * Test if this Vector3 equals another Vector3.
      * @param vec - Vector3 to test equality with.
      * @param tolerance - Defaults to 0.
+     * @returns True if the vectors are equal.
      */
     equals(vec: Vector3Readonly | THREE_Vector3): boolean;
+    /**
+     * Test if two Vector3s are equal.
+     * @param vec1 - First Vector3.
+     * @param vec2 - Second Vector3.
+     * @returns True if the vectors are equal.
+     */
+    static equals(vec1: Vector3Readonly | THREE_Vector3, vec2: Vector3Readonly | THREE_Vector3): boolean;
     /**
      * Test if this vector is the zero vector.
      */
