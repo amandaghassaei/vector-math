@@ -136,6 +136,15 @@ describe('Quaternion', () => {
 		));
 
 	});
+    it('invert() - inverts a Quaternion', () => {
+        const quaternion = new Quaternion();
+        quaternion.setFromUnitVectors(new Vector3(2, 4.5, 3.4).normalize(), new Vector3(-2.3, 0, 4.5).normalize());
+        expect(new Vector3(2, 4.5, 3.4).normalize().applyQuaternion(quaternion).sub(new Vector3(-2.3, 0, 4.5).normalize()).length()).to.almost(0);
+        const returnValue = quaternion.invert();
+        expect(new Vector3(-2.3, 0, 4.5).normalize().applyQuaternion(quaternion).sub(new Vector3(2, 4.5, 3.4).normalize()).length()).to.almost(0);
+        // Check that it returns this.
+        expect(returnValue).to.equal(quaternion);
+    });
 	it('copy() - copies a Quaternion', () => {
 		const quaternion1 = new Quaternion(5.4, 0.5, 3.4, 2.3);
 		const quaternion2 = new Quaternion();

@@ -122,13 +122,20 @@ describe('Vector3', () => {
 		expect(vector.y).to.equal(-Infinity);
 		expect(vector.z).to.equal(Infinity);
 	});
-	it('dot - calculate the dot product with another Vector3', () => {
+	it('dot() - calculate the dot product with another Vector3', () => {
 		expect(new Vector3(1, 0.3, 5.6).dot(new Vector3(1, 0.3, 5.6))).to.equal(32.449999999999996);
 		expect(new Vector3(1, 0.3, 5.6).dot(new Vector3(-1, -0.3, -5.6))).to.equal(-32.449999999999996);
 		expect(new Vector3(0, 1, 0).dot(new Vector3(1, 0, 0))).to.equal(0);
 		// Works with threejs.
 		expect(new Vector3(1, 0.3, 5.6).dot(new THREE_Vector3(-1, -0.3, -5.6))).to.equal(-32.449999999999996);
 	});
+    it('static dot() - calculate the dot product between two Vector3s', () => {
+        expect(Vector3.dot(new Vector3(1, 0.3, 5.6), new Vector3(1, 0.3, 5.6))).to.equal(32.449999999999996);
+        expect(Vector3.dot(new Vector3(1, 0.3, 5.6), new Vector3(-1, -0.3, -5.6))).to.equal(-32.449999999999996);
+        expect(Vector3.dot(new Vector3(0, 1, 0), new Vector3(1, 0, 0))).to.equal(0);
+        // Works with threejs.
+        expect(Vector3.dot(new THREE_Vector3(1, 0.3, 5.6), new THREE_Vector3(-1, -0.3, -5.6))).to.equal(-32.449999999999996);
+    });
 	it('cross() - calculate the cross product with another Vector3', () => {
 		const vector1 = new Vector3(1, 0, 0);
 		const vector2 = new Vector3(1, 0, 0);
@@ -353,6 +360,19 @@ describe('Vector3', () => {
 		expect(vector1.equals(new THREE_Vector3(5.4, 0.6, -4.5))).to.equal(false);
 		expect(vector1.equals(new THREE_Vector3(5.4, 0.5, -4.4))).to.equal(false);
 	});
+    it('static equals() - tests equality between two Vector3s', () => {
+        const vector1 = new Vector3(5.4, 0.5, -4.5);
+        const vector2 = new Vector3(5.4, 0.5, -4.5);
+        expect(Vector3.equals(vector1, vector2)).to.equal(true);
+        expect(Vector3.equals(vector1, new Vector3(5.5, 0.5, -4.5))).to.equal(false);
+        expect(Vector3.equals(vector1, new Vector3(5.4, 0.6, -4.5))).to.equal(false);
+        expect(Vector3.equals(vector1, new Vector3(5.4, 0.5, -4.4))).to.equal(false);
+        // Works with threejs.
+        expect(Vector3.equals(new THREE_Vector3(5.4, 0.5, -4.5), new THREE_Vector3(5.4, 0.5, -4.5))).to.equal(true);
+        expect(Vector3.equals(new THREE_Vector3(5.4, 0.5, -4.5), new THREE_Vector3(5.5, 0.5, -4.5))).to.equal(false);
+        expect(Vector3.equals(new THREE_Vector3(5.4, 0.5, -4.5), new THREE_Vector3(5.4, 0.6, -4.5))).to.equal(false);
+        expect(Vector3.equals(new THREE_Vector3(5.4, 0.5, -4.5), new THREE_Vector3(5.4, 0.5, -4.4))).to.equal(false);
+    });new THREE_Vector3(5.4, 0.5, -4.5)
 	it('isZero() - checks if Vector3 is zero vector', () => {
 		expect(new Vector3().isZero()).to.equal(true);
 		expect(new Vector3(1, 0, 0).isZero()).to.equal(false);

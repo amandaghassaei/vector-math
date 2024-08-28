@@ -3,7 +3,7 @@ import { expect, use } from 'chai';
 import chaiAlmost from 'chai-almost';
 import { Vector3 } from '../src/Vector3';
 import { checkWarnings } from './test-utils/utils';
-import { Vector3 as THREE_Vector3 } from 'three';
+import { Vector3 as THREE_Vector3, Matrix4 as THREE_Matrix4 } from 'three';
 
 use(chaiAlmost());
 

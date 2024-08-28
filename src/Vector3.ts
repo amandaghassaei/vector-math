@@ -119,8 +119,8 @@ export class Vector3 {
      * @param vec - Vector3 to dot with.
      * @returns dot product of this and vec.
      */
-    dot(vec: Vector3Readonly | THREE_Vector3) {
-        return this.x * vec.x + this.y * vec.y + this.z * vec.z;
+    dot(vec: Vector3Readonly | THREE_Vector3): number {
+        return Vector3.dot(this, vec);
     }
 
     /**
@@ -364,12 +364,8 @@ export class Vector3 {
      * @param tolerance - Defaults to 0.
      * @returns True if the vectors are equal.
      */
-    equals(vec: Vector3Readonly | THREE_Vector3) {
-        return (
-            Math.abs(this.x - vec.x) <= NUMERICAL_TOLERANCE() &&
-            Math.abs(this.y - vec.y) <= NUMERICAL_TOLERANCE() &&
-            Math.abs(this.z - vec.z) <= NUMERICAL_TOLERANCE()
-        );
+    equals(vec: Vector3Readonly | THREE_Vector3): boolean {
+        return Vector3.equals(this, vec);
     }
 
     /**

@@ -1,7 +1,7 @@
 import { tempVector3 } from './common';
 import { NUMERICAL_TOLERANCE } from './constants';
 import { Vector3, type Vector3Readonly } from './Vector3';
-import type { Vector3 as THREE_Vector3 } from 'three';
+import type { Vector3 as THREE_Vector3, Matrix4 as THREE_Matrix4 } from 'three';
 
 export type Matrix4Readonly = {
 	readonly elements: readonly number[];
@@ -400,13 +400,23 @@ export class Matrix4 {
 	 * @returns this
 	 */
 	copy(matrix: Matrix4Readonly) {
-		const { elements } = matrix;
-		this._set(
-			elements[0], elements[1], elements[2], elements[3],
-			elements[4], elements[5], elements[6], elements[7],
-			elements[8], elements[9], elements[10], elements[11],
-		);
-		this._isIdentity = matrix.isIdentity;
+        // if (matrix instanceof Matrix4) {
+            const { elements } = matrix;
+            this._set(
+                elements[0], elements[1], elements[2], elements[3],
+                elements[4], elements[5], elements[6], elements[7],
+                elements[8], elements[9], elements[10], elements[11],
+            );
+            this._isIdentity = matrix.isIdentity;
+        // } else {
+        //     const { elements } = matrix;
+        //     this._set(
+        //         elements[0], elements[4], elements[8], elements[12],
+        //         elements[1], elements[5], elements[9], elements[13],
+        //         elements[2], elements[6], elements[10], elements[14],
+        //     );
+        //     this._isIdentity = Matrix4._checkElementsForIdentity(this._elements);
+        // }
 		return this;
 	}
 

@@ -107,6 +107,11 @@ describe('Vector2', () => {
         // Works with threejs.
         expect(vector.dot(new THREE_Vector2(3.4, -5))).to.equal(-6.6);
     });
+    // it('static dot() - calculates the dot product between two Vector2s', () => {
+    //     expect(Vector2.dot(new Vector2(1, 2), new Vector2(3.4, -5))).to.equal(-6.6);
+    //     // Works with threejs.
+    //     expect(Vector2.dot(new Vector2(1, 2), new THREE_Vector2(3.4, -5))).to.equal(-6.6);
+    // });
     it('cross() - calculate the 2D cross product with another Vector2', () => {
         expect(new Vector2(1, 0).cross(new Vector2(1, 0))).to.equal(0);
         expect(new Vector2().cross(new Vector2())).to.equal(0);
@@ -117,6 +122,19 @@ describe('Vector2', () => {
             13.379999999999999
         );
     });
+    // it('static cross() - calculates the 2D cross product between two Vector2s', () => {
+    //     expect(Vector2.cross(new Vector2(1, 0), new Vector2(1, 0))).to.equal(0);
+    //     expect(Vector2.cross(new Vector2(), new Vector2())).to.equal(0);
+    //     expect(Vector2.cross(new Vector2(1, 0.5), new Vector2(1, 0))).to.equal(-0.5);
+    //     expect(Vector2.cross(new Vector2(1, -9.2), new Vector2(1.4, 0.5))).to.equal(13.379999999999999);
+    //     // Works with threejs.
+    //     expect(Vector2.cross(new Vector2(1, -9.2), new THREE_Vector2(1.4, 0.5))).to.equal(
+    //         13.379999999999999
+    //     );
+    //     expect(Vector2.cross(new THREE_Vector2(1, -9.2), new THREE_Vector2(1.4, 0.5))).to.equal(
+    //         13.379999999999999
+    //     );
+    // });
     it('angle() - calculates the angle to another Vector2', () => {
         expect(new Vector2(1, 0).angle()).to.equal(0);
         expect(new Vector2(10, 0).angle()).to.equal(0);
