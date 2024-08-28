@@ -178,25 +178,11 @@ declare class Vector2 {
      */
     dot(vec: Vector2Readonly | Vector2$1): number;
     /**
-     * Returns the dot product of two Vector2s.
-     * @param vec1 - First Vector2.
-     * @param vec2 - Second Vector2.
-     * @returns The dot product.
-     */
-    static dot(vec1: Vector2Readonly | Vector2$1, vec2: Vector2Readonly | Vector2$1): number;
-    /**
      * Compute the 2D cross product (wedge product) with another Vector2.
      * @param vec - Vector2 to cross.
      * @returns The cross product.
      */
     cross(vec: Vector2Readonly | Vector2$1): number;
-    /**
-     * Compute the 2D cross product (wedge product) of two Vector2s.
-     * @param vec1 - First Vector2.
-     * @param vec2 - Second Vector2.
-     * @returns The cross product.
-     */
-    static cross(vec1: Vector2Readonly | Vector2$1, vec2: Vector2Readonly | Vector2$1): number;
     /**
      * Get the angle of this Vector2.
      * Computes the angle in radians with respect to the positive x-axis.
@@ -274,25 +260,11 @@ declare class Vector2 {
      */
     angleTo(vector: Vector2Readonly | Vector2$1): number;
     /**
-     * Calculate the angle between two Vector2s.
-     * @param vec1 - First Vector2.
-     * @param vec2 - Second Vector2.
-     * @returns The angle between the vectors.
-     */
-    static angleTo(vec1: Vector2Readonly | Vector2$1, vec2: Vector2Readonly | Vector2$1): number;
-    /**
      * Calculate the angle between this (normalized) Vector2 and another (normalized) Vector2.
      * @param vector - Vector2 to calculate angle to.
      * @returns The angle between the vectors.
      */
     angleToNormalized(vector: Vector2Readonly | Vector2$1): number;
-    /**
-     * Calculate the angle between a (normalized) Vector2 and another (normalized) Vector2.
-     * @param vec1 - First Vector2.
-     * @param vec2 - Second Vector2.
-     * @returns The angle between the vectors.
-     */
-    static angleToNormalized(vec1: Vector2Readonly | Vector2$1, vec2: Vector2Readonly | Vector2$1): number;
     /**
      * Copy the contents of a Vector2 to this Vector2.
      * @param vec - Vector2 to copy.
@@ -305,13 +277,6 @@ declare class Vector2 {
      * @returns True if the vectors are equal.
      */
     equals(vec: Vector2Readonly | Vector2$1): boolean;
-    /**
-     * Test if two Vector2s are equal.
-     * @param vec1 - First Vector2.
-     * @param vec2 - Second Vector2.
-     * @returns True if the vectors are equal.
-     */
-    static equals(vec1: Vector2Readonly | Vector2$1, vec2: Vector2Readonly | Vector2$1): boolean;
     /**
      * Test if this vector is the zero vector.
      * @returns True if the vector is the zero vector.
@@ -531,6 +496,11 @@ declare class Quaternion {
      * Quaternion multiplication.
      */
     private static _multiplyQuaternions;
+    /**
+     * Invert this Quaternion.
+     * @returns this
+     */
+    invert(): this;
     /**
      * Copy the contents of a Quaternion to this Quaternion.
      * @param quaternion - Quaternion to copy.

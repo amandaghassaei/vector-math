@@ -23,6 +23,7 @@
 - [normalize](Quaternion.md#normalize)
 - [multiply](Quaternion.md#multiply)
 - [premultiply](Quaternion.md#premultiply)
+- [invert](Quaternion.md#invert)
 - [copy](Quaternion.md#copy)
 - [clone](Quaternion.md#clone)
 
@@ -185,6 +186,20 @@ Sets value of this Quaternion to B*A.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `quat` | `Quaternion` \| [`QuaternionReadonly`](../README.md#quaternionreadonly) | Quaternion to premultiply with. |
+
+#### Returns
+
+[`Quaternion`](Quaternion.md)
+
+this
+
+___
+
+### invert
+
+▸ **invert**(): [`Quaternion`](Quaternion.md)
+
+Invert this Quaternion.
 
 #### Returns
 

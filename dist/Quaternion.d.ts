@@ -93,6 +93,11 @@ export declare class Quaternion {
      */
     private static _multiplyQuaternions;
     /**
+     * Invert this Quaternion.
+     * @returns this
+     */
+    invert(): this;
+    /**
      * Copy the contents of a Quaternion to this Quaternion.
      * @param quaternion - Quaternion to copy.
      * @returns this

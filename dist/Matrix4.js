@@ -280,9 +280,19 @@ export class Matrix4 {
      * @returns this
      */
     copy(matrix) {
+        // if (matrix instanceof Matrix4) {
         const { elements } = matrix;
         this._set(elements[0], elements[1], elements[2], elements[3], elements[4], elements[5], elements[6], elements[7], elements[8], elements[9], elements[10], elements[11]);
         this._isIdentity = matrix.isIdentity;
+        // } else {
+        //     const { elements } = matrix;
+        //     this._set(
+        //         elements[0], elements[4], elements[8], elements[12],
+        //         elements[1], elements[5], elements[9], elements[13],
+        //         elements[2], elements[6], elements[10], elements[14],
+        //     );
+        //     this._isIdentity = Matrix4._checkElementsForIdentity(this._elements);
+        // }
         return this;
     }
     /**

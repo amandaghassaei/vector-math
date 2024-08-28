@@ -3,7 +3,7 @@
 [![Build Size](https://img.shields.io/bundlephobia/min/@amandaghassaei/vector-math)](https://bundlephobia.com/result?p=@amandaghassaei/vector-math)
 [![NPM Downloads](https://img.shields.io/npm/dw/@amandaghassaei/vector-math)](https://www.npmtrends.com/@amandaghassaei/vector-math)
 [![License](https://img.shields.io/npm/l/@amandaghassaei/vector-math)](https://github.com/amandaghassaei/vector-math/blob/main/LICENSE)
-![](https://img.shields.io/badge/Coverage-99%25-83A603.svg?prefix=$coverage$)
+![](https://img.shields.io/badge/Coverage-100%25-83A603.svg?prefix=$coverage$)
 
 A minimal vector math library to handle 2D/3D translations and rotations.
 

@@ -79,7 +79,7 @@ export class Vector3 {
      * @returns dot product of this and vec.
      */
     dot(vec) {
-        return this.x * vec.x + this.y * vec.y + this.z * vec.z;
+        return Vector3.dot(this, vec);
     }
     /**
      * Returns the dot product of two Vector3s.
@@ -290,9 +290,7 @@ export class Vector3 {
      * @returns True if the vectors are equal.
      */
     equals(vec) {
-        return (Math.abs(this.x - vec.x) <= NUMERICAL_TOLERANCE() &&
-            Math.abs(this.y - vec.y) <= NUMERICAL_TOLERANCE() &&
-            Math.abs(this.z - vec.z) <= NUMERICAL_TOLERANCE());
+        return Vector3.equals(this, vec);
     }
     /**
      * Test if two Vector3s are equal.

@@ -154,6 +154,17 @@ export class Quaternion {
         return self;
     }
     /**
+     * Invert this Quaternion.
+     * @returns this
+     */
+    invert() {
+        // Quaternion is assumed to have unit length.
+        this._x *= -1;
+        this._y *= -1;
+        this._z *= -1;
+        return this;
+    }
+    /**
      * Copy the contents of a Quaternion to this Quaternion.
      * @param quaternion - Quaternion to copy.
      * @returns this

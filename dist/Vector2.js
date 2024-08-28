@@ -74,15 +74,15 @@ export class Vector2 {
     dot(vec) {
         return this.x * vec.x + this.y * vec.y;
     }
-    /**
-     * Returns the dot product of two Vector2s.
-     * @param vec1 - First Vector2.
-     * @param vec2 - Second Vector2.
-     * @returns The dot product.
-     */
-    static dot(vec1, vec2) {
-        return vec1.x * vec2.x + vec1.y * vec2.y;
-    }
+    // /**
+    //  * Returns the dot product of two Vector2s.
+    //  * @param vec1 - First Vector2.
+    //  * @param vec2 - Second Vector2.
+    //  * @returns The dot product.
+    //  */
+    // static dot(vec1: Vector2Readonly | THREE_Vector2, vec2: Vector2Readonly | THREE_Vector2) {
+    //     return vec1.x * vec2.x + vec1.y * vec2.y;
+    // }
     /**
      * Compute the 2D cross product (wedge product) with another Vector2.
      * @param vec - Vector2 to cross.
@@ -91,15 +91,15 @@ export class Vector2 {
     cross(vec) {
         return this.x * vec.y - this.y * vec.x;
     }
-    /**
-     * Compute the 2D cross product (wedge product) of two Vector2s.
-     * @param vec1 - First Vector2.
-     * @param vec2 - Second Vector2.
-     * @returns The cross product.
-     */
-    static cross(vec1, vec2) {
-        return vec1.x * vec2.y - vec1.y * vec2.x;
-    }
+    // /**
+    //  * Compute the 2D cross product (wedge product) of two Vector2s.
+    //  * @param vec1 - First Vector2.
+    //  * @param vec2 - Second Vector2.
+    //  * @returns The cross product.
+    //  */
+    // static cross(vec1: Vector2Readonly | THREE_Vector2, vec2: Vector2Readonly | THREE_Vector2) {
+    //     return vec1.x * vec2.y - vec1.y * vec2.x;
+    // }
     /**
      * Get the angle of this Vector2.
      * Computes the angle in radians with respect to the positive x-axis.
@@ -228,16 +228,16 @@ export class Vector2 {
         const theta = this.dot(vector) / Math.sqrt(this.lengthSq() * vector.lengthSq());
         return Math.acos(Math.min(Math.max(theta, -1), 1));
     }
-    /**
-     * Calculate the angle between two Vector2s.
-     * @param vec1 - First Vector2.
-     * @param vec2 - Second Vector2.
-     * @returns The angle between the vectors.
-     */
-    static angleTo(vec1, vec2) {
-        const theta = Vector2.dot(vec1, vec2) / Math.sqrt(vec1.lengthSq() * vec2.lengthSq());
-        return Math.acos(Math.min(Math.max(theta, -1), 1));
-    }
+    // /**
+    //  * Calculate the angle between two Vector2s.
+    //  * @param vec1 - First Vector2.
+    //  * @param vec2 - Second Vector2.
+    //  * @returns The angle between the vectors.
+    //  */
+    // static angleTo(vec1: Vector2Readonly | THREE_Vector2, vec2: Vector2Readonly | THREE_Vector2) {
+    //     const theta = Vector2.dot(vec1, vec2) / Math.sqrt(vec1.lengthSq() * vec2.lengthSq());
+    //     return Math.acos(Math.min(Math.max(theta, -1), 1));
+    // }
     /**
      * Calculate the angle between this (normalized) Vector2 and another (normalized) Vector2.
      * @param vector - Vector2 to calculate angle to.
@@ -247,16 +247,16 @@ export class Vector2 {
         const theta = this.dot(vector);
         return Math.acos(Math.min(Math.max(theta, -1), 1));
     }
-    /**
-     * Calculate the angle between a (normalized) Vector2 and another (normalized) Vector2.
-     * @param vec1 - First Vector2.
-     * @param vec2 - Second Vector2.
-     * @returns The angle between the vectors.
-     */
-    static angleToNormalized(vec1, vec2) {
-        const theta = Vector2.dot(vec1, vec2);
-        return Math.acos(Math.min(Math.max(theta, -1), 1));
-    }
+    // /**
+    //  * Calculate the angle between a (normalized) Vector2 and another (normalized) Vector2.
+    //  * @param vec1 - First Vector2.
+    //  * @param vec2 - Second Vector2.
+    //  * @returns The angle between the vectors.
+    //  */
+    // static angleToNormalized(vec1: Vector2Readonly | THREE_Vector2, vec2: Vector2Readonly | THREE_Vector2) {
+    //     const theta = Vector2.dot(vec1, vec2);
+    //     return Math.acos(Math.min(Math.max(theta, -1), 1));
+    // }
     /**
      * Copy the contents of a Vector2 to this Vector2.
      * @param vec - Vector2 to copy.
@@ -275,15 +275,15 @@ export class Vector2 {
     equals(vec) {
         return Math.abs(this.x - vec.x) <= NUMERICAL_TOLERANCE() && Math.abs(this.y - vec.y) <= NUMERICAL_TOLERANCE();
     }
-    /**
-     * Test if two Vector2s are equal.
-     * @param vec1 - First Vector2.
-     * @param vec2 - Second Vector2.
-     * @returns True if the vectors are equal.
-     */
-    static equals(vec1, vec2) {
-        return Math.abs(vec1.x - vec2.x) <= NUMERICAL_TOLERANCE() && Math.abs(vec1.y - vec2.y) <= NUMERICAL_TOLERANCE();
-    }
+    // /**
+    //  * Test if two Vector2s are equal.
+    //  * @param vec1 - First Vector2.
+    //  * @param vec2 - Second Vector2.
+    //  * @returns True if the vectors are equal.
+    //  */
+    // static equals(vec1: Vector2Readonly | THREE_Vector2, vec2: Vector2Readonly | THREE_Vector2) {
+    //     return Math.abs(vec1.x - vec2.x) <= NUMERICAL_TOLERANCE() && Math.abs(vec1.y - vec2.y) <= NUMERICAL_TOLERANCE();
+    // }
     /**
      * Test if this vector is the zero vector.
      * @returns True if the vector is the zero vector.
