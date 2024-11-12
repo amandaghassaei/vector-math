@@ -133,6 +133,11 @@ export class Matrix4 {
         self._isIdentity = Matrix4._checkElementsForIdentity(_elements);
         return self;
     }
+    /**
+     * Set elements of Matrix4 according to translation.
+     * @param translation - Translation vector.
+     * @returns this
+     */
     setTranslation(translation) {
         if (Math.abs(translation.x) <= NUMERICAL_TOLERANCE() && Math.abs(translation.y) <= NUMERICAL_TOLERANCE() && Math.abs(translation.z) <= NUMERICAL_TOLERANCE())
             return this.setIdentity();

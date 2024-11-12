@@ -74,7 +74,7 @@ ___
 
 ▸ `Static` **equals**(`vec1`, `vec2`): `boolean`
 
-Test if two Vector3s are equal.
+Test if two Vector3s are equal (within numerical tolerance).
 
 #### Parameters
 

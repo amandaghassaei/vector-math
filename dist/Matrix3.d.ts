@@ -45,12 +45,24 @@ export declare class Matrix3 {
     setIdentity(): this;
     private static _checkElementForIdentity;
     /**
-     * Set elements of Matrix4 according to rotation and translation.
+     * Set elements of Matrix3 according to rotation.
      * @param angle - Angle of rotation in radians.
-     * @param translation - Translation offset.
      * @returns this
      */
-    setFromRotationTranslation(angle: number, translation: Vector2Readonly | THREE_Vector2): this;
+    setRotation(angle: number): this;
+    /**
+     * Set elements of Matrix3 according to translation.
+     * @param translation - Translation vector.
+     * @returns this
+     */
+    setTranslation(translation: Vector2Readonly | THREE_Vector2): this;
+    /**
+     * Set elements of Matrix4 according to rotation and translation.
+     * @param angle - Angle of rotation in radians.
+     * @param translation - Translation vector.
+     * @returns this
+     */
+    setRotationTranslation(angle: number, translation: Vector2Readonly | THREE_Vector2): this;
     /**
      * Test if this Matrix3 equals another Matrix3.
      * @param matrix - Matrix3 to test equality with.

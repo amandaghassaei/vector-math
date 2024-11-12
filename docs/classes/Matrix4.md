@@ -142,15 +142,19 @@ ___
 
 ▸ **setTranslation**(`translation`): [`Matrix4`](Matrix4.md)
 
+Set elements of Matrix4 according to translation.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `translation` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `translation` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Translation vector. |
 
 #### Returns
 
 [`Matrix4`](Matrix4.md)
+
+this
 
 ___
 

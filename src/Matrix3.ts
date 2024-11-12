@@ -122,22 +122,48 @@ export class Matrix3 {
 			Math.abs(n21) <= NUMERICAL_TOLERANCE() && Math.abs(n23) <= NUMERICAL_TOLERANCE();
 	}
 
-	// _setTranslation(translation: Vector3Readonly) {
-	// 	this._set(
-	// 		1, 0, translation.x,
-	// 		0, 1, translation.y,
-	// 	);
-	// 	this._isIdentity = Math.abs(translation.x) <= NUMERICAL_TOLERANCE() && Math.abs(translation.y) <= NUMERICAL_TOLERANCE();
-	// 	return this;
-	// }
+    /**
+     * Set elements of Matrix3 according to rotation.
+     * @param angle - Angle of rotation in radians.
+     * @returns this
+     */
+    setRotation(angle: number) {
+        if (Math.abs(angle) <= NUMERICAL_TOLERANCE()) {
+            return this.setIdentity();
+        }
+        const c = Math.cos(angle), s = Math.sin(angle);
+        this._set(
+            c, -s, 0,
+            s, c, 0,
+        );
+        this._isIdentity = false;
+        return this;
+    }
+
+    /**
+     * Set elements of Matrix3 according to translation.
+     * @param translation - Translation vector.
+     * @returns this
+     */
+    setTranslation(translation: Vector2Readonly | THREE_Vector2) {
+        if (Math.abs(translation.x) <= NUMERICAL_TOLERANCE() && Math.abs(translation.y) <= NUMERICAL_TOLERANCE()) {
+            return this.setIdentity();
+        }
+        this._set(
+            1, 0, translation.x,
+            0, 1, translation.y,
+        );
+        this._isIdentity = false;
+		return this;
+    }
 
 	/**
 	 * Set elements of Matrix4 according to rotation and translation.
 	 * @param angle - Angle of rotation in radians.
-	 * @param translation - Translation offset.
+	 * @param translation - Translation vector.
 	 * @returns this
 	 */
-	setFromRotationTranslation(angle: number, translation: Vector2Readonly | THREE_Vector2) {
+	setRotationTranslation(angle: number, translation: Vector2Readonly | THREE_Vector2) {
 		if (Math.abs(angle) <= NUMERICAL_TOLERANCE() && Math.abs(translation.x) <= NUMERICAL_TOLERANCE() && Math.abs(translation.y) <= NUMERICAL_TOLERANCE()) {
 			return this.setIdentity();
 		}

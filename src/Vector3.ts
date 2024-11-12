@@ -369,7 +369,7 @@ export class Vector3 {
     }
 
     /**
-     * Test if two Vector3s are equal.
+     * Test if two Vector3s are equal (within numerical tolerance).
      * @param vec1 - First Vector3.
      * @param vec2 - Second Vector3.
      * @returns True if the vectors are equal.

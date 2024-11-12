@@ -205,6 +205,11 @@ export class Matrix4 {
 		return self;
 	}
 
+    /**
+     * Set elements of Matrix4 according to translation.
+     * @param translation - Translation vector.
+     * @returns this
+     */
 	setTranslation(translation: Vector3Readonly | THREE_Vector3) {
 		if (Math.abs(translation.x) <= NUMERICAL_TOLERANCE() && Math.abs(translation.y) <= NUMERICAL_TOLERANCE() && Math.abs(translation.z) <= NUMERICAL_TOLERANCE()) return this.setIdentity();
 		this._set(

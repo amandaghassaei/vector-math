@@ -186,7 +186,7 @@ export declare class Vector3 {
      */
     equals(vec: Vector3Readonly | THREE_Vector3): boolean;
     /**
-     * Test if two Vector3s are equal.
+     * Test if two Vector3s are equal (within numerical tolerance).
      * @param vec1 - First Vector3.
      * @param vec2 - Second Vector3.
      * @returns True if the vectors are equal.

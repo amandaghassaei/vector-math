@@ -79,18 +79,66 @@ describe('Matrix3', () => {
 		// Check that it returns this.
 		expect(returnValue).to.equal(matrix);
 	});
-	it('setFromRotationTranslation() - sets Matrix3 based on rotation and translation', () => {
+    it('setRotation() - set Matrix3 based on rotation', () => {
+        const elements = [
+			3, 5.6, -7,
+			42, 0, 6.5,
+		] as NumberArrayLength6;
+		// Returns identity matrix for zero angle.
+		const matrix = new Matrix3(...elements);
+		matrix.setRotation(0);
+		expect(matrix.elements).to.deep.equal(identity);
+		expect(matrix.isIdentity).to.deep.equal(true);
+		// Calcs correct value for non-zero angle.
+		const returnValue = matrix.setRotation(-1.5191182423124665);
+		const solution = [
+			0.05165508542804021, 0.9986649849421085, 0,
+			-0.9986649849421085, 0.05165508542804021, 0,
+		];
+		expect(matrix.elements).to.deep.equal(solution);
+		// Check that transform rotates unit vectors.
+		const orientation = new Vector2(0.05165508542804009, 0.9986649849421085);
+		expect(orientation.clone().applyMatrix3(matrix)).to.deep.almost(new Vector2(1, 0), 1e-9);
+		expect(new Vector2(-orientation.y, orientation.x).applyMatrix3(matrix)).to.deep.almost(new Vector2(0, 1), 1e-9);
+		expect(new Vector2(-orientation.x, -orientation.y).applyMatrix3(matrix)).to.deep.almost(new Vector2(-1, 0), 1e-9);
+		// Check that it returns this.
+		expect(returnValue).to.equal(matrix);
+    });
+    it('setTranslation() - sets Matrix3 based on translation', () => {
+        const elements = [
+            3, 5.6, -7,
+            42, 0, 6.5,
+        ] as NumberArrayLength6;
+        // Returns identity matrix for zero translation.
+        const matrix = new Matrix3(...elements);
+        matrix.setTranslation(new Vector2());
+        expect(matrix.elements).to.deep.equal(identity);
+        expect(matrix.isIdentity).to.deep.equal(true);
+        // Calcs correct value for non-zero translation.
+        const returnValue = matrix.setTranslation(new Vector2(-5.6, -0.2));
+        const solution = [
+            1, 0, -5.6,
+            0, 1, -0.2,
+        ];
+        expect(matrix.elements).to.deep.equal(solution);
+        // Check that transform translates position correctly.
+        expect(new Vector2(5.6, 0.2).applyMatrix3(matrix)).to.deep.almost(new Vector2(), 1e-9);
+        // Check that it returns this.
+        expect(returnValue).to.equal(matrix);
+
+    });
+	it('setRotationTranslation() - sets Matrix3 based on rotation and translation', () => {
 		const elements = [
 			3, 5.6, -7,
 			42, 0, 6.5,
 		] as NumberArrayLength6;
-		// Returns identity matrix is axis is already aligned with x axis.
+		// Returns identity matrix if axis is already aligned with x axis.
 		const matrix = new Matrix3(...elements);
-		matrix.setFromRotationTranslation(0, new Vector2());
+		matrix.setRotationTranslation(0, new Vector2());
 		expect(matrix.elements).to.deep.equal(identity);
 		expect(matrix.isIdentity).to.deep.equal(true);
 		// Calcs correct value for non-zero angle.
-		const returnValue = matrix.setFromRotationTranslation(-1.5191182423124665, new Vector2(-5.6, -0.2));
+		const returnValue = matrix.setRotationTranslation(-1.5191182423124665, new Vector2(-5.6, -0.2));
 		const solution = [
 			0.05165508542804021, 0.9986649849421085, -0.4890014753854469,
 			-0.9986649849421085, 0.05165508542804021, 5.582192898590199,
@@ -106,12 +154,12 @@ describe('Matrix3', () => {
 		// Check that it returns this.
 		expect(returnValue).to.equal(matrix);
 		// works with threejs.
-		const threeMatrix = new Matrix3().setFromRotationTranslation(-1.5191182423124665, new THREE_Vector2(-5.6, -0.2));
+		const threeMatrix = new Matrix3().setRotationTranslation(-1.5191182423124665, new THREE_Vector2(-5.6, -0.2));
 		expect(threeMatrix.elements).to.deep.equal(solution);
 	});
 	it('equals() - tests equality with Matrix4', () => {
-		const matrix1 = new Matrix3().setFromRotationTranslation(-1.5191182423124665, new Vector2(-5.6, -0.2));
-		const matrix2 = new Matrix3().setFromRotationTranslation(-1.5191182423124665, new Vector2(-5.6, -0.2));
+		const matrix1 = new Matrix3().setRotationTranslation(-1.5191182423124665, new Vector2(-5.6, -0.2));
+		const matrix2 = new Matrix3().setRotationTranslation(-1.5191182423124665, new Vector2(-5.6, -0.2));
 		expect(matrix1 === matrix2).to.equal(false);
 		expect(matrix1.equals(matrix2)).to.equal(true);
 		expect(matrix1.equals(new Matrix3())).to.equal(false);

@@ -84,12 +84,24 @@ declare class Matrix3 {
     setIdentity(): this;
     private static _checkElementForIdentity;
     /**
-     * Set elements of Matrix4 according to rotation and translation.
+     * Set elements of Matrix3 according to rotation.
      * @param angle - Angle of rotation in radians.
-     * @param translation - Translation offset.
      * @returns this
      */
-    setFromRotationTranslation(angle: number, translation: Vector2Readonly | Vector2$1): this;
+    setRotation(angle: number): this;
+    /**
+     * Set elements of Matrix3 according to translation.
+     * @param translation - Translation vector.
+     * @returns this
+     */
+    setTranslation(translation: Vector2Readonly | Vector2$1): this;
+    /**
+     * Set elements of Matrix4 according to rotation and translation.
+     * @param angle - Angle of rotation in radians.
+     * @param translation - Translation vector.
+     * @returns this
+     */
+    setRotationTranslation(angle: number, translation: Vector2Readonly | Vector2$1): this;
     /**
      * Test if this Matrix3 equals another Matrix3.
      * @param matrix - Matrix3 to test equality with.
@@ -355,6 +367,11 @@ declare class Matrix4 {
      * Matrix multiplication of two matrices.
      */
     private static _multiplyMatrices;
+    /**
+     * Set elements of Matrix4 according to translation.
+     * @param translation - Translation vector.
+     * @returns this
+     */
     setTranslation(translation: Vector3Readonly | Vector3$1): this;
     /**
      * Set elements of Matrix4 according to rotation about axis.
@@ -698,7 +715,7 @@ declare class Vector3 {
      */
     equals(vec: Vector3Readonly | Vector3$1): boolean;
     /**
-     * Test if two Vector3s are equal.
+     * Test if two Vector3s are equal (within numerical tolerance).
      * @param vec1 - First Vector3.
      * @param vec2 - Second Vector3.
      * @returns True if the vectors are equal.

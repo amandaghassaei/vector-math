@@ -681,7 +681,7 @@
             return Vector3.equals(this, vec);
         }
         /**
-         * Test if two Vector3s are equal.
+         * Test if two Vector3s are equal (within numerical tolerance).
          * @param vec1 - First Vector3.
          * @param vec2 - Second Vector3.
          * @returns True if the vectors are equal.
@@ -784,21 +784,40 @@
                 Math.abs(n12) <= NUMERICAL_TOLERANCE() && Math.abs(n13) <= NUMERICAL_TOLERANCE() &&
                 Math.abs(n21) <= NUMERICAL_TOLERANCE() && Math.abs(n23) <= NUMERICAL_TOLERANCE();
         }
-        // _setTranslation(translation: Vector3Readonly) {
-        // 	this._set(
-        // 		1, 0, translation.x,
-        // 		0, 1, translation.y,
-        // 	);
-        // 	this._isIdentity = Math.abs(translation.x) <= NUMERICAL_TOLERANCE() && Math.abs(translation.y) <= NUMERICAL_TOLERANCE();
-        // 	return this;
-        // }
+        /**
+         * Set elements of Matrix3 according to rotation.
+         * @param angle - Angle of rotation in radians.
+         * @returns this
+         */
+        setRotation(angle) {
+            if (Math.abs(angle) <= NUMERICAL_TOLERANCE()) {
+                return this.setIdentity();
+            }
+            const c = Math.cos(angle), s = Math.sin(angle);
+            this._set(c, -s, 0, s, c, 0);
+            this._isIdentity = false;
+            return this;
+        }
+        /**
+         * Set elements of Matrix3 according to translation.
+         * @param translation - Translation vector.
+         * @returns this
+         */
+        setTranslation(translation) {
+            if (Math.abs(translation.x) <= NUMERICAL_TOLERANCE() && Math.abs(translation.y) <= NUMERICAL_TOLERANCE()) {
+                return this.setIdentity();
+            }
+            this._set(1, 0, translation.x, 0, 1, translation.y);
+            this._isIdentity = false;
+            return this;
+        }
         /**
          * Set elements of Matrix4 according to rotation and translation.
          * @param angle - Angle of rotation in radians.
-         * @param translation - Translation offset.
+         * @param translation - Translation vector.
          * @returns this
          */
-        setFromRotationTranslation(angle, translation) {
+        setRotationTranslation(angle, translation) {
             if (Math.abs(angle) <= NUMERICAL_TOLERANCE() && Math.abs(translation.x) <= NUMERICAL_TOLERANCE() && Math.abs(translation.y) <= NUMERICAL_TOLERANCE()) {
                 return this.setIdentity();
             }
@@ -1003,6 +1022,11 @@
             self._isIdentity = Matrix4._checkElementsForIdentity(_elements);
             return self;
         }
+        /**
+         * Set elements of Matrix4 according to translation.
+         * @param translation - Translation vector.
+         * @returns this
+         */
         setTranslation(translation) {
             if (Math.abs(translation.x) <= NUMERICAL_TOLERANCE() && Math.abs(translation.y) <= NUMERICAL_TOLERANCE() && Math.abs(translation.z) <= NUMERICAL_TOLERANCE())
                 return this.setIdentity();

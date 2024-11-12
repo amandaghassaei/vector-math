@@ -61,6 +61,11 @@ export declare class Matrix4 {
      * Matrix multiplication of two matrices.
      */
     private static _multiplyMatrices;
+    /**
+     * Set elements of Matrix4 according to translation.
+     * @param translation - Translation vector.
+     * @returns this
+     */
     setTranslation(translation: Vector3Readonly | THREE_Vector3): this;
     /**
      * Set elements of Matrix4 according to rotation about axis.

@@ -19,7 +19,9 @@ therefore, we assume that the bottom row is [0, 0, 1] and only store 6 elements.
 ### Methods
 
 - [setIdentity](Matrix3.md#setidentity)
-- [setFromRotationTranslation](Matrix3.md#setfromrotationtranslation)
+- [setRotation](Matrix3.md#setrotation)
+- [setTranslation](Matrix3.md#settranslation)
+- [setRotationTranslation](Matrix3.md#setrotationtranslation)
 - [equals](Matrix3.md#equals)
 - [copy](Matrix3.md#copy)
 - [clone](Matrix3.md#clone)
@@ -86,9 +88,49 @@ this
 
 ___
 
-### setFromRotationTranslation
+### setRotation
 
-▸ **setFromRotationTranslation**(`angle`, `translation`): [`Matrix3`](Matrix3.md)
+▸ **setRotation**(`angle`): [`Matrix3`](Matrix3.md)
+
+Set elements of Matrix3 according to rotation.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `angle` | `number` | Angle of rotation in radians. |
+
+#### Returns
+
+[`Matrix3`](Matrix3.md)
+
+this
+
+___
+
+### setTranslation
+
+▸ **setTranslation**(`translation`): [`Matrix3`](Matrix3.md)
+
+Set elements of Matrix3 according to translation.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `translation` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Translation vector. |
+
+#### Returns
+
+[`Matrix3`](Matrix3.md)
+
+this
+
+___
+
+### setRotationTranslation
+
+▸ **setRotationTranslation**(`angle`, `translation`): [`Matrix3`](Matrix3.md)
 
 Set elements of Matrix4 according to rotation and translation.
 
@@ -97,7 +139,7 @@ Set elements of Matrix4 according to rotation and translation.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `angle` | `number` | Angle of rotation in radians. |
-| `translation` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Translation offset. |
+| `translation` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Translation vector. |
 
 #### Returns
 
