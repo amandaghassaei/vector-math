@@ -1,6 +1,6 @@
 {
   "name": "@amandaghassaei/vector-math",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "A minimal vector math library to handle 2D/3D translations and rotations, written in TypeScript.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
