@@ -66,6 +66,18 @@ export class Vector3 {
     }
 
     /**
+     * Fill all components of this Vector3 with the same value.
+     * @param value - Value to fill all components with.
+     * @returns 
+     */
+    fill(value: number) {
+        this.x = value;
+        this.y = value;
+        this.z = value;
+        return this;
+    }
+
+    /**
      * Add a Vector3 to this Vector3.
      * @param vec - Vector3 to add.
      * @returns this

@@ -39,6 +39,16 @@ describe('Vector2', () => {
         // Check that it returns this.
         expect(returnValue).to.equal(vector);
     });
+    it('fill() - fills all components of this Vector2 with the same value', () => {
+        const vector = new Vector2(5.4, 0.5);
+        expect(vector.x).to.equal(5.4);
+        expect(vector.y).to.equal(0.5);
+        const returnValue = vector.fill(3.2);
+        expect(vector.x).to.equal(3.2);
+        expect(vector.y).to.equal(3.2);
+        // Check that it returns this.
+        expect(returnValue).to.equal(vector);
+    });
     it('add() - adds a Vector2', () => {
         const vector = new Vector2();
         vector.add(new Vector2(5, 6));

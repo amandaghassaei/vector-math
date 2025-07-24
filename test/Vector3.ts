@@ -49,6 +49,18 @@ describe('Vector3', () => {
 		// Check that it returns this.
 		expect(returnValue).to.equal(vector);
 	});
+    it('fill() - fills all components of this Vector3 with the same value', () => {
+        const vector = new Vector3(5.4, 0.5, 3.4);
+        expect(vector.x).to.equal(5.4);
+        expect(vector.y).to.equal(0.5);
+        expect(vector.z).to.equal(3.4);
+        const returnValue = vector.fill(3.2);
+        expect(vector.x).to.equal(3.2);
+        expect(vector.y).to.equal(3.2);
+        expect(vector.z).to.equal(3.2);
+        // Check that it returns this.
+        expect(returnValue).to.equal(vector);
+    });
 	it('add() - adds a Vector3', () => {
 		const vector = new Vector3();
 		vector.add(new Vector3(5, 6, -2));
