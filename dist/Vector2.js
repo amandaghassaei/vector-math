@@ -280,26 +280,29 @@ export class Vector2 {
     /**
      * Test if this Vector2 equals another Vector2.
      * @param vec - Vector2 to test equality with.
+     * @param tolerance - Optional numerical tolerance for equality check, defaults to global numerical tolerance.
      * @returns True if the vectors are equal.
      */
-    equals(vec) {
-        return Math.abs(this.x - vec.x) <= NUMERICAL_TOLERANCE() && Math.abs(this.y - vec.y) <= NUMERICAL_TOLERANCE();
+    equals(vec, tolerance = NUMERICAL_TOLERANCE()) {
+        return Math.abs(this.x - vec.x) <= tolerance && Math.abs(this.y - vec.y) <= tolerance;
     }
     // /**
     //  * Test if two Vector2s are equal.
     //  * @param vec1 - First Vector2.
     //  * @param vec2 - Second Vector2.
+    //  * @param tolerance - Optional numerical tolerance for equality check, defaults to global numerical tolerance.
     //  * @returns True if the vectors are equal.
     //  */
-    // static equals(vec1: Vector2Readonly | THREE_Vector2, vec2: Vector2Readonly | THREE_Vector2) {
-    //     return Math.abs(vec1.x - vec2.x) <= NUMERICAL_TOLERANCE() && Math.abs(vec1.y - vec2.y) <= NUMERICAL_TOLERANCE();
+    // static equals(vec1: Vector2Readonly | THREE_Vector2, vec2: Vector2Readonly | THREE_Vector2, tolerance = NUMERICAL_TOLERANCE()) {
+    //     return Math.abs(vec1.x - vec2.x) <= tolerance && Math.abs(vec1.y - vec2.y) <= tolerance;
     // }
     /**
      * Test if this vector is the zero vector.
+     * @param tolerance - Optional numerical tolerance for zero check, defaults to global numerical tolerance.
      * @returns True if the vector is the zero vector.
      */
-    isZero() {
-        return Math.abs(this.x) <= NUMERICAL_TOLERANCE() && Math.abs(this.y) <= NUMERICAL_TOLERANCE();
+    isZero(tolerance = NUMERICAL_TOLERANCE()) {
+        return Math.abs(this.x) <= tolerance && Math.abs(this.y) <= tolerance;
     }
     /**
      * Clone this Vector2 into a new Vector2.

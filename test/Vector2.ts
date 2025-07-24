@@ -329,11 +329,21 @@ describe('Vector2', () => {
         expect(vector1.equals(new THREE_Vector2(5.4, 0.5))).to.equal(true);
         expect(vector1.equals(new THREE_Vector2(5.4, 0.6))).to.equal(false);
         expect(vector1.equals(new THREE_Vector2(5.5, 0.5))).to.equal(false);
+        // Optional numerical tolerance.
+        expect(vector1.equals(new Vector2(5.4 + DEFAULT_NUMERICAL_TOLERANCE, 0.5))).to.equal(true);
+        expect(vector1.equals(new Vector2(5.4 + DEFAULT_NUMERICAL_TOLERANCE * 2, 0.5))).to.equal(false);
+        expect(vector1.equals(new Vector2(5.4, 0.5 + DEFAULT_NUMERICAL_TOLERANCE))).to.equal(true);
+        expect(vector1.equals(new Vector2(5.4, 0.5 + DEFAULT_NUMERICAL_TOLERANCE), 0)).to.equal(false);
     });
     it('isZero() - checks if Vector2 is zero vector', () => {
         expect(new Vector2().isZero()).to.equal(true);
         expect(new Vector2(1, 0).isZero()).to.equal(false);
         expect(new Vector2(0, 1).isZero()).to.equal(false);
+        // Optional numerical tolerance.
+        expect(new Vector2(DEFAULT_NUMERICAL_TOLERANCE, 0).isZero()).to.equal(true);
+        expect(new Vector2(DEFAULT_NUMERICAL_TOLERANCE * 2, 0).isZero()).to.equal(false);
+        expect(new Vector2(0, DEFAULT_NUMERICAL_TOLERANCE).isZero()).to.equal(true);
+        expect(new Vector2(0, DEFAULT_NUMERICAL_TOLERANCE).isZero(0)).to.equal(false);
     });
     it('clone() - clones a Vector2', () => {
         const vector1 = new Vector2(5.4, 0.5);

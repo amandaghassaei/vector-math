@@ -73,7 +73,7 @@ ___
 
 ### equals
 
-▸ `Static` **equals**(`vec1`, `vec2`): `boolean`
+▸ `Static` **equals**(`vec1`, `vec2`, `tolerance?`): `boolean`
 
 Test if two Vector3s are equal (within numerical tolerance).
 
@@ -83,6 +83,7 @@ Test if two Vector3s are equal (within numerical tolerance).
 | :------ | :------ | :------ |
 | `vec1` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | First Vector3. |
 | `vec2` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Second Vector3. |
+| `tolerance` | `number` | Optional numerical tolerance for equality check, defaults to global numerical tolerance. |
 
 #### Returns
 
@@ -571,7 +572,7 @@ ___
 
 ### equals
 
-▸ **equals**(`vec`): `boolean`
+▸ **equals**(`vec`, `tolerance?`): `boolean`
 
 Test if this Vector3 equals another Vector3.
 
@@ -580,6 +581,7 @@ Test if this Vector3 equals another Vector3.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `vec` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to test equality with. |
+| `tolerance` | `number` | Defaults to 0. |
 
 #### Returns
 
@@ -591,13 +593,21 @@ ___
 
 ### isZero
 
-▸ **isZero**(): `boolean`
+▸ **isZero**(`tolerance?`): `boolean`
 
 Test if this vector is the zero vector.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `tolerance` | `number` | Optional numerical tolerance for zero check, defaults to global numerical tolerance. |
 
 #### Returns
 
 `boolean`
+
+True if the vector is the zero vector.
 
 ___
 

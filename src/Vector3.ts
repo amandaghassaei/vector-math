@@ -376,29 +376,32 @@ export class Vector3 {
      * @param tolerance - Defaults to 0.
      * @returns True if the vectors are equal.
      */
-    equals(vec: Vector3Readonly | THREE_Vector3): boolean {
-        return Vector3.equals(this, vec);
+    equals(vec: Vector3Readonly | THREE_Vector3, tolerance = NUMERICAL_TOLERANCE()): boolean {
+        return Vector3.equals(this, vec, tolerance);
     }
 
     /**
      * Test if two Vector3s are equal (within numerical tolerance).
      * @param vec1 - First Vector3.
      * @param vec2 - Second Vector3.
+     * @param tolerance - Optional numerical tolerance for equality check, defaults to global numerical tolerance.
      * @returns True if the vectors are equal.
      */
-    static equals(vec1: Vector3Readonly | THREE_Vector3, vec2: Vector3Readonly | THREE_Vector3) {
+    static equals(vec1: Vector3Readonly | THREE_Vector3, vec2: Vector3Readonly | THREE_Vector3, tolerance = NUMERICAL_TOLERANCE()) {
         return (
-            Math.abs(vec1.x - vec2.x) <= NUMERICAL_TOLERANCE() &&
-            Math.abs(vec1.y - vec2.y) <= NUMERICAL_TOLERANCE() &&
-            Math.abs(vec1.z - vec2.z) <= NUMERICAL_TOLERANCE()
+            Math.abs(vec1.x - vec2.x) <= tolerance &&
+            Math.abs(vec1.y - vec2.y) <= tolerance &&
+            Math.abs(vec1.z - vec2.z) <= tolerance
         )
     }
 
     /**
      * Test if this vector is the zero vector.
+     * @param tolerance - Optional numerical tolerance for zero check, defaults to global numerical tolerance.
+     * @returns True if the vector is the zero vector.
      */
-    isZero() {
-        return this.x <= NUMERICAL_TOLERANCE() && this.y <= NUMERICAL_TOLERANCE() && this.z <= NUMERICAL_TOLERANCE();
+    isZero(tolerance = NUMERICAL_TOLERANCE()) {
+        return this.x <= tolerance && this.y <= tolerance && this.z <= tolerance;
     }
 
     /**

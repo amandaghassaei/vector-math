@@ -292,14 +292,16 @@ declare class Vector2 {
     /**
      * Test if this Vector2 equals another Vector2.
      * @param vec - Vector2 to test equality with.
+     * @param tolerance - Optional numerical tolerance for equality check, defaults to global numerical tolerance.
      * @returns True if the vectors are equal.
      */
-    equals(vec: Vector2Readonly | Vector2$1): boolean;
+    equals(vec: Vector2Readonly | Vector2$1, tolerance?: number): boolean;
     /**
      * Test if this vector is the zero vector.
+     * @param tolerance - Optional numerical tolerance for zero check, defaults to global numerical tolerance.
      * @returns True if the vector is the zero vector.
      */
-    isZero(): boolean;
+    isZero(tolerance?: number): boolean;
     /**
      * Clone this Vector2 into a new Vector2.
      * @returns The cloned Vector2.
@@ -725,18 +727,21 @@ declare class Vector3 {
      * @param tolerance - Defaults to 0.
      * @returns True if the vectors are equal.
      */
-    equals(vec: Vector3Readonly | Vector3$1): boolean;
+    equals(vec: Vector3Readonly | Vector3$1, tolerance?: number): boolean;
     /**
      * Test if two Vector3s are equal (within numerical tolerance).
      * @param vec1 - First Vector3.
      * @param vec2 - Second Vector3.
+     * @param tolerance - Optional numerical tolerance for equality check, defaults to global numerical tolerance.
      * @returns True if the vectors are equal.
      */
-    static equals(vec1: Vector3Readonly | Vector3$1, vec2: Vector3Readonly | Vector3$1): boolean;
+    static equals(vec1: Vector3Readonly | Vector3$1, vec2: Vector3Readonly | Vector3$1, tolerance?: number): boolean;
     /**
      * Test if this vector is the zero vector.
+     * @param tolerance - Optional numerical tolerance for zero check, defaults to global numerical tolerance.
+     * @returns True if the vector is the zero vector.
      */
-    isZero(): boolean;
+    isZero(tolerance?: number): boolean;
     /**
      * Clone this Vector3 into a new Vector3.
      */

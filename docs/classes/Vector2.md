@@ -527,7 +527,7 @@ ___
 
 ### equals
 
-▸ **equals**(`vec`): `boolean`
+▸ **equals**(`vec`, `tolerance?`): `boolean`
 
 Test if this Vector2 equals another Vector2.
 
@@ -536,6 +536,7 @@ Test if this Vector2 equals another Vector2.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `vec` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to test equality with. |
+| `tolerance` | `number` | Optional numerical tolerance for equality check, defaults to global numerical tolerance. |
 
 #### Returns
 
@@ -547,9 +548,15 @@ ___
 
 ### isZero
 
-▸ **isZero**(): `boolean`
+▸ **isZero**(`tolerance?`): `boolean`
 
 Test if this vector is the zero vector.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `tolerance` | `number` | Optional numerical tolerance for zero check, defaults to global numerical tolerance. |
 
 #### Returns
 

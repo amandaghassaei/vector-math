@@ -172,14 +172,16 @@ export declare class Vector2 {
     /**
      * Test if this Vector2 equals another Vector2.
      * @param vec - Vector2 to test equality with.
+     * @param tolerance - Optional numerical tolerance for equality check, defaults to global numerical tolerance.
      * @returns True if the vectors are equal.
      */
-    equals(vec: Vector2Readonly | THREE_Vector2): boolean;
+    equals(vec: Vector2Readonly | THREE_Vector2, tolerance?: number): boolean;
     /**
      * Test if this vector is the zero vector.
+     * @param tolerance - Optional numerical tolerance for zero check, defaults to global numerical tolerance.
      * @returns True if the vector is the zero vector.
      */
-    isZero(): boolean;
+    isZero(tolerance?: number): boolean;
     /**
      * Clone this Vector2 into a new Vector2.
      * @returns The cloned Vector2.
