@@ -17,6 +17,7 @@
 
 - [set](Vector2.md#set)
 - [setFromArray](Vector2.md#setfromarray)
+- [fill](Vector2.md#fill)
 - [add](Vector2.md#add)
 - [sub](Vector2.md#sub)
 - [multiplyScalar](Vector2.md#multiplyscalar)
@@ -110,6 +111,24 @@ Set the contents of a Vector3 from an array.
 [`Vector2`](Vector2.md)
 
 this
+
+___
+
+### fill
+
+▸ **fill**(`value`): [`Vector2`](Vector2.md)
+
+Fill all components of this Vector2 with the same value.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `number` | Value to fill all components with. |
+
+#### Returns
+
+[`Vector2`](Vector2.md)
 
 ___
 

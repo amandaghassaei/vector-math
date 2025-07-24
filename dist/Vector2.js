@@ -27,6 +27,16 @@ export class Vector2 {
         return this;
     }
     /**
+     * Fill all components of this Vector2 with the same value.
+     * @param value - Value to fill all components with.
+     * @returns
+     */
+    fill(value) {
+        this.x = value;
+        this.y = value;
+        return this;
+    }
+    /**
      * Add a Vector2 to this Vector2.
      * @param vec - Vector2 to add.
      * @returns this

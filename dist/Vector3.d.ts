@@ -43,6 +43,12 @@ export declare class Vector3 {
      */
     setFromArray(array: readonly [number, number, number]): this;
     /**
+     * Fill all components of this Vector3 with the same value.
+     * @param value - Value to fill all components with.
+     * @returns
+     */
+    fill(value: number): this;
+    /**
      * Add a Vector3 to this Vector3.
      * @param vec - Vector3 to add.
      * @returns this

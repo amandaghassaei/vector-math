@@ -160,6 +160,12 @@ declare class Vector2 {
      */
     setFromArray(array: readonly [number, number]): this;
     /**
+     * Fill all components of this Vector2 with the same value.
+     * @param value - Value to fill all components with.
+     * @returns
+     */
+    fill(value: number): this;
+    /**
      * Add a Vector2 to this Vector2.
      * @param vec - Vector2 to add.
      * @returns this
@@ -571,6 +577,12 @@ declare class Vector3 {
      * @returns this
      */
     setFromArray(array: readonly [number, number, number]): this;
+    /**
+     * Fill all components of this Vector3 with the same value.
+     * @param value - Value to fill all components with.
+     * @returns
+     */
+    fill(value: number): this;
     /**
      * Add a Vector3 to this Vector3.
      * @param vec - Vector3 to add.

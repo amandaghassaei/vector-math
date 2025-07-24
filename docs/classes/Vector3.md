@@ -10,6 +10,7 @@
 - [equals](Vector3.md#equals)
 - [set](Vector3.md#set)
 - [setFromArray](Vector3.md#setfromarray)
+- [fill](Vector3.md#fill)
 - [add](Vector3.md#add)
 - [sub](Vector3.md#sub)
 - [multiplyScalar](Vector3.md#multiplyscalar)
@@ -130,6 +131,24 @@ Set the contents of a Vector3 from an array.
 [`Vector3`](Vector3.md)
 
 this
+
+___
+
+### fill
+
+▸ **fill**(`value`): [`Vector3`](Vector3.md)
+
+Fill all components of this Vector3 with the same value.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `number` | Value to fill all components with. |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
 
 ___
 

@@ -108,6 +108,16 @@
             return this;
         }
         /**
+         * Fill all components of this Vector2 with the same value.
+         * @param value - Value to fill all components with.
+         * @returns
+         */
+        fill(value) {
+            this.x = value;
+            this.y = value;
+            return this;
+        }
+        /**
          * Add a Vector2 to this Vector2.
          * @param vec - Vector2 to add.
          * @returns this
@@ -416,6 +426,17 @@
             this.x = array[0];
             this.y = array[1];
             this.z = array[2];
+            return this;
+        }
+        /**
+         * Fill all components of this Vector3 with the same value.
+         * @param value - Value to fill all components with.
+         * @returns
+         */
+        fill(value) {
+            this.x = value;
+            this.y = value;
+            this.z = value;
             return this;
         }
         /**
