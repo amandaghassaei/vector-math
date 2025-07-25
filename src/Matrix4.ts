@@ -1,7 +1,7 @@
 import { tempVector3 } from './common';
 import { NUMERICAL_TOLERANCE } from './constants';
 import { Vector3, type Vector3Readonly } from './Vector3';
-import type { Vector3 as THREE_Vector3, Matrix4 as THREE_Matrix4 } from 'three';
+import type { THREE_Vector3 } from './THREE_types';
 
 export type Matrix4Readonly = {
 	readonly elements: readonly number[];

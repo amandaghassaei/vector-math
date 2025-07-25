@@ -148,7 +148,7 @@ Set elements of Matrix4 according to translation.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `translation` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Translation vector. |
+| `translation` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Translation vector. |
 
 #### Returns
 
@@ -168,9 +168,9 @@ Set elements of Matrix4 according to rotation about axis.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `axis` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Unit vector around which to rotate, must be normalized. |
+| `axis` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Unit vector around which to rotate, must be normalized. |
 | `angle` | `number` | Angle of rotation in radians. |
-| `offset?` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Offset vector. |
+| `offset?` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Offset vector. |
 
 #### Returns
 
@@ -190,9 +190,9 @@ Set elements of Matrix4 according to rotation from one vector to another.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `fromVector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Unit vector to rotate from, must be normalized. |
-| `toVector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Unit vector to rotate to, must be normalized. |
-| `offset?` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | - |
+| `fromVector` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Unit vector to rotate from, must be normalized. |
+| `toVector` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Unit vector to rotate to, must be normalized. |
+| `offset?` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | - |
 
 #### Returns
 
@@ -212,8 +212,8 @@ Set elements of Matrix4 according to reflection.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `normal` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Unit vector about which to reflect, must be normalized. |
-| `offset?` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Offset vector of reflection. |
+| `normal` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Unit vector about which to reflect, must be normalized. |
+| `offset?` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Offset vector of reflection. |
 
 #### Returns
 

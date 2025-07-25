@@ -1,5 +1,5 @@
 import { type Vector3Readonly } from './Vector3';
-import type { Vector3 as THREE_Vector3 } from 'three';
+import type { THREE_Vector3 } from './THREE_types';
 export type Matrix4Readonly = {
     readonly elements: readonly number[];
     readonly isIdentity: boolean;

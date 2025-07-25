@@ -104,8 +104,8 @@ Set quaternion from two unit vectors.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vFrom` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | From unit vector (normalized). |
-| `vTo` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | To unit vector (normalized). |
+| `vFrom` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | From unit vector (normalized). |
+| `vTo` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | To unit vector (normalized). |
 
 #### Returns
 
@@ -164,7 +164,7 @@ Sets value of this Quaternion to A*B.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `quat` | `Quaternion` \| [`QuaternionReadonly`](../README.md#quaternionreadonly) | Quaternion to multiply with. |
+| `quat` | `THREE_Quaternion` \| [`QuaternionReadonly`](../README.md#quaternionreadonly) | Quaternion to multiply with. |
 
 #### Returns
 
@@ -185,7 +185,7 @@ Sets value of this Quaternion to B*A.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `quat` | `Quaternion` \| [`QuaternionReadonly`](../README.md#quaternionreadonly) | Quaternion to premultiply with. |
+| `quat` | `THREE_Quaternion` \| [`QuaternionReadonly`](../README.md#quaternionreadonly) | Quaternion to premultiply with. |
 
 #### Returns
 
@@ -219,7 +219,7 @@ Copy the contents of a Quaternion to this Quaternion.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `quaternion` | `Quaternion` \| [`QuaternionReadonly`](../README.md#quaternionreadonly) | Quaternion to copy. |
+| `quaternion` | `THREE_Quaternion` \| [`QuaternionReadonly`](../README.md#quaternionreadonly) | Quaternion to copy. |
 
 #### Returns
 

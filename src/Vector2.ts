@@ -1,5 +1,5 @@
 import type { Matrix3Readonly } from './Matrix3';
-import type { Vector2 as THREE_Vector2 } from 'three';
+import type { THREE_Vector2 } from './THREE_types';
 import { getStackTraceAsString } from './utils';
 import { NUMERICAL_TOLERANCE } from './constants';
 

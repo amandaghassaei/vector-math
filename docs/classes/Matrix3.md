@@ -118,7 +118,7 @@ Set elements of Matrix3 according to translation.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `translation` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Translation vector. |
+| `translation` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Translation vector. |
 
 #### Returns
 
@@ -139,7 +139,7 @@ Set elements of Matrix4 according to rotation and translation.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `angle` | `number` | Angle of rotation in radians. |
-| `translation` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Translation vector. |
+| `translation` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Translation vector. |
 
 #### Returns
 

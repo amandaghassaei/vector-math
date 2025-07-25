@@ -60,8 +60,8 @@ Returns the dot product of two Vector3s.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec1` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | First Vector3. |
-| `vec2` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Second Vector3. |
+| `vec1` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | First Vector3. |
+| `vec2` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Second Vector3. |
 
 #### Returns
 
@@ -81,8 +81,8 @@ Test if two Vector3s are equal (within numerical tolerance).
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec1` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | First Vector3. |
-| `vec2` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Second Vector3. |
+| `vec1` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | First Vector3. |
+| `vec2` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Second Vector3. |
 | `tolerance` | `number` | Optional numerical tolerance for equality check, defaults to global numerical tolerance. |
 
 #### Returns
@@ -163,7 +163,7 @@ Add a Vector3 to this Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to add. |
+| `vec` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to add. |
 
 #### Returns
 
@@ -183,7 +183,7 @@ Subtract a Vector3 from this Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to subtract. |
+| `vec` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to subtract. |
 
 #### Returns
 
@@ -243,7 +243,7 @@ Returns the dot product of this Vector3 with another Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to dot with. |
+| `vec` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to dot with. |
 
 #### Returns
 
@@ -263,7 +263,7 @@ Cross this Vector3 with another Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to cross with. |
+| `vec` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to cross with. |
 
 #### Returns
 
@@ -311,7 +311,7 @@ Returns the squared distance between this Vector3 and another Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to measure distance to. |
+| `vec` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to measure distance to. |
 
 #### Returns
 
@@ -331,7 +331,7 @@ Returns the distance between this Vector3 and another Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to measure distance to. |
+| `vec` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to measure distance to. |
 
 #### Returns
 
@@ -405,7 +405,7 @@ Apply Quaternion transformation to this Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `quaternion` | `Quaternion` \| [`QuaternionReadonly`](../README.md#quaternionreadonly) | Quaternion to apply. |
+| `quaternion` | `THREE_Quaternion` \| [`QuaternionReadonly`](../README.md#quaternionreadonly) | Quaternion to apply. |
 
 #### Returns
 
@@ -425,7 +425,7 @@ Linearly interpolate between this Vector3 and another Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to lerp to. |
+| `vector` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to lerp to. |
 | `t` | `number` | Interpolation factor between 0 and 1. |
 
 #### Returns
@@ -446,7 +446,7 @@ Average this Vector3 with another Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to average with. |
+| `vector` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to average with. |
 
 #### Returns
 
@@ -466,7 +466,7 @@ Min this Vector3 with another Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to min with. |
+| `vector` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to min with. |
 
 #### Returns
 
@@ -486,7 +486,7 @@ Max this Vector3 with another Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to max with. |
+| `vector` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to max with. |
 
 #### Returns
 
@@ -520,7 +520,7 @@ Calculate the angle between this Vector3 and another Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to calculate angle to. |
+| `vector` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to calculate angle to. |
 
 #### Returns
 
@@ -540,7 +540,7 @@ Calculate the angle between this (normalized) Vector3 and another (normalized) V
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vector` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to calculate angle to. |
+| `vector` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to calculate angle to. |
 
 #### Returns
 
@@ -560,7 +560,7 @@ Copy the contents of a Vector3 to this Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to copy. |
+| `vec` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to copy. |
 
 #### Returns
 
@@ -580,7 +580,7 @@ Test if this Vector3 equals another Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to test equality with. |
+| `vec` | `THREE_Vector3` \| [`Vector3Readonly`](../README.md#vector3readonly) | Vector3 to test equality with. |
 | `tolerance` | `number` | Defaults to 0. |
 
 #### Returns

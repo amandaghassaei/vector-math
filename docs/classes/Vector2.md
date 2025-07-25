@@ -142,7 +142,7 @@ Add a Vector2 to this Vector2.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to add. |
+| `vec` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to add. |
 
 #### Returns
 
@@ -162,7 +162,7 @@ Subtract a Vector2 from this Vector2.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to subtract. |
+| `vec` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to subtract. |
 
 #### Returns
 
@@ -222,7 +222,7 @@ Returns the dot product of this Vector2 with another Vector2.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to dot with. |
+| `vec` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to dot with. |
 
 #### Returns
 
@@ -242,7 +242,7 @@ Compute the 2D cross product (wedge product) with another Vector2.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to cross. |
+| `vec` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to cross. |
 
 #### Returns
 
@@ -306,7 +306,7 @@ Returns the squared distance between this Vector2 and another Vector2.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to measure distance to. |
+| `vec` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to measure distance to. |
 
 #### Returns
 
@@ -326,7 +326,7 @@ Returns the distance between this Vector2 and another Vector2.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to measure distance to. |
+| `vec` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to measure distance to. |
 
 #### Returns
 
@@ -380,7 +380,7 @@ Linearly interpolate between this Vector2 and another Vector2.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vector` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to lerp to. |
+| `vector` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to lerp to. |
 | `t` | `number` | Interpolation factor between 0 and 1. |
 
 #### Returns
@@ -401,7 +401,7 @@ Average this Vector2 with another Vector2.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vector` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to average with. |
+| `vector` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to average with. |
 
 #### Returns
 
@@ -421,7 +421,7 @@ Min this Vector3 with another Vector3.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vector` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector3 to min with. |
+| `vector` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector3 to min with. |
 
 #### Returns
 
@@ -441,7 +441,7 @@ Max this Vector2 with another Vector2.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vector` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to max with. |
+| `vector` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to max with. |
 
 #### Returns
 
@@ -475,7 +475,7 @@ Calculate the angle between this Vector2 and another Vector2.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vector` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to calculate angle to. |
+| `vector` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to calculate angle to. |
 
 #### Returns
 
@@ -495,7 +495,7 @@ Calculate the angle between this (normalized) Vector2 and another (normalized) V
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vector` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to calculate angle to. |
+| `vector` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to calculate angle to. |
 
 #### Returns
 
@@ -515,7 +515,7 @@ Copy the contents of a Vector2 to this Vector2.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to copy. |
+| `vec` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to copy. |
 
 #### Returns
 
@@ -535,7 +535,7 @@ Test if this Vector2 equals another Vector2.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `vec` | `Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to test equality with. |
+| `vec` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Vector2 to test equality with. |
 | `tolerance` | `number` | Optional numerical tolerance for equality check, defaults to global numerical tolerance. |
 
 #### Returns

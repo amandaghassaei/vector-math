@@ -1,6 +1,7 @@
 import { NUMERICAL_TOLERANCE } from './constants';
 import type { Vector2Readonly } from './Vector2';
-import type { Vector2 as THREE_Vector2 } from 'three';
+import type { THREE_Vector2 } from './THREE_types';
+
 
 export type Matrix3Readonly = {
 	readonly elements: readonly number[];

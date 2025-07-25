@@ -1,5 +1,5 @@
 import type { Vector3Readonly } from './Vector3';
-import type { Quaternion as THREE_Quaternion, Vector3 as THREE_Vector3 } from 'three';
+import type { THREE_Vector3, THREE_Quaternion } from './THREE_types';
 export type QuaternionReadonly = {
     readonly x: number;
     readonly y: number;

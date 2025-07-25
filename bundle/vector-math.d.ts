@@ -1,5 +1,3 @@
-import { Vector2 as Vector2$1, Vector3 as Vector3$1, Quaternion as Quaternion$1 } from 'three';
-
 /**
  * Default numerical tolerance for all mathematical operations and equality checks.
  */
@@ -38,6 +36,24 @@ declare function degreesToRadians(value: number): number;
  * @returns The rounded value.
  */
 declare function roundValueToIncrement(value: number, coarseStep: number): number;
+
+type THREE_Vector2 = {
+    x: number;
+    y: number;
+    lengthSq: () => number;
+};
+type THREE_Vector3 = {
+    x: number;
+    y: number;
+    z: number;
+    lengthSq: () => number;
+};
+type THREE_Quaternion = {
+    x: number;
+    y: number;
+    z: number;
+    w: number;
+};
 
 type Matrix3Readonly = {
     readonly elements: readonly number[];
@@ -94,14 +110,14 @@ declare class Matrix3 {
      * @param translation - Translation vector.
      * @returns this
      */
-    setTranslation(translation: Vector2Readonly | Vector2$1): this;
+    setTranslation(translation: Vector2Readonly | THREE_Vector2): this;
     /**
      * Set elements of Matrix4 according to rotation and translation.
      * @param angle - Angle of rotation in radians.
      * @param translation - Translation vector.
      * @returns this
      */
-    setRotationTranslation(angle: number, translation: Vector2Readonly | Vector2$1): this;
+    setRotationTranslation(angle: number, translation: Vector2Readonly | THREE_Vector2): this;
     /**
      * Test if this Matrix3 equals another Matrix3.
      * @param matrix - Matrix3 to test equality with.
@@ -123,16 +139,16 @@ declare class Matrix3 {
 type Vector2Readonly = {
     readonly x: number;
     readonly y: number;
-    dot: (vec: Vector2Readonly | Vector2$1) => number;
-    cross: (vec: Vector2Readonly | Vector2$1) => number;
+    dot: (vec: Vector2Readonly | THREE_Vector2) => number;
+    cross: (vec: Vector2Readonly | THREE_Vector2) => number;
     angle: () => number;
     lengthSq: () => number;
     length: () => number;
-    distanceToSquared: (vec: Vector2Readonly | Vector2$1) => number;
-    distanceTo: (vec: Vector2Readonly | Vector2$1) => number;
-    angleTo: (vec: Vector2Readonly | Vector2$1) => number;
-    angleToNormalized: (vec: Vector2Readonly | Vector2$1) => number;
-    equals: (vec: Vector2Readonly | Vector2$1) => boolean;
+    distanceToSquared: (vec: Vector2Readonly | THREE_Vector2) => number;
+    distanceTo: (vec: Vector2Readonly | THREE_Vector2) => number;
+    angleTo: (vec: Vector2Readonly | THREE_Vector2) => number;
+    angleToNormalized: (vec: Vector2Readonly | THREE_Vector2) => number;
+    equals: (vec: Vector2Readonly | THREE_Vector2) => boolean;
     isZero: () => boolean;
     clone: () => Vector2;
     toArray: () => [number, number];
@@ -170,13 +186,13 @@ declare class Vector2 {
      * @param vec - Vector2 to add.
      * @returns this
      */
-    add(vec: Vector2Readonly | Vector2$1): this;
+    add(vec: Vector2Readonly | THREE_Vector2): this;
     /**
      * Subtract a Vector2 from this Vector2.
      * @param vec - Vector2 to subtract.
      * @returns this
      */
-    sub(vec: Vector2Readonly | Vector2$1): this;
+    sub(vec: Vector2Readonly | THREE_Vector2): this;
     /**
      * Multiply this Vector2 by scalar value.
      * @param scalar - Scalar to multiply.
@@ -194,13 +210,13 @@ declare class Vector2 {
      * @param vec - Vector2 to dot with.
      * @returns The dot product.
      */
-    dot(vec: Vector2Readonly | Vector2$1): number;
+    dot(vec: Vector2Readonly | THREE_Vector2): number;
     /**
      * Compute the 2D cross product (wedge product) with another Vector2.
      * @param vec - Vector2 to cross.
      * @returns The cross product.
      */
-    cross(vec: Vector2Readonly | Vector2$1): number;
+    cross(vec: Vector2Readonly | THREE_Vector2): number;
     /**
      * Get the angle of this Vector2.
      * Computes the angle in radians with respect to the positive x-axis.
@@ -223,13 +239,13 @@ declare class Vector2 {
      * @param vec - Vector2 to measure distance to.
      * @returns The squared distance.
      */
-    distanceToSquared(vec: Vector2Readonly | Vector2$1): number;
+    distanceToSquared(vec: Vector2Readonly | THREE_Vector2): number;
     /**
      * Returns the distance between this Vector2 and another Vector2.
      * @param vec - Vector2 to measure distance to.
      * @returns The distance.
      */
-    distanceTo(vec: Vector2Readonly | Vector2$1): number;
+    distanceTo(vec: Vector2Readonly | THREE_Vector2): number;
     /**
      * Normalize the length of this Vector2.
      * @returns this
@@ -247,25 +263,25 @@ declare class Vector2 {
      * @param t - Interpolation factor between 0 and 1.
      * @returns this
      */
-    lerp(vector: Vector2Readonly | Vector2$1, t: number): this;
+    lerp(vector: Vector2Readonly | THREE_Vector2, t: number): this;
     /**
      * Average this Vector2 with another Vector2.
      * @param vector - Vector2 to average with.
      * @returns this
      */
-    average(vector: Vector2Readonly | Vector2$1): this;
+    average(vector: Vector2Readonly | THREE_Vector2): this;
     /**
      * Min this Vector3 with another Vector3.
      * @param vector - Vector3 to min with.
      * @returns this
      */
-    min(vector: Vector2Readonly | Vector2$1): this;
+    min(vector: Vector2Readonly | THREE_Vector2): this;
     /**
      * Max this Vector2 with another Vector2.
      * @param vector - Vector2 to max with.
      * @returns this
      */
-    max(vector: Vector2Readonly | Vector2$1): this;
+    max(vector: Vector2Readonly | THREE_Vector2): this;
     /**
      * Invert this Vector2.
      * @returns this
@@ -276,26 +292,26 @@ declare class Vector2 {
      * @param vector - Vector2 to calculate angle to.
      * @returns The angle between the vectors.
      */
-    angleTo(vector: Vector2Readonly | Vector2$1): number;
+    angleTo(vector: Vector2Readonly | THREE_Vector2): number;
     /**
      * Calculate the angle between this (normalized) Vector2 and another (normalized) Vector2.
      * @param vector - Vector2 to calculate angle to.
      * @returns The angle between the vectors.
      */
-    angleToNormalized(vector: Vector2Readonly | Vector2$1): number;
+    angleToNormalized(vector: Vector2Readonly | THREE_Vector2): number;
     /**
      * Copy the contents of a Vector2 to this Vector2.
      * @param vec - Vector2 to copy.
      * @returns this
      */
-    copy(vec: Vector2Readonly | Vector2$1): this;
+    copy(vec: Vector2Readonly | THREE_Vector2): this;
     /**
      * Test if this Vector2 equals another Vector2.
      * @param vec - Vector2 to test equality with.
      * @param tolerance - Optional numerical tolerance for equality check, defaults to global numerical tolerance.
      * @returns True if the vectors are equal.
      */
-    equals(vec: Vector2Readonly | Vector2$1, tolerance?: number): boolean;
+    equals(vec: Vector2Readonly | THREE_Vector2, tolerance?: number): boolean;
     /**
      * Test if this vector is the zero vector.
      * @param tolerance - Optional numerical tolerance for zero check, defaults to global numerical tolerance.
@@ -380,7 +396,7 @@ declare class Matrix4 {
      * @param translation - Translation vector.
      * @returns this
      */
-    setTranslation(translation: Vector3Readonly | Vector3$1): this;
+    setTranslation(translation: Vector3Readonly | THREE_Vector3): this;
     /**
      * Set elements of Matrix4 according to rotation about axis.
      * @param axis - Unit vector around which to rotate, must be normalized.
@@ -388,21 +404,21 @@ declare class Matrix4 {
      * @param offset - Offset vector.
      * @returns this
      */
-    setRotationAxisAngleAtOffset(axis: Vector3Readonly | Vector3$1, angle: number, offset?: Vector3Readonly | Vector3$1): this;
+    setRotationAxisAngleAtOffset(axis: Vector3Readonly | THREE_Vector3, angle: number, offset?: Vector3Readonly | THREE_Vector3): this;
     /**
      * Set elements of Matrix4 according to rotation from one vector to another.
      * @param fromVector - Unit vector to rotate from, must be normalized.
      * @param toVector - Unit vector to rotate to, must be normalized.
      * @returns this
      */
-    setRotationFromVectorToVector(fromVector: Vector3Readonly | Vector3$1, toVector: Vector3Readonly | Vector3$1, offset?: Vector3Readonly | Vector3$1): Matrix4;
+    setRotationFromVectorToVector(fromVector: Vector3Readonly | THREE_Vector3, toVector: Vector3Readonly | THREE_Vector3, offset?: Vector3Readonly | THREE_Vector3): Matrix4;
     /**
      * Set elements of Matrix4 according to reflection.
      * @param normal - Unit vector about which to reflect, must be normalized.
      * @param offset - Offset vector of reflection.
      * @returns this
      */
-    setReflectionNormalAtOffset(normal: Vector3Readonly | Vector3$1, offset?: Vector3Readonly | Vector3$1): this;
+    setReflectionNormalAtOffset(normal: Vector3Readonly | THREE_Vector3, offset?: Vector3Readonly | THREE_Vector3): this;
     private _setRotationAxisCosSin;
     private _setRotationMatrixAtOffset;
     /**
@@ -489,7 +505,7 @@ declare class Quaternion {
      * @param vTo - To unit vector (normalized).
      * @returns this
      */
-    setFromUnitVectors(vFrom: Vector3Readonly | Vector3$1, vTo: Vector3Readonly | Vector3$1): this;
+    setFromUnitVectors(vFrom: Vector3Readonly | THREE_Vector3, vTo: Vector3Readonly | THREE_Vector3): this;
     /**
      * Returns the squared length of the Quaternion.
      */
@@ -509,14 +525,14 @@ declare class Quaternion {
      * @param quat - Quaternion to multiply with.
      * @returns this
      */
-    multiply(quat: QuaternionReadonly | Quaternion$1): Quaternion;
+    multiply(quat: QuaternionReadonly | THREE_Quaternion): Quaternion;
     /**
      * In place quaternion multiplication of this Quaternion (A) with another Quaternion (B).
      * Sets value of this Quaternion to B*A.
      * @param quat - Quaternion to premultiply with.
      * @returns this
      */
-    premultiply(quat: QuaternionReadonly | Quaternion$1): Quaternion;
+    premultiply(quat: QuaternionReadonly | THREE_Quaternion): Quaternion;
     /**
      * Quaternion multiplication.
      */
@@ -531,7 +547,7 @@ declare class Quaternion {
      * @param quaternion - Quaternion to copy.
      * @returns this
      */
-    copy(quaternion: QuaternionReadonly | Quaternion$1): this;
+    copy(quaternion: QuaternionReadonly | THREE_Quaternion): this;
     /**
      * Clone this Quaternion into a new Quaternion.
      */
@@ -542,14 +558,14 @@ type Vector3Readonly = {
     readonly x: number;
     readonly y: number;
     readonly z: number;
-    dot: (vec: Vector3Readonly | Vector3$1) => number;
+    dot: (vec: Vector3Readonly | THREE_Vector3) => number;
     lengthSq: () => number;
     length: () => number;
-    distanceToSquared: (vec: Vector3Readonly | Vector3$1) => number;
-    distanceTo: (vec: Vector3Readonly | Vector3$1) => number;
-    angleTo: (vec: Vector3Readonly | Vector3$1) => number;
-    angleToNormalized: (vec: Vector3Readonly | Vector3$1) => number;
-    equals: (vec: Vector3Readonly | Vector3$1) => boolean;
+    distanceToSquared: (vec: Vector3Readonly | THREE_Vector3) => number;
+    distanceTo: (vec: Vector3Readonly | THREE_Vector3) => number;
+    angleTo: (vec: Vector3Readonly | THREE_Vector3) => number;
+    angleToNormalized: (vec: Vector3Readonly | THREE_Vector3) => number;
+    equals: (vec: Vector3Readonly | THREE_Vector3) => boolean;
     isZero: () => boolean;
     clone: () => Vector3;
     toArray: () => [number, number, number];
@@ -590,13 +606,13 @@ declare class Vector3 {
      * @param vec - Vector3 to add.
      * @returns this
      */
-    add(vec: Vector3Readonly | Vector3$1): this;
+    add(vec: Vector3Readonly | THREE_Vector3): this;
     /**
      * Subtract a Vector3 from this Vector3.
      * @param vec - Vector3 to subtract.
      * @returns this
      */
-    sub(vec: Vector3Readonly | Vector3$1): this;
+    sub(vec: Vector3Readonly | THREE_Vector3): this;
     /**
      * Multiply this Vector3 by scalar value.
      * @param scalar - Scalar to multiply.
@@ -614,20 +630,20 @@ declare class Vector3 {
      * @param vec - Vector3 to dot with.
      * @returns dot product of this and vec.
      */
-    dot(vec: Vector3Readonly | Vector3$1): number;
+    dot(vec: Vector3Readonly | THREE_Vector3): number;
     /**
      * Returns the dot product of two Vector3s.
      * @param vec1 - First Vector3.
      * @param vec2 - Second Vector3.
      * @returns dot product of vec1 and vec2.
      */
-    static dot(vec1: Vector3Readonly | Vector3$1, vec2: Vector3Readonly | Vector3$1): number;
+    static dot(vec1: Vector3Readonly | THREE_Vector3, vec2: Vector3Readonly | THREE_Vector3): number;
     /**
      * Cross this Vector3 with another Vector3.
      * @param vec - Vector3 to cross with.
      * @returns this
      */
-    cross(vec: Vector3Readonly | Vector3$1): this;
+    cross(vec: Vector3Readonly | THREE_Vector3): this;
     /**
      * Returns the squared length of the Vector3.
      * @returns Squared length of the Vector3.
@@ -643,13 +659,13 @@ declare class Vector3 {
     * @param vec - Vector3 to measure distance to.
     * @returns Squared distance between this and vec.
     */
-    distanceToSquared(vec: Vector3Readonly | Vector3$1): number;
+    distanceToSquared(vec: Vector3Readonly | THREE_Vector3): number;
     /**
      * Returns the distance between this Vector3 and another Vector3.
      * @param vec - Vector3 to measure distance to.
      * @returns Distance between this and vec.
      */
-    distanceTo(vec: Vector3Readonly | Vector3$1): number;
+    distanceTo(vec: Vector3Readonly | THREE_Vector3): number;
     /**
      * Normalize the length of this Vector3.
      * @returns this
@@ -672,32 +688,32 @@ declare class Vector3 {
      * @param quaternion - Quaternion to apply.
      * @returns this
      */
-    applyQuaternion(quaternion: QuaternionReadonly | Quaternion$1): this;
+    applyQuaternion(quaternion: QuaternionReadonly | THREE_Quaternion): this;
     /**
      * Linearly interpolate between this Vector3 and another Vector3.
      * @param vector - Vector3 to lerp to.
      * @param t - Interpolation factor between 0 and 1.
      * @returns this
      */
-    lerp(vector: Vector3Readonly | Vector3$1, t: number): this;
+    lerp(vector: Vector3Readonly | THREE_Vector3, t: number): this;
     /**
      * Average this Vector3 with another Vector3.
      * @param vector - Vector3 to average with.
      * @returns this
      */
-    average(vector: Vector3Readonly | Vector3$1): this;
+    average(vector: Vector3Readonly | THREE_Vector3): this;
     /**
      * Min this Vector3 with another Vector3.
      * @param vector - Vector3 to min with.
      * @returns this
      */
-    min(vector: Vector3Readonly | Vector3$1): this;
+    min(vector: Vector3Readonly | THREE_Vector3): this;
     /**
      * Max this Vector3 with another Vector3.
      * @param vector - Vector3 to max with.
      * @returns this
      */
-    max(vector: Vector3Readonly | Vector3$1): this;
+    max(vector: Vector3Readonly | THREE_Vector3): this;
     /**
      * Invert this Vector3.
      * @returns this
@@ -708,26 +724,26 @@ declare class Vector3 {
      * @param vector - Vector3 to calculate angle to.
      * @returns Angle between this and vector.
      */
-    angleTo(vector: Vector3Readonly | Vector3$1): number;
+    angleTo(vector: Vector3Readonly | THREE_Vector3): number;
     /**
      * Calculate the angle between this (normalized) Vector3 and another (normalized) Vector3.
      * @param vector - Vector3 to calculate angle to.
      * @returns Angle between this and vector.
      */
-    angleToNormalized(vector: Vector3Readonly | Vector3$1): number;
+    angleToNormalized(vector: Vector3Readonly | THREE_Vector3): number;
     /**
      * Copy the contents of a Vector3 to this Vector3.
      * @param vec - Vector3 to copy.
      * @returns this
      */
-    copy(vec: Vector3Readonly | Vector3$1): this;
+    copy(vec: Vector3Readonly | THREE_Vector3): this;
     /**
      * Test if this Vector3 equals another Vector3.
      * @param vec - Vector3 to test equality with.
      * @param tolerance - Defaults to 0.
      * @returns True if the vectors are equal.
      */
-    equals(vec: Vector3Readonly | Vector3$1, tolerance?: number): boolean;
+    equals(vec: Vector3Readonly | THREE_Vector3, tolerance?: number): boolean;
     /**
      * Test if two Vector3s are equal (within numerical tolerance).
      * @param vec1 - First Vector3.
@@ -735,7 +751,7 @@ declare class Vector3 {
      * @param tolerance - Optional numerical tolerance for equality check, defaults to global numerical tolerance.
      * @returns True if the vectors are equal.
      */
-    static equals(vec1: Vector3Readonly | Vector3$1, vec2: Vector3Readonly | Vector3$1, tolerance?: number): boolean;
+    static equals(vec1: Vector3Readonly | THREE_Vector3, vec2: Vector3Readonly | THREE_Vector3, tolerance?: number): boolean;
     /**
      * Test if this vector is the zero vector.
      * @param tolerance - Optional numerical tolerance for zero check, defaults to global numerical tolerance.

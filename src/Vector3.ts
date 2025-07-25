@@ -1,6 +1,6 @@
 import type { Matrix4Readonly } from './Matrix4';
 import type { QuaternionReadonly } from './Quaternion';
-import type { Vector3 as THREE_Vector3, Quaternion as THREE_Quaternion } from 'three';
+import type { THREE_Vector3, THREE_Quaternion } from './THREE_types';
 import { getStackTraceAsString } from './utils';
 import { NUMERICAL_TOLERANCE } from './constants';
 

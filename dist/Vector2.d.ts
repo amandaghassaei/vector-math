@@ -1,5 +1,5 @@
 import type { Matrix3Readonly } from './Matrix3';
-import type { Vector2 as THREE_Vector2 } from 'three';
+import type { THREE_Vector2 } from './THREE_types';
 export type Vector2Readonly = {
     readonly x: number;
     readonly y: number;
