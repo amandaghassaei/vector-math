@@ -344,7 +344,7 @@ export class Vector3 {
      * @returns Angle between this and vector.
      */
     angleTo(vector: Vector3Readonly | THREE_Vector3) {
-        const theta = this.dot(vector) / Math.sqrt(this.lengthSq() * vector.lengthSq());
+        const theta = this.dot(vector) / Math.sqrt(this.lengthSq() * Vector3.dot(vector, vector));
         return Math.acos(Math.min(Math.max(theta, -1), 1));
     }
 

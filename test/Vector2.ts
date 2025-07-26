@@ -117,11 +117,11 @@ describe('Vector2', () => {
         // Works with threejs.
         expect(vector.dot(new THREE_Vector2(3.4, -5))).to.equal(-6.6);
     });
-    // it('static dot() - calculates the dot product between two Vector2s', () => {
-    //     expect(Vector2.dot(new Vector2(1, 2), new Vector2(3.4, -5))).to.equal(-6.6);
-    //     // Works with threejs.
-    //     expect(Vector2.dot(new Vector2(1, 2), new THREE_Vector2(3.4, -5))).to.equal(-6.6);
-    // });
+    it('static dot() - calculates the dot product between two Vector2s', () => {
+        expect(Vector2.dot(new Vector2(1, 2), new Vector2(3.4, -5))).to.equal(-6.6);
+        // Works with threejs.
+        expect(Vector2.dot(new Vector2(1, 2), new THREE_Vector2(3.4, -5))).to.equal(-6.6);
+    });
     it('cross() - calculate the 2D cross product with another Vector2', () => {
         expect(new Vector2(1, 0).cross(new Vector2(1, 0))).to.equal(0);
         expect(new Vector2().cross(new Vector2())).to.equal(0);
@@ -132,19 +132,19 @@ describe('Vector2', () => {
             13.379999999999999
         );
     });
-    // it('static cross() - calculates the 2D cross product between two Vector2s', () => {
-    //     expect(Vector2.cross(new Vector2(1, 0), new Vector2(1, 0))).to.equal(0);
-    //     expect(Vector2.cross(new Vector2(), new Vector2())).to.equal(0);
-    //     expect(Vector2.cross(new Vector2(1, 0.5), new Vector2(1, 0))).to.equal(-0.5);
-    //     expect(Vector2.cross(new Vector2(1, -9.2), new Vector2(1.4, 0.5))).to.equal(13.379999999999999);
-    //     // Works with threejs.
-    //     expect(Vector2.cross(new Vector2(1, -9.2), new THREE_Vector2(1.4, 0.5))).to.equal(
-    //         13.379999999999999
-    //     );
-    //     expect(Vector2.cross(new THREE_Vector2(1, -9.2), new THREE_Vector2(1.4, 0.5))).to.equal(
-    //         13.379999999999999
-    //     );
-    // });
+    it('static cross() - calculates the 2D cross product between two Vector2s', () => {
+        expect(Vector2.cross(new Vector2(1, 0), new Vector2(1, 0))).to.equal(0);
+        expect(Vector2.cross(new Vector2(), new Vector2())).to.equal(0);
+        expect(Vector2.cross(new Vector2(1, 0.5), new Vector2(1, 0))).to.equal(-0.5);
+        expect(Vector2.cross(new Vector2(1, -9.2), new Vector2(1.4, 0.5))).to.equal(13.379999999999999);
+        // Works with threejs.
+        expect(Vector2.cross(new Vector2(1, -9.2), new THREE_Vector2(1.4, 0.5))).to.equal(
+            13.379999999999999
+        );
+        expect(Vector2.cross(new THREE_Vector2(1, -9.2), new THREE_Vector2(1.4, 0.5))).to.equal(
+            13.379999999999999
+        );
+    });
     it('angle() - calculates the angle to another Vector2', () => {
         expect(new Vector2(1, 0).angle()).to.equal(0);
         expect(new Vector2(10, 0).angle()).to.equal(0);
@@ -292,11 +292,23 @@ describe('Vector2', () => {
         expect(new Vector2(0, 1).angleTo(new Vector2(1, 0))).to.almost.equal(Math.PI / 2);
         expect(new Vector2(4, 2).angleTo(new Vector2(-3, 5))).to.almost.equal(1.6475682180646747);
     });
+    it('static angleTo() - calculates the angle between two Vector3s', () => {
+        expect(Vector2.angleTo(new Vector2(1, 0), new Vector2(1, 0))).to.almost.equal(0);
+        expect(Vector2.angleTo(new Vector2(1, 0), new Vector2(-1, 0))).to.almost.equal(Math.PI);
+        expect(Vector2.angleTo(new Vector2(0, 1), new Vector2(1, 0))).to.almost.equal(Math.PI / 2);
+        expect(Vector2.angleTo(new Vector2(4, 2), new Vector2(-3, 5))).to.almost.equal(1.6475682180646747);
+    });
     it('angleToNormalized() - calculates the angle between two normalized Vector3s', () => {
         expect(new Vector2(1, 0).angleToNormalized(new Vector2(1, 0))).to.almost.equal(0);
         expect(new Vector2(1, 0).angleToNormalized(new Vector2(-1, 0))).to.almost.equal(Math.PI);
         expect(new Vector2(0, 1).angleToNormalized(new Vector2(1, 0))).to.almost.equal(Math.PI / 2);
         expect(new Vector2(4, 2).normalize().angleToNormalized(new Vector2(-3, 5).normalize())).to.almost.equal(1.6475682180646747);
+    });
+    it('static angleToNormalized() - calculates the angle between two normalized Vector3s', () => {
+        expect(Vector2.angleToNormalized(new Vector2(1, 0), new Vector2(1, 0))).to.almost.equal(0);
+        expect(Vector2.angleToNormalized(new Vector2(1, 0), new Vector2(-1, 0))).to.almost.equal(Math.PI);
+        expect(Vector2.angleToNormalized(new Vector2(0, 1), new Vector2(1, 0))).to.almost.equal(Math.PI / 2);
+        expect(Vector2.angleToNormalized(new Vector2(4, 2).normalize(), new Vector2(-3, 5).normalize())).to.almost.equal(1.6475682180646747);
     });
     it('copy() - copies values of input Vector2 into this Vector2', () => {
         const vector1 = new Vector2(5.4, 0.5);
@@ -334,6 +346,22 @@ describe('Vector2', () => {
         expect(vector1.equals(new Vector2(5.4 + DEFAULT_NUMERICAL_TOLERANCE * 2, 0.5))).to.equal(false);
         expect(vector1.equals(new Vector2(5.4, 0.5 + DEFAULT_NUMERICAL_TOLERANCE))).to.equal(true);
         expect(vector1.equals(new Vector2(5.4, 0.5 + DEFAULT_NUMERICAL_TOLERANCE), 0)).to.equal(false);
+    });
+    it('static equals() - tests equality between two Vector2s', () => {
+        const vector1 = new Vector2(5.4, 0.5);
+        const vector2 = new Vector2(5.4, 0.5);
+        expect(Vector2.equals(vector1, vector2)).to.equal(true);
+        expect(Vector2.equals(vector1, new Vector2(5.4, 0.6))).to.equal(false);
+        expect(Vector2.equals(vector1, new Vector2(5.5, 0.5))).to.equal(false);
+        // Works with threejs.
+        expect(Vector2.equals(vector1, new THREE_Vector2(5.4, 0.5))).to.equal(true);
+        expect(Vector2.equals(vector1, new THREE_Vector2(5.4, 0.6))).to.equal(false);
+        expect(Vector2.equals(vector1, new THREE_Vector2(5.5, 0.5))).to.equal(false);
+        // Optional numerical tolerance.
+        expect(Vector2.equals(vector1, new Vector2(5.4 + DEFAULT_NUMERICAL_TOLERANCE, 0.5))).to.equal(true);
+        expect(Vector2.equals(vector1, new Vector2(5.4 + DEFAULT_NUMERICAL_TOLERANCE * 2, 0.5))).to.equal(false);
+        expect(Vector2.equals(vector1, new Vector2(5.4, 0.5 + DEFAULT_NUMERICAL_TOLERANCE))).to.equal(true);
+        expect(Vector2.equals(vector1, new Vector2(5.4, 0.5 + DEFAULT_NUMERICAL_TOLERANCE), 0)).to.equal(false);
     });
     it('isZero() - checks if Vector2 is zero vector', () => {
         expect(new Vector2().isZero()).to.equal(true);

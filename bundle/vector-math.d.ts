@@ -40,13 +40,11 @@ declare function roundValueToIncrement(value: number, coarseStep: number): numbe
 type THREE_Vector2 = {
     x: number;
     y: number;
-    lengthSq: () => number;
 };
 type THREE_Vector3 = {
     x: number;
     y: number;
     z: number;
-    lengthSq: () => number;
 };
 type THREE_Quaternion = {
     x: number;
@@ -212,11 +210,25 @@ declare class Vector2 {
      */
     dot(vec: Vector2Readonly | THREE_Vector2): number;
     /**
+     * Returns the dot product of two Vector2s.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @returns The dot product.
+     */
+    static dot(vec1: Vector2Readonly | THREE_Vector2, vec2: Vector2Readonly | THREE_Vector2): number;
+    /**
      * Compute the 2D cross product (wedge product) with another Vector2.
      * @param vec - Vector2 to cross.
      * @returns The cross product.
      */
     cross(vec: Vector2Readonly | THREE_Vector2): number;
+    /**
+     * Compute the 2D cross product (wedge product) of two Vector2s.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @returns The cross product.
+     */
+    static cross(vec1: Vector2Readonly | THREE_Vector2, vec2: Vector2Readonly | THREE_Vector2): number;
     /**
      * Get the angle of this Vector2.
      * Computes the angle in radians with respect to the positive x-axis.
@@ -294,11 +306,25 @@ declare class Vector2 {
      */
     angleTo(vector: Vector2Readonly | THREE_Vector2): number;
     /**
+     * Calculate the angle between two Vector2s.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @returns The angle between the vectors.
+     */
+    static angleTo(vec1: Vector2Readonly | THREE_Vector2, vec2: Vector2Readonly | THREE_Vector2): number;
+    /**
      * Calculate the angle between this (normalized) Vector2 and another (normalized) Vector2.
      * @param vector - Vector2 to calculate angle to.
      * @returns The angle between the vectors.
      */
     angleToNormalized(vector: Vector2Readonly | THREE_Vector2): number;
+    /**
+     * Calculate the angle between a (normalized) Vector2 and another (normalized) Vector2.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @returns The angle between the vectors.
+     */
+    static angleToNormalized(vec1: Vector2Readonly | THREE_Vector2, vec2: Vector2Readonly | THREE_Vector2): number;
     /**
      * Copy the contents of a Vector2 to this Vector2.
      * @param vec - Vector2 to copy.
@@ -312,6 +338,14 @@ declare class Vector2 {
      * @returns True if the vectors are equal.
      */
     equals(vec: Vector2Readonly | THREE_Vector2, tolerance?: number): boolean;
+    /**
+     * Test if two Vector2s are equal.
+     * @param vec1 - First Vector2.
+     * @param vec2 - Second Vector2.
+     * @param tolerance - Optional numerical tolerance for equality check, defaults to global numerical tolerance.
+     * @returns True if the vectors are equal.
+     */
+    static equals(vec1: Vector2Readonly | THREE_Vector2, vec2: Vector2Readonly | THREE_Vector2, tolerance?: number): boolean;
     /**
      * Test if this vector is the zero vector.
      * @param tolerance - Optional numerical tolerance for zero check, defaults to global numerical tolerance.

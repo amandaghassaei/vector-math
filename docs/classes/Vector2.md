@@ -4,17 +4,13 @@
 
 ## Table of contents
 
-### Constructors
-
-- [constructor](Vector2.md#constructor)
-
-### Properties
-
-- [x](Vector2.md#x)
-- [y](Vector2.md#y)
-
 ### Methods
 
+- [dot](Vector2.md#dot)
+- [cross](Vector2.md#cross)
+- [angleTo](Vector2.md#angleto)
+- [angleToNormalized](Vector2.md#angletonormalized)
+- [equals](Vector2.md#equals)
 - [set](Vector2.md#set)
 - [setFromArray](Vector2.md#setfromarray)
 - [fill](Vector2.md#fill)
@@ -22,8 +18,8 @@
 - [sub](Vector2.md#sub)
 - [multiplyScalar](Vector2.md#multiplyscalar)
 - [divideScalar](Vector2.md#dividescalar)
-- [dot](Vector2.md#dot)
-- [cross](Vector2.md#cross)
+- [dot](Vector2.md#dot-1)
+- [cross](Vector2.md#cross-1)
 - [angle](Vector2.md#angle)
 - [lengthSq](Vector2.md#lengthsq)
 - [length](Vector2.md#length)
@@ -36,42 +32,130 @@
 - [min](Vector2.md#min)
 - [max](Vector2.md#max)
 - [invert](Vector2.md#invert)
-- [angleTo](Vector2.md#angleto)
-- [angleToNormalized](Vector2.md#angletonormalized)
+- [angleTo](Vector2.md#angleto-1)
+- [angleToNormalized](Vector2.md#angletonormalized-1)
 - [copy](Vector2.md#copy)
-- [equals](Vector2.md#equals)
+- [equals](Vector2.md#equals-1)
 - [isZero](Vector2.md#iszero)
 - [clone](Vector2.md#clone)
 - [toArray](Vector2.md#toarray)
 
-## Constructors
+### Constructors
 
-### constructor
+- [constructor](Vector2.md#constructor)
 
-• **new Vector2**()
+### Properties
 
-• **new Vector2**(`x`, `y`)
+- [x](Vector2.md#x)
+- [y](Vector2.md#y)
+
+## Methods
+
+### dot
+
+▸ `Static` **dot**(`vec1`, `vec2`): `number`
+
+Returns the dot product of two Vector2s.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `y` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vec1` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | First Vector2. |
+| `vec2` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Second Vector2. |
 
-## Properties
+#### Returns
 
-### x
+`number`
 
-• **x**: `number`
+The dot product.
 
 ___
 
-### y
+### cross
 
-• **y**: `number`
+▸ `Static` **cross**(`vec1`, `vec2`): `number`
 
-## Methods
+Compute the 2D cross product (wedge product) of two Vector2s.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vec1` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | First Vector2. |
+| `vec2` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Second Vector2. |
+
+#### Returns
+
+`number`
+
+The cross product.
+
+___
+
+### angleTo
+
+▸ `Static` **angleTo**(`vec1`, `vec2`): `number`
+
+Calculate the angle between two Vector2s.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vec1` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | First Vector2. |
+| `vec2` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Second Vector2. |
+
+#### Returns
+
+`number`
+
+The angle between the vectors.
+
+___
+
+### angleToNormalized
+
+▸ `Static` **angleToNormalized**(`vec1`, `vec2`): `number`
+
+Calculate the angle between a (normalized) Vector2 and another (normalized) Vector2.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vec1` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | First Vector2. |
+| `vec2` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Second Vector2. |
+
+#### Returns
+
+`number`
+
+The angle between the vectors.
+
+___
+
+### equals
+
+▸ `Static` **equals**(`vec1`, `vec2`, `tolerance?`): `boolean`
+
+Test if two Vector2s are equal.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `vec1` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | First Vector2. |
+| `vec2` | `THREE_Vector2` \| [`Vector2Readonly`](../README.md#vector2readonly) | Second Vector2. |
+| `tolerance` | `number` | Optional numerical tolerance for equality check, defaults to global numerical tolerance. |
+
+#### Returns
+
+`boolean`
+
+True if the vectors are equal.
+
+___
 
 ### set
 
@@ -591,3 +675,30 @@ Returns an array containing the x and y components of this Vector3.
 [`number`, `number`]
 
 The Vector2 as an array.
+
+## Constructors
+
+### constructor
+
+• **new Vector2**()
+
+• **new Vector2**(`x`, `y`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `number` |
+| `y` | `number` |
+
+## Properties
+
+### x
+
+• **x**: `number`
+
+___
+
+### y
+
+• **y**: `number`
