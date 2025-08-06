@@ -12,8 +12,8 @@ export type Vector2Readonly = {
     distanceTo: (vec: Vector2Readonly | THREE_Vector2) => number;
     angleTo: (vec: Vector2Readonly | THREE_Vector2) => number;
     angleToNormalized: (vec: Vector2Readonly | THREE_Vector2) => number;
-    equals: (vec: Vector2Readonly | THREE_Vector2) => boolean;
-    isZero: () => boolean;
+    equals: (vec: Vector2Readonly | THREE_Vector2, tolerance?: number) => boolean;
+    isZero: (tolerance?: number) => boolean;
     clone: () => Vector2;
     toArray: () => [number, number];
 };

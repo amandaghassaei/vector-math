@@ -146,8 +146,8 @@ type Vector2Readonly = {
     distanceTo: (vec: Vector2Readonly | THREE_Vector2) => number;
     angleTo: (vec: Vector2Readonly | THREE_Vector2) => number;
     angleToNormalized: (vec: Vector2Readonly | THREE_Vector2) => number;
-    equals: (vec: Vector2Readonly | THREE_Vector2) => boolean;
-    isZero: () => boolean;
+    equals: (vec: Vector2Readonly | THREE_Vector2, tolerance?: number) => boolean;
+    isZero: (tolerance?: number) => boolean;
     clone: () => Vector2;
     toArray: () => [number, number];
 };
@@ -599,8 +599,8 @@ type Vector3Readonly = {
     distanceTo: (vec: Vector3Readonly | THREE_Vector3) => number;
     angleTo: (vec: Vector3Readonly | THREE_Vector3) => number;
     angleToNormalized: (vec: Vector3Readonly | THREE_Vector3) => number;
-    equals: (vec: Vector3Readonly | THREE_Vector3) => boolean;
-    isZero: () => boolean;
+    equals: (vec: Vector3Readonly | THREE_Vector3, tolerance?: number) => boolean;
+    isZero: (tolerance?: number) => boolean;
     clone: () => Vector3;
     toArray: () => [number, number, number];
 };

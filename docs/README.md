@@ -101,8 +101,8 @@ ___
 | `distanceTo` | (`vec`: [`Vector2Readonly`](README.md#vector2readonly) \| `THREE_Vector2`) => `number` |
 | `angleTo` | (`vec`: [`Vector2Readonly`](README.md#vector2readonly) \| `THREE_Vector2`) => `number` |
 | `angleToNormalized` | (`vec`: [`Vector2Readonly`](README.md#vector2readonly) \| `THREE_Vector2`) => `number` |
-| `equals` | (`vec`: [`Vector2Readonly`](README.md#vector2readonly) \| `THREE_Vector2`) => `boolean` |
-| `isZero` | () => `boolean` |
+| `equals` | (`vec`: [`Vector2Readonly`](README.md#vector2readonly) \| `THREE_Vector2`, `tolerance?`: `number`) => `boolean` |
+| `isZero` | (`tolerance?`: `number`) => `boolean` |
 | `clone` | () => [`Vector2`](classes/Vector2.md) |
 | `toArray` | () => [`number`, `number`] |
 
@@ -126,8 +126,8 @@ ___
 | `distanceTo` | (`vec`: [`Vector3Readonly`](README.md#vector3readonly) \| `THREE_Vector3`) => `number` |
 | `angleTo` | (`vec`: [`Vector3Readonly`](README.md#vector3readonly) \| `THREE_Vector3`) => `number` |
 | `angleToNormalized` | (`vec`: [`Vector3Readonly`](README.md#vector3readonly) \| `THREE_Vector3`) => `number` |
-| `equals` | (`vec`: [`Vector3Readonly`](README.md#vector3readonly) \| `THREE_Vector3`) => `boolean` |
-| `isZero` | () => `boolean` |
+| `equals` | (`vec`: [`Vector3Readonly`](README.md#vector3readonly) \| `THREE_Vector3`, `tolerance?`: `number`) => `boolean` |
+| `isZero` | (`tolerance?`: `number`) => `boolean` |
 | `clone` | () => [`Vector3`](classes/Vector3.md) |
 | `toArray` | () => [`number`, `number`, `number`] |
 
