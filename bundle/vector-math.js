@@ -238,10 +238,10 @@
          * @returns this
          */
         normalize() {
-            let length = this.length();
+            const length = this.length();
             if (length <= NUMERICAL_TOLERANCE()) {
                 console.warn(`Attempting to normalize zero length Vector2, stack trace:\n${getStackTraceAsString()}.`);
-                length = 1;
+                return this;
             }
             this.divideScalar(length);
             return this;
@@ -383,7 +383,7 @@
          * @returns True if the vector is the zero vector.
          */
         isZero(tolerance = NUMERICAL_TOLERANCE()) {
-            return Math.abs(this.x) <= tolerance && Math.abs(this.y) <= tolerance;
+            return this.lengthSq() <= tolerance * tolerance;
         }
         /**
          * Clone this Vector2 into a new Vector2.
@@ -554,10 +554,10 @@
          * @returns this
          */
         normalize() {
-            let length = this.length();
+            const length = this.length();
             if (length <= NUMERICAL_TOLERANCE()) {
                 console.warn(`Attempting to normalize zero length Vector3, stack trace:\n${getStackTraceAsString()}.`);
-                length = 1;
+                return this;
             }
             this.divideScalar(length);
             return this;
@@ -722,7 +722,7 @@
          * @returns True if the vector is the zero vector.
          */
         isZero(tolerance = NUMERICAL_TOLERANCE()) {
-            return this.x <= tolerance && this.y <= tolerance && this.z <= tolerance;
+            return this.lengthSq() <= tolerance * tolerance;
         }
         /**
          * Clone this Vector3 into a new Vector3.
